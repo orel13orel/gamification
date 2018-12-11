@@ -20,6 +20,11 @@
 		3D3F8C8C21C00AF400705DB8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */; };
 		3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */; };
 		3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */; };
+		848ADC7A21C03B390047128B /* start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC7821C03B390047128B /* start.storyboard */; };
+		848ADC7D21C03D760047128B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC7B21C03D760047128B /* Home.storyboard */; };
+		848ADC7F21C03E070047128B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC7E21C03E070047128B /* Search.storyboard */; };
+		848ADC8221C03E2E0047128B /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8021C03E2E0047128B /* Camera.storyboard */; };
+		848ADC8421C03E5C0047128B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8321C03E5C0047128B /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +64,11 @@
 		3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		848ADC7921C03B390047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/Base.lproj/start.storyboard; sourceTree = "<group>"; };
+		848ADC7C21C03D760047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/fashionistaApp/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		848ADC7E21C03E070047128B /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		848ADC8121C03E2E0047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/fashionistaApp/Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
+		848ADC8321C03E5C0047128B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,14 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				3D3F8C5721BFC90200705DB8 /* AppDelegate.swift */,
-				3D3F8C8521BFCB3000705DB8 /* SignInViewController.swift */,
-				3D3F8C5921BFC90200705DB8 /* ViewController.swift */,
-				3D3F8C5B21BFC90200705DB8 /* Main.storyboard */,
-				3D3F8C8721BFD77400705DB8 /* SignUpViewController.swift */,
-				3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */,
-				3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */,
-				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
-				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
+				848ADC8621C0476C0047128B /* ViewControllers */,
+				848ADC8521C0470F0047128B /* Storyboard */,
 				3D3F8C5E21BFC90500705DB8 /* Assets.xcassets */,
 				3D3F8C6021BFC90500705DB8 /* LaunchScreen.storyboard */,
 				3D3F8C6321BFC90500705DB8 /* Info.plist */,
@@ -141,6 +145,33 @@
 				3D3F8C7921BFC90500705DB8 /* Info.plist */,
 			);
 			path = fashionistaAppUITests;
+			sourceTree = "<group>";
+		};
+		848ADC8521C0470F0047128B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				3D3F8C5B21BFC90200705DB8 /* Main.storyboard */,
+				848ADC7821C03B390047128B /* start.storyboard */,
+				848ADC7B21C03D760047128B /* Home.storyboard */,
+				848ADC7E21C03E070047128B /* Search.storyboard */,
+				848ADC8021C03E2E0047128B /* Camera.storyboard */,
+				848ADC8321C03E5C0047128B /* Profile.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		848ADC8621C0476C0047128B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D3F8C8521BFCB3000705DB8 /* SignInViewController.swift */,
+				3D3F8C5921BFC90200705DB8 /* ViewController.swift */,
+				3D3F8C8721BFD77400705DB8 /* SignUpViewController.swift */,
+				3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */,
+				3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */,
+				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
+				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3F8C6221BFC90500705DB8 /* LaunchScreen.storyboard in Resources */,
+				848ADC8221C03E2E0047128B /* Camera.storyboard in Resources */,
+				848ADC8421C03E5C0047128B /* Profile.storyboard in Resources */,
+				848ADC7D21C03D760047128B /* Home.storyboard in Resources */,
+				848ADC7A21C03B390047128B /* start.storyboard in Resources */,
 				3D3F8C5F21BFC90500705DB8 /* Assets.xcassets in Resources */,
+				848ADC7F21C03E070047128B /* Search.storyboard in Resources */,
 				3D3F8C5D21BFC90200705DB8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +367,30 @@
 				3D3F8C6121BFC90500705DB8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		848ADC7821C03B390047128B /* start.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				848ADC7921C03B390047128B /* Base */,
+			);
+			name = start.storyboard;
+			sourceTree = "<group>";
+		};
+		848ADC7B21C03D760047128B /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				848ADC7C21C03D760047128B /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		848ADC8021C03E2E0047128B /* Camera.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				848ADC8121C03E2E0047128B /* Base */,
+			);
+			name = Camera.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
