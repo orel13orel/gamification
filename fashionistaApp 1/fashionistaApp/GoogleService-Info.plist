@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>435992611131-t7koiv7pqbcvql0i6e3pfbk8mvptbad0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.435992611131-t7koiv7pqbcvql0i6e3pfbk8mvptbad0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBQLHtuSeymtae8QGRKsnf3TTtQX9EQJFk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>435992611131</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.instagram.fashionistaApp</string>
+	<key>PROJECT_ID</key>
+	<string>fashionistaapp-de817</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fashionistaapp-de817.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:435992611131:ios:d269603a3a7ba08d</string>
+	<key>DATABASE_URL</key>
+	<string>https://fashionistaapp-de817.firebaseio.com</string>
+</dict>
+</plist>
