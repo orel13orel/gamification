@@ -17,14 +17,40 @@
                     <view key="view" contentMode="scaleToFill" id="DJx-sN-GbJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sB3-bM-8NB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PostCell" rowHeight="44" id="TfF-hz-jNf">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TfF-hz-jNf" id="Ymj-rz-acS">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="sB3-bM-8NB" firstAttribute="trailing" secondItem="xfP-s1-Qgo" secondAttribute="trailing" id="WGW-QP-5rt"/>
+                            <constraint firstItem="sB3-bM-8NB" firstAttribute="leading" secondItem="xfP-s1-Qgo" secondAttribute="leading" id="cCn-yZ-xWv"/>
+                            <constraint firstItem="sB3-bM-8NB" firstAttribute="top" secondItem="xfP-s1-Qgo" secondAttribute="top" id="j4g-J4-J3o"/>
+                            <constraint firstItem="sB3-bM-8NB" firstAttribute="bottom" secondItem="xfP-s1-Qgo" secondAttribute="bottom" id="tIF-Jc-kGH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xfP-s1-Qgo"/>
                     </view>
                     <navigationItem key="navigationItem" title="Fashionista" id="XWJ-0A-DRi"/>
+                    <connections>
+                        <outlet property="TabView" destination="sB3-bM-8NB" id="6kH-Nw-8ZM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ivg-2P-q07" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="446" y="-331"/>
+            <point key="canvasLocation" x="445.60000000000002" y="-331.48425787106447"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="b5O-of-ybc">
