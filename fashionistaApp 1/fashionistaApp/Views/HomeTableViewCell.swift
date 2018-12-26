@@ -25,6 +25,14 @@ class HomeTableViewCell: UITableViewCell {
         }
     }
     
+    var user: User? {
+        didSet {
+            setUserInfo()
+            
+        }
+    }
+    
+    
     func updateView() {
         CaptionLabel.text = post?.caption
         if let photoUrlString = post?.photoUrl {
@@ -35,22 +43,24 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     func setUserInfo(){
-        if let uid = post?.uid{
-            Database.database().reference().child("Users").child(uid).observeSingleEvent(of: DataEventType.value) { (Snapshot) in
-                if let dict = Snapshot.value as? [String: Any] {
-                    let user = User.TransformUser(dict:dict)
-                    self.LabelName.text = user.Username
-                    if let photoUrlString = user.profilePicture {
-                        let photoUrl = URL(string: photoUrlString)
-                        self.ProfileImageView.sd_setImage(with: photoUrl)
-                    }
-                }
-            }
+        LabelName.text = user?.Username
+        if let photoUrlString = user?.profilePicture {
+            let photoUrl = URL(string: photoUrlString)
+            ProfileImageView.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
         }
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        print("111")
+        ProfileImageView.image =  UIImage(named: "placeholderImg")
+    }
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        LabelName.text = ""
+        CaptionLabel.text = ""
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
