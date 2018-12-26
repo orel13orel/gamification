@@ -31,6 +31,7 @@
 		848ADC8221C03E2E0047128B /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8021C03E2E0047128B /* Camera.storyboard */; };
 		848ADC8421C03E5C0047128B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8321C03E5C0047128B /* Profile.storyboard */; };
 		848ADC8821C05D0C0047128B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8721C05D0C0047128B /* GoogleService-Info.plist */; };
+		84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */; };
 		DF96E4E87770EBB17F720CD5 /* Pods_fashionistaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		848ADC8121C03E2E0047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/fashionistaApp/Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
 		848ADC8321C03E5C0047128B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		848ADC8721C05D0C0047128B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		96A50332A0388ABA8889DEC8 /* Pods_fashionistaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBB08F8840A9CCD0732C8B5 /* Pods-fashionistaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				84178FCA21D00653005204EA /* AuthenticationService.swift */,
 				3D3F8C5721BFC90200705DB8 /* AppDelegate.swift */,
 				84178FCC21D01C85005204EA /* Configuration.swift */,
+				84C3BA6421D3AF6F008AB6AE /* Views */,
 				84178FD221D285D3005204EA /* Model */,
 				848ADC8621C0476C0047128B /* ViewControllers */,
 				848ADC8521C0470F0047128B /* Storyboard */,
@@ -221,6 +224,14 @@
 				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		84C3BA6421D3AF6F008AB6AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9267DF31A6F3EC41B4315122 /* Pods */ = {
@@ -429,6 +440,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -439,6 +451,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -482,6 +495,7 @@
 				3D3F8C5A21BFC90200705DB8 /* ViewController.swift in Sources */,
 				84178FCB21D00653005204EA /* AuthenticationService.swift in Sources */,
 				3D3F8C5821BFC90200705DB8 /* AppDelegate.swift in Sources */,
+				84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */,
 				3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */,
 				84178FCD21D01C85005204EA /* Configuration.swift in Sources */,
 				3D3F8C8821BFD77400705DB8 /* SignUpViewController.swift in Sources */,

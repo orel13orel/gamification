@@ -12,6 +12,7 @@ target 'fashionistaApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'ProgressHUD'
+  pod 'SDWebImage'
   
     target 'fashionistaAppTests' do
     inherit! :search_paths
