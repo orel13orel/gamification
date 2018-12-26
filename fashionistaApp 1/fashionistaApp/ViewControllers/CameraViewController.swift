@@ -10,6 +10,7 @@ import UIKit
 import ProgressHUD
 import FirebaseStorage
 import FirebaseDatabase
+import FirebaseAuth
 
 class CameraViewController: UIViewController {
 
@@ -98,7 +99,11 @@ class CameraViewController: UIViewController {
         let postsRef = ref.child("Posts")
         let newPostId = postsRef.childByAutoId().key
         let newpostRef = postsRef.child(newPostId!)
-        newpostRef.setValue(["photoUrl" : photoUrl, "caption" : TextView.text!] ) { (error, ref) in
+        guard let currentUser  = Auth.auth().currentUser else {
+            return
+        }
+        let currentUserID = currentUser.uid
+        newpostRef.setValue(["uid": currentUserID, "photoUrl" : photoUrl, "caption" : TextView.text!] ) { (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
