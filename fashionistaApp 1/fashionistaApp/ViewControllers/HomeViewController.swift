@@ -14,7 +14,8 @@ import SDWebImage
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var TabView: UITableView!
-    
+    @IBOutlet weak var ActivityIndicator: UIActivityIndicatorView!
+   
     var posts = [Post]()
     var users = [User]()
     
@@ -29,17 +30,30 @@ class HomeViewController: UIViewController {
     }
     
     func LoadPost() {
+        ActivityIndicator.startAnimating()
         Database.database().reference().child("Posts").observe(.childAdded) { (snapshot: DataSnapshot) in
             print(Thread.isMainThread)
             if let dict = snapshot.value as? [String: Any] {
                 let NewPost = Post.TransformPostPhoto(dict: dict)
                 self.fetchUser(uid: NewPost.uid!, completed: {
                     self.posts.append(NewPost)
+                    self.ActivityIndicator.stopAnimating()
                     self.TabView.reloadData()
                 })
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+        
+    }
+    
+    @IBAction func buttonTouch(_ sender: Any) {
+        self.performSegue(withIdentifier: "commentSegue", sender: nil)
+    }
+    
     func fetchUser(uid:String,completed: @escaping () -> Void ){
  Database.database().reference().child("Users").child(uid).observeSingleEvent(of: DataEventType.value) { (Snapshot) in
             if let dict = Snapshot.value as? [String: Any] {

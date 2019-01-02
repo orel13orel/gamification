@@ -52,7 +52,6 @@ class HomeTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        print("111")
         ProfileImageView.image =  UIImage(named: "placeholderImg")
     }
     
