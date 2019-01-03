@@ -32,7 +32,10 @@ class HomeViewController: UIViewController {
     func LoadPost() {
         ActivityIndicator.startAnimating()
         API.Post.observePost { (post) in
-            self.fetchUser(uid: post.uid!, completed: {
+            guard let postId = post.uid else {
+                return
+            }
+            self.fetchUser(uid: postId, completed: {
                 self.posts.append(post)
                 self.ActivityIndicator.stopAnimating()
                 self.TabView.reloadData()

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import FirebaseAuth
 
 class Post{
     
@@ -15,7 +15,9 @@ class Post{
     var photoUrl : String?
     var uid: String?
     var id: String?
-    
+    var LikeCount : Int?
+    var likes : Dictionary<String, Any>?
+    var isLiked : Bool?
 }
 
 extension Post {
@@ -24,7 +26,15 @@ extension Post {
         post.id = key
         post.caption = dict["caption"] as? String
         post.photoUrl = dict["photoUrl"] as? String
-               post.uid = dict["uid"] as? String
+        post.uid = dict["uid"] as? String
+        post.LikeCount = dict["LikeCount"] as? Int
+        post.likes = dict["likes"] as? Dictionary<String,Any>
+        if let currentUserId = Auth.auth().currentUser?.uid{
+            if post.likes != nil {
+               post.isLiked = post.likes![currentUserId] != nil
+                
+            }
+        }
         return post
     }
 }
