@@ -33,8 +33,14 @@
 		848ADC8821C05D0C0047128B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8721C05D0C0047128B /* GoogleService-Info.plist */; };
 		84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */; };
 		84C3BA6621D3DA59008AB6AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6521D3DA59008AB6AE /* User.swift */; };
+		84D5B05D21DE24DC009FFCF9 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */; };
+		84D5B05F21DE2763009FFCF9 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B05E21DE2763009FFCF9 /* UserAPI.swift */; };
+		84D5B06121DE297A009FFCF9 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B06021DE297A009FFCF9 /* API.swift */; };
+		84D5B06321DE2A60009FFCF9 /* CommentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B06221DE2A60009FFCF9 /* CommentAPI.swift */; };
+		84D5B06521DE2D9D009FFCF9 /* PostCommentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B06421DE2D9D009FFCF9 /* PostCommentAPI.swift */; };
 		84DB106D21DCCFA100D82BE0 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB106C21DCCFA100D82BE0 /* CommentViewController.swift */; };
 		84DB106F21DCCFEC00D82BE0 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB106E21DCCFEC00D82BE0 /* CommentTableViewCell.swift */; };
+		84DB107121DCF2AF00D82BE0 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB107021DCF2AF00D82BE0 /* Comment.swift */; };
 		DF96E4E87770EBB17F720CD5 /* Pods_fashionistaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,8 +99,14 @@
 		848ADC8721C05D0C0047128B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		84C3BA6521D3DA59008AB6AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
+		84D5B05E21DE2763009FFCF9 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		84D5B06021DE297A009FFCF9 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		84D5B06221DE2A60009FFCF9 /* CommentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentAPI.swift; sourceTree = "<group>"; };
+		84D5B06421DE2D9D009FFCF9 /* PostCommentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentAPI.swift; sourceTree = "<group>"; };
 		84DB106C21DCCFA100D82BE0 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		84DB106E21DCCFEC00D82BE0 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		84DB107021DCF2AF00D82BE0 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		96A50332A0388ABA8889DEC8 /* Pods_fashionistaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBB08F8840A9CCD0732C8B5 /* Pods-fashionistaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +169,11 @@
 				84178FCA21D00653005204EA /* AuthenticationService.swift */,
 				3D3F8C5721BFC90200705DB8 /* AppDelegate.swift */,
 				84178FCC21D01C85005204EA /* Configuration.swift */,
+				84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */,
+				84D5B05E21DE2763009FFCF9 /* UserAPI.swift */,
+				84D5B06021DE297A009FFCF9 /* API.swift */,
+				84D5B06221DE2A60009FFCF9 /* CommentAPI.swift */,
+				84D5B06421DE2D9D009FFCF9 /* PostCommentAPI.swift */,
 				84C3BA6421D3AF6F008AB6AE /* Views */,
 				84178FD221D285D3005204EA /* Model */,
 				848ADC8621C0476C0047128B /* ViewControllers */,
@@ -202,6 +219,7 @@
 			children = (
 				84178FD321D28605005204EA /* Post.swift */,
 				84C3BA6521D3DA59008AB6AE /* User.swift */,
+				84DB107021DCF2AF00D82BE0 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -499,20 +517,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DB106D21DCCFA100D82BE0 /* CommentViewController.swift in Sources */,
+				84D5B06121DE297A009FFCF9 /* API.swift in Sources */,
+				84D5B06521DE2D9D009FFCF9 /* PostCommentAPI.swift in Sources */,
 				84C3BA6621D3DA59008AB6AE /* User.swift in Sources */,
 				3D3F8C8C21C00AF400705DB8 /* SearchViewController.swift in Sources */,
 				84178FD421D28605005204EA /* Post.swift in Sources */,
 				3D3F8C8A21C00A9F00705DB8 /* HomeViewController.swift in Sources */,
 				3D3F8C5A21BFC90200705DB8 /* ViewController.swift in Sources */,
 				84178FCB21D00653005204EA /* AuthenticationService.swift in Sources */,
+				84D5B06321DE2A60009FFCF9 /* CommentAPI.swift in Sources */,
 				84DB106F21DCCFEC00D82BE0 /* CommentTableViewCell.swift in Sources */,
 				3D3F8C5821BFC90200705DB8 /* AppDelegate.swift in Sources */,
 				84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */,
 				3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */,
+				84DB107121DCF2AF00D82BE0 /* Comment.swift in Sources */,
+				84D5B05D21DE24DC009FFCF9 /* PostAPI.swift in Sources */,
 				84178FCD21D01C85005204EA /* Configuration.swift in Sources */,
 				3D3F8C8821BFD77400705DB8 /* SignUpViewController.swift in Sources */,
 				3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */,
 				3D3F8C8621BFCB3000705DB8 /* SignInViewController.swift in Sources */,
+				84D5B05F21DE2763009FFCF9 /* UserAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
