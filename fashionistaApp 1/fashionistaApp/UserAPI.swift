@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseAuth
 
 class UserAPI {
     var Ref_users = Database.database().reference().child("Users")
@@ -20,4 +21,23 @@ class UserAPI {
             }
         }
     }
+ 
+    func ObserveCurrentUser(complete: @escaping (User) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        Ref_users.child(currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.TransformUser(dict:dict)
+                complete(user)
+            }
+        }
+    }
+    var Ref_currentUser: DatabaseReference? {
+        guard let currentUser = Auth.auth().currentUser else {
+            return nil
+        }
+        return Ref_users.child(currentUser.uid)
+    }
+    
 }
