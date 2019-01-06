@@ -33,6 +33,16 @@ class UserAPI {
             }
         }
     }
+    
+    func ObserveUsers(complete: @escaping (User) -> Void) {
+        Ref_users.observe(.childAdded) { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let user = User.TransformUser(dict:dict)
+                complete(user)
+            }
+        }
+    }
+    
     var Ref_currentUser: DatabaseReference? {
         guard let currentUser = Auth.auth().currentUser else {
             return nil

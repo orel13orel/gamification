@@ -43,6 +43,9 @@
 		84DB107121DCF2AF00D82BE0 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB107021DCF2AF00D82BE0 /* Comment.swift */; };
 		84DB9C0221E1263C00EA229E /* HeaderProfileCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0121E1263C00EA229E /* HeaderProfileCollectionReusableView.swift */; };
 		84DB9C0421E1363C00EA229E /* MypostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0321E1363C00EA229E /* MypostsAPI.swift */; };
+		84DB9C0621E1FEAF00EA229E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0521E1FEAF00EA229E /* PhotoCollectionViewCell.swift */; };
+		84DB9C0821E22F1A00EA229E /* DiscoverUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0721E22F1A00EA229E /* DiscoverUserViewController.swift */; };
+		84DB9C0A21E22F8400EA229E /* DiscoverUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0921E22F8400EA229E /* DiscoverUserTableViewCell.swift */; };
 		DF96E4E87770EBB17F720CD5 /* Pods_fashionistaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +114,9 @@
 		84DB107021DCF2AF00D82BE0 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		84DB9C0121E1263C00EA229E /* HeaderProfileCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProfileCollectionReusableView.swift; sourceTree = "<group>"; };
 		84DB9C0321E1363C00EA229E /* MypostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypostsAPI.swift; sourceTree = "<group>"; };
+		84DB9C0521E1FEAF00EA229E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		84DB9C0721E22F1A00EA229E /* DiscoverUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserViewController.swift; sourceTree = "<group>"; };
+		84DB9C0921E22F8400EA229E /* DiscoverUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserTableViewCell.swift; sourceTree = "<group>"; };
 		96A50332A0388ABA8889DEC8 /* Pods_fashionistaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBB08F8840A9CCD0732C8B5 /* Pods-fashionistaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -249,6 +255,7 @@
 				3D3F8C5921BFC90200705DB8 /* ViewController.swift */,
 				3D3F8C8721BFD77400705DB8 /* SignUpViewController.swift */,
 				3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */,
+				84DB9C0721E22F1A00EA229E /* DiscoverUserViewController.swift */,
 				3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */,
 				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
 				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
@@ -261,8 +268,10 @@
 			isa = PBXGroup;
 			children = (
 				84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */,
+				84DB9C0921E22F8400EA229E /* DiscoverUserTableViewCell.swift */,
 				84DB106E21DCCFEC00D82BE0 /* CommentTableViewCell.swift */,
 				84DB9C0121E1263C00EA229E /* HeaderProfileCollectionReusableView.swift */,
+				84DB9C0521E1FEAF00EA229E /* PhotoCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -535,16 +544,19 @@
 				84178FCB21D00653005204EA /* AuthenticationService.swift in Sources */,
 				84D5B06321DE2A60009FFCF9 /* CommentAPI.swift in Sources */,
 				84DB106F21DCCFEC00D82BE0 /* CommentTableViewCell.swift in Sources */,
+				84DB9C0821E22F1A00EA229E /* DiscoverUserViewController.swift in Sources */,
 				3D3F8C5821BFC90200705DB8 /* AppDelegate.swift in Sources */,
 				84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */,
 				3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */,
 				84DB107121DCF2AF00D82BE0 /* Comment.swift in Sources */,
+				84DB9C0621E1FEAF00EA229E /* PhotoCollectionViewCell.swift in Sources */,
 				84D5B05D21DE24DC009FFCF9 /* PostAPI.swift in Sources */,
 				84178FCD21D01C85005204EA /* Configuration.swift in Sources */,
 				3D3F8C8821BFD77400705DB8 /* SignUpViewController.swift in Sources */,
 				3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */,
 				3D3F8C8621BFCB3000705DB8 /* SignInViewController.swift in Sources */,
 				84D5B05F21DE2763009FFCF9 /* UserAPI.swift in Sources */,
+				84DB9C0A21E22F8400EA229E /* DiscoverUserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

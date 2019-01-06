@@ -108,6 +108,13 @@ class CameraViewController: UIViewController {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
             }
+            let Mypost_ref = API.Myposts.Ref_mypost.child(currentUserID).child(newPostId!)
+            Mypost_ref.setValue(true, withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    ProgressHUD.showError(error!.localizedDescription)
+                    return
+                }
+            })
             ProgressHUD.showSuccess("Success")
             self.clean()
             self.tabBarController?.selectedIndex = 0

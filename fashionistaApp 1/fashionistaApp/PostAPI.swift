@@ -21,4 +21,12 @@ class PostAPI {
             }
         }
     }
+    func observePost(withId id : String, complete: @escaping (Post) -> Void){
+        Ref_posts.child(id).observeSingleEvent(of: DataEventType.value) { (snapshot) in
+            if let dict = snapshot.value as? [String: Any] {
+                let post = Post.TransformPostPhoto(dict: dict, key: snapshot.key)
+                complete(post)
+            }
+        }
+    }
 }

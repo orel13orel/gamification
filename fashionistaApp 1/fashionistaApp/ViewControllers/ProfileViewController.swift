@@ -14,18 +14,35 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
      var user : User!
+     var post : [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
+        collectionView.delegate = self
         fetchUser()
+        fetchMyPost()
+    }
+    
+    func fetchMyPost() {
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        API.Myposts.Ref_mypost.child(currentUser.uid).observe(.childAdded) { (snapshot) in
+        API.Post.observePost(withId: snapshot.key , complete: { (post) in
+                print(post.id)
+                self.post.append(post)
+                self.collectionView.reloadData()
+            })
+        }
     }
     
     func fetchUser() {
         API.User.ObserveCurrentUser { (user) in
            self.user = user
-            self.collectionView.reloadData()
+           self.title = user.Username
+           self.collectionView.reloadData()
         }
     }
     
@@ -45,11 +62,13 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return post.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
+       let posts = post[indexPath.row]
+        cell.post = posts
         return cell
     }
     
@@ -59,5 +78,17 @@ extension ProfileViewController: UICollectionViewDataSource {
                  headerViewCell.user = user
         }
         return headerViewCell
+    }
+}
+
+extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width/3 - 1, height: collectionView.frame.size.height/3 - 1)
     }
 }
