@@ -16,7 +16,7 @@ class UserAPI {
     func observeUser(withId uid: String, complete: @escaping (User) -> Void) {
         Ref_users.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let user = User.TransformUser(dict:dict)
+                let user = User.TransformUser(dict:dict, key: snapshot.key)
                 complete(user)
             }
         }
@@ -28,7 +28,7 @@ class UserAPI {
         }
         Ref_users.child(currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let user = User.TransformUser(dict:dict)
+                let user = User.TransformUser(dict:dict, key: snapshot.key)
                 complete(user)
             }
         }
@@ -37,11 +37,18 @@ class UserAPI {
     func ObserveUsers(complete: @escaping (User) -> Void) {
         Ref_users.observe(.childAdded) { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
-                let user = User.TransformUser(dict:dict)
+                let user = User.TransformUser(dict:dict, key: snapshot.key)
                 complete(user)
             }
         }
     }
+    
+    /*var CURRENT_USER: User? {
+        if let CurrentUser = Auth.auth().currentUser {
+            return CurrentUser.
+        }
+        return nil
+    }*/
     
     var Ref_currentUser: DatabaseReference? {
         guard let currentUser = Auth.auth().currentUser else {

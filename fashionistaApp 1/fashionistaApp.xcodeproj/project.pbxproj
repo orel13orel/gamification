@@ -46,6 +46,7 @@
 		84DB9C0621E1FEAF00EA229E /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0521E1FEAF00EA229E /* PhotoCollectionViewCell.swift */; };
 		84DB9C0821E22F1A00EA229E /* DiscoverUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0721E22F1A00EA229E /* DiscoverUserViewController.swift */; };
 		84DB9C0A21E22F8400EA229E /* DiscoverUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0921E22F8400EA229E /* DiscoverUserTableViewCell.swift */; };
+		84DB9C0C21E23D2300EA229E /* FollowAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB9C0B21E23D2300EA229E /* FollowAPI.swift */; };
 		DF96E4E87770EBB17F720CD5 /* Pods_fashionistaAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		84DB9C0521E1FEAF00EA229E /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		84DB9C0721E22F1A00EA229E /* DiscoverUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserViewController.swift; sourceTree = "<group>"; };
 		84DB9C0921E22F8400EA229E /* DiscoverUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverUserTableViewCell.swift; sourceTree = "<group>"; };
+		84DB9C0B21E23D2300EA229E /* FollowAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowAPI.swift; sourceTree = "<group>"; };
 		96A50332A0388ABA8889DEC8 /* Pods_fashionistaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEBB08F8840A9CCD0732C8B5 /* Pods-fashionistaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				84178FCC21D01C85005204EA /* Configuration.swift */,
 				84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */,
 				84D5B05E21DE2763009FFCF9 /* UserAPI.swift */,
+				84DB9C0B21E23D2300EA229E /* FollowAPI.swift */,
 				84D5B06021DE297A009FFCF9 /* API.swift */,
 				84D5B06221DE2A60009FFCF9 /* CommentAPI.swift */,
 				84DB9C0321E1363C00EA229E /* MypostsAPI.swift */,
@@ -533,6 +536,7 @@
 			files = (
 				84DB106D21DCCFA100D82BE0 /* CommentViewController.swift in Sources */,
 				84D5B06121DE297A009FFCF9 /* API.swift in Sources */,
+				84DB9C0C21E23D2300EA229E /* FollowAPI.swift in Sources */,
 				84DB9C0421E1363C00EA229E /* MypostsAPI.swift in Sources */,
 				84DB9C0221E1263C00EA229E /* HeaderProfileCollectionReusableView.swift in Sources */,
 				84D5B06521DE2D9D009FFCF9 /* PostCommentAPI.swift in Sources */,
