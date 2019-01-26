@@ -21,9 +21,16 @@ class DiscoverUserViewController: UIViewController {
     
     func loadUsers() {
             API.User.ObserveUsers { (user) in
-            self.users.append(user)
-            self.TableView.reloadData()
+                self.Isfollowing(userId: user.id!, completed: { (value) in
+                    user.isfollowing = value
+                    self.users.append(user)
+                    self.TableView.reloadData()
+                })
         }
+    }
+    
+    func Isfollowing(userId: String, completed: @escaping(Bool)->Void) {
+        API.Follow.Isfollowing(userId: userId, completed: completed)
     }
 }
 

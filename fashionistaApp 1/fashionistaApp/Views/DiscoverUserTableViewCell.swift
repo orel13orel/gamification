@@ -28,20 +28,54 @@ class DiscoverUserTableViewCell: UITableViewCell {
             ProfileImage.sd_setImage(with: photoUrl, placeholderImage: UIImage(named: "placeholderImg"))
         }
         
-        //followBTN.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+        
+        if user!.isfollowing! {
+           configureUnFollowBtn()
+       } else {
+            configureFollowBtn()
+        }
+        
+    }
+    
+    func configureFollowBtn() {
+        followBTN.layer.borderWidth = 1
+        followBTN.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+        followBTN.layer.cornerRadius = 5
+        followBTN.clipsToBounds = true
+        
+        followBTN.setTitleColor(UIColor.white, for: UIControlState.normal)
+        followBTN.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
+        followBTN.setTitle("Follow", for: UIControlState.normal)
+        followBTN.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+    }
+    
+    func configureUnFollowBtn() {
+        followBTN.layer.borderWidth = 1
+        followBTN.layer.borderColor = UIColor(red: 226/255, green: 228/255, blue: 232.255, alpha: 1).cgColor
+        followBTN.layer.cornerRadius = 5
+        followBTN.clipsToBounds = true
+        
+        followBTN.setTitleColor(UIColor.black, for: UIControlState.normal)
+        followBTN.backgroundColor = UIColor.clear
+        followBTN.setTitle("Following", for: UIControlState.normal)
         followBTN.addTarget(self, action: #selector(self.UnfollowAction), for: UIControlEvents.touchUpInside)
-
     }
     
     @objc func followAction() {
-        API.Follow.Ref_Follow.child(user!.id!).child((Auth.auth().currentUser?.uid)!).setValue(true)
-        API.Follow.Ref_Following.child((Auth.auth().currentUser?.uid)!).child(user!.id!).setValue(true)
-
+        if user!.isfollowing! == false {
+            API.Follow.followAction(withUser: user!.id!)
+            configureUnFollowBtn()
+            user!.isfollowing! = true
+        }
+       
     }
     
     @objc func UnfollowAction() {
-        API.Follow.Ref_Follow.child(user!.id!).child((Auth.auth().currentUser?.uid)!).setValue(NSNull())
-        API.Follow.Ref_Following.child((Auth.auth().currentUser?.uid)!).child(user!.id!).setValue(NSNull())
+        if user!.isfollowing! == true {
+            API.Follow.unfollowAction(withUser: user!.id!)
+            configureFollowBtn()
+            user!.isfollowing! = false
+        }
 
     }
     

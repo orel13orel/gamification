@@ -17,6 +17,7 @@ class User{
     var Username: String?
     var profilePicture: String?
     var id: String?
+    var isfollowing: Bool?
 
 }
 extension User{

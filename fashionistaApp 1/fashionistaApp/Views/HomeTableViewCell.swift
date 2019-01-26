@@ -47,7 +47,7 @@ class HomeTableViewCell: UITableViewCell {
         API.Post.Ref_posts.child(post!.id!).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String : Any ] {
                 let post = Post.TransformPostPhoto(dict: dict, key: snapshot.key)
-                self.updateLike(post: post)
+               self.updateLike(post: post)
             }
         }
         API.Post.Ref_posts.child(post!.id!).observe(.childChanged) { (snapshot) in
@@ -57,6 +57,9 @@ class HomeTableViewCell: UITableViewCell {
         }
       //  setUserInfo()
     }
+    
+    
+    
     
     func updateLike(post : Post){
         

@@ -59,8 +59,6 @@ class CameraViewController: UIViewController {
         }
     }
     
-    
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -75,8 +73,14 @@ class CameraViewController: UIViewController {
     @IBAction func ShareButton(_ sender: Any) {
         view.endEditing(true)
         ProgressHUD.show("waiting", interaction: false)
-        if let profileImage = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImage, 0.1) {
-            let photoIDstring = NSUUID().uuidString
+      if let profileImage = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImage, 0.1) {
+        HelpService.uploadToserver(data: imageData, caption: TextView.text!, onSuccess: {
+            
+            self.clean()
+            self.tabBarController?.selectedIndex = 0
+        })
+        
+       /*     let photoIDstring = NSUUID().uuidString
             print(photoIDstring)
             let storageRef = Storage.storage().reference(forURL: configuration.Conf_storage_root).child("Posts").child(photoIDstring)
             storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
@@ -88,14 +92,14 @@ class CameraViewController: UIViewController {
                     let photoUrl = url?.absoluteString
                     self.sendDataToDatabase(photoUrl : photoUrl!)
                 })
-        })
+        })*/
         } else {
             ProgressHUD.showError("profile picture can not be empty")
         }
     }
     
     func sendDataToDatabase(photoUrl: String) {
-        let ref = Database.database().reference()
+  /*      let ref = Database.database().reference()
         let postsRef = ref.child("Posts")
         let newPostId = postsRef.childByAutoId().key
         let newpostRef = postsRef.child(newPostId!)
@@ -119,6 +123,7 @@ class CameraViewController: UIViewController {
             self.clean()
             self.tabBarController?.selectedIndex = 0
         }
+ */
     }
     
 }
