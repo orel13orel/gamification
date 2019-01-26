@@ -40,12 +40,14 @@ class HomeViewController: UIViewController {
                 self.TabView.reloadData()
             })
         }
-        API.Feed.ObserveFeedRemove(withId: Auth.auth().currentUser!.uid) { (key) in
-          for (index, post) in self.posts.enumerated(){
-                if post.id == key {
+        API.Feed.ObserveFeedRemove(withId: Auth.auth().currentUser!.uid) { (post) in
+         /* for (index, post) in self.posts.enumerated(){
+                if post.id == post.id {
                     self.posts.remove(at: index)
                 }
-            }
+            }*/
+            self.posts = self.posts.filter {$0.id != post.id}
+            self.users = self.users.filter { $0.id != post.uid}
             self.TabView.reloadData()
         }
         

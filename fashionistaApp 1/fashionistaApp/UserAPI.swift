@@ -38,7 +38,10 @@ class UserAPI {
         Ref_users.observe(.childAdded) { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let user = User.TransformUser(dict:dict, key: snapshot.key)
-                complete(user)
+                if user.id! != Auth.auth().currentUser?.uid {
+                    complete(user)
+                }
+               // complete(user)
             }
         }
     }
@@ -50,11 +53,24 @@ class UserAPI {
         return nil
     }*/
     
+    func QuaryUser(withText text: String, complete: @escaping (User) -> Void) {
+        Ref_users.queryOrdered(byChild: "Username_lowercase").queryStarting(atValue: text).queryEnding(atValue: text+"\u{f8ff}").queryLimited(toFirst: 10).observeSingleEvent(of: .value) { (snapshot) in
+            snapshot.children.forEach({ (s) in
+                let child = s as! DataSnapshot
+                if let dict = child.value as? [String: Any] {
+                    let user = User.TransformUser(dict:dict, key: snapshot.key)
+                    if user.id! != Auth.auth().currentUser?.uid {
+                        complete(user)
+                    }
+            }
+        })
+    }
+    
     var Ref_currentUser: DatabaseReference? {
         guard let currentUser = Auth.auth().currentUser else {
             return nil
         }
         return Ref_users.child(currentUser.uid)
+      }
     }
-    
 }
