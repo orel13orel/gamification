@@ -62,6 +62,7 @@ class UserAPI {
                     if user.id! != Auth.auth().currentUser?.uid {
                         complete(user)
                     }
+                    
             }
         })
     }

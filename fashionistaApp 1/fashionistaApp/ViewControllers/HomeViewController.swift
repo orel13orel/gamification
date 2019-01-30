@@ -27,6 +27,7 @@ class HomeViewController: UIViewController {
         
         TabView.dataSource = self
         LoadPost()
+        
     }
     
     func LoadPost() {
@@ -36,40 +37,21 @@ class HomeViewController: UIViewController {
                 return
             }
                 self.fetchUser(uid: postId, completed: {
-                self.posts.append(post)
+                self.posts.insert(post, at: 0)
                 self.TabView.reloadData()
             })
         }
         API.Feed.ObserveFeedRemove(withId: Auth.auth().currentUser!.uid) { (post) in
-         /* for (index, post) in self.posts.enumerated(){
-                if post.id == post.id {
-                    self.posts.remove(at: index)
-                }
-            }*/
             self.posts = self.posts.filter {$0.id != post.id}
             self.users = self.users.filter { $0.id != post.uid}
             self.TabView.reloadData()
         }
-        
-        
-    /*   ActivityIndicator.startAnimating()
-        API.Post.observePost { (post) in
-            guard let postId = post.uid else {
-                return
-            }
-            self.fetchUser(uid: postId, completed: {
-                self.posts.append(post)
-                self.ActivityIndicator.stopAnimating()
-                self.TabView.reloadData()
-            })
-        }
-       */
     }
     
     
     func fetchUser(uid:String,completed: @escaping () -> Void ){
         API.User.observeUser(withId: uid) { (user) in
-            self.users.append(user)
+            self.users.insert(user, at: 0)
             completed()
         }
     }

@@ -17,7 +17,49 @@
                     <view key="view" contentMode="scaleToFill" id="ueV-x4-UvI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BDi-dT-W1M">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sRr-QF-3cv">
+                                    <size key="itemSize" width="85" height="82"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoverCollectionViewCell" id="FsU-me-qNr" customClass="PhotoCollectionViewCell" customModule="fashionistaApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="85" height="82"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="82"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q8f-vj-iyO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="85" height="82"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="q8f-vj-iyO" secondAttribute="bottom" id="Ab1-Rd-2Hd"/>
+                                            <constraint firstItem="q8f-vj-iyO" firstAttribute="top" secondItem="FsU-me-qNr" secondAttribute="top" id="OIr-pp-Kyg"/>
+                                            <constraint firstAttribute="trailing" secondItem="q8f-vj-iyO" secondAttribute="trailing" id="UNl-GC-KEw"/>
+                                            <constraint firstItem="q8f-vj-iyO" firstAttribute="leading" secondItem="FsU-me-qNr" secondAttribute="leading" id="cx1-70-zDq"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="photos" destination="q8f-vj-iyO" id="OH8-Mz-2IG"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BDi-dT-W1M" firstAttribute="trailing" secondItem="LNO-uG-33n" secondAttribute="trailing" id="CJI-h2-JLD"/>
+                            <constraint firstItem="BDi-dT-W1M" firstAttribute="leading" secondItem="LNO-uG-33n" secondAttribute="leading" id="NDP-k9-ZDm"/>
+                            <constraint firstItem="BDi-dT-W1M" firstAttribute="top" secondItem="ueV-x4-UvI" secondAttribute="top" id="b3A-82-2iD"/>
+                            <constraint firstItem="BDi-dT-W1M" firstAttribute="bottom" secondItem="LNO-uG-33n" secondAttribute="bottom" id="phY-3m-Otu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LNO-uG-33n"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="C7z-rw-W4m">
@@ -27,6 +69,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="BDi-dT-W1M" id="UGA-89-YYl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hBL-p6-f52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

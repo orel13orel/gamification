@@ -15,6 +15,7 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followerCounterLabel: UILabel!
     
+    
     var user : User? {
         didSet {
             updateView()
@@ -26,5 +27,6 @@ class HeaderProfileCollectionReusableView: UICollectionReusableView {
                 let photoUrl = URL(string: photoUrlString)
                 self.profileImage.sd_setImage(with: photoUrl)
             }
+      
     }
 }

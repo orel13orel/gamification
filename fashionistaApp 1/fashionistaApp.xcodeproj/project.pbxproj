@@ -34,6 +34,8 @@
 		848ADC8221C03E2E0047128B /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8021C03E2E0047128B /* Camera.storyboard */; };
 		848ADC8421C03E5C0047128B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8321C03E5C0047128B /* Profile.storyboard */; };
 		848ADC8821C05D0C0047128B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8721C05D0C0047128B /* GoogleService-Info.plist */; };
+		84ACFF7321FFC541001CCD15 /* NotificationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7221FFC541001CCD15 /* NotificationApi.swift */; };
+		84ACFF7521FFC970001CCD15 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7421FFC970001CCD15 /* Notification.swift */; };
 		84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */; };
 		84C3BA6621D3DA59008AB6AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6521D3DA59008AB6AE /* User.swift */; };
 		84D5B05D21DE24DC009FFCF9 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */; };
@@ -109,6 +111,8 @@
 		848ADC8121C03E2E0047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/fashionistaApp/Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
 		848ADC8321C03E5C0047128B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		848ADC8721C05D0C0047128B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84ACFF7221FFC541001CCD15 /* NotificationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApi.swift; sourceTree = "<group>"; };
+		84ACFF7421FFC970001CCD15 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		84C3BA6521D3DA59008AB6AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				84DB9C0B21E23D2300EA229E /* FollowAPI.swift */,
 				840CCE9521FBE47D00C2C0B2 /* HelpService.swift */,
 				840CCE9321FBD8F500C2C0B2 /* FeedAPI.swift */,
+				84ACFF7221FFC541001CCD15 /* NotificationApi.swift */,
 				84D5B06021DE297A009FFCF9 /* API.swift */,
 				84D5B06221DE2A60009FFCF9 /* CommentAPI.swift */,
 				84DB9C0321E1363C00EA229E /* MypostsAPI.swift */,
@@ -240,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				84178FD321D28605005204EA /* Post.swift */,
+				84ACFF7421FFC970001CCD15 /* Notification.swift */,
 				84C3BA6521D3DA59008AB6AE /* User.swift */,
 				84DB107021DCF2AF00D82BE0 /* Comment.swift */,
 			);
@@ -543,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84ACFF7321FFC541001CCD15 /* NotificationApi.swift in Sources */,
 				84DB106D21DCCFA100D82BE0 /* CommentViewController.swift in Sources */,
 				84D5B06121DE297A009FFCF9 /* API.swift in Sources */,
 				84DB9C0C21E23D2300EA229E /* FollowAPI.swift in Sources */,
@@ -562,6 +569,7 @@
 				84DB9C0821E22F1A00EA229E /* DiscoverUserViewController.swift in Sources */,
 				3D3F8C5821BFC90200705DB8 /* AppDelegate.swift in Sources */,
 				84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */,
+				84ACFF7521FFC970001CCD15 /* Notification.swift in Sources */,
 				3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */,
 				840CCE9421FBD8F500C2C0B2 /* FeedAPI.swift in Sources */,
 				84DB107121DCF2AF00D82BE0 /* Comment.swift in Sources */,

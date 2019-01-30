@@ -61,10 +61,11 @@ class HomeTableViewCell: UITableViewCell {
     
     
     
-    func updateLike(post : Post){
+       func updateLike(post : Post){
         
-       let imageName = (post.likes == nil) || (!post.isLiked!) ? "likeme" : "likeisdone"
-        LikeImageView.image = UIImage(named : imageName)
+       let imageName = post.likes == nil || !post.isLiked! ? "likeme" : "likeisdone"
+       LikeImageView.image = UIImage(named : imageName)
+        
         guard let count = post.LikeCount else {
             return
         }

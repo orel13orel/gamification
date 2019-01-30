@@ -15,4 +15,5 @@ struct API {
     static var Myposts = MypostAPI()
     static var Follow = FollowAPI()
     static var Feed = FeedAPI()
+    static var Notification = NotificationApi()
 }

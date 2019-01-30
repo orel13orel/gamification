@@ -28,7 +28,7 @@ extension Post {
         post.photoUrl = dict["photoUrl"] as? String
         post.uid = dict["uid"] as? String
         post.LikeCount = dict["LikeCount"] as? Int
-        post.likes = dict["likes"] as? Dictionary<String,Any>
+        post.likes = dict["Likes"] as? Dictionary<String,Any>
         if let currentUserId = Auth.auth().currentUser?.uid{
             if post.likes != nil {
                post.isLiked = post.likes![currentUserId] != nil

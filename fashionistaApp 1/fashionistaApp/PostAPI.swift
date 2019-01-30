@@ -21,12 +21,25 @@ class PostAPI {
             }
         }
     }
+    
     func observePost(withId id : String, complete: @escaping (Post) -> Void){
         Ref_posts.child(id).observeSingleEvent(of: DataEventType.value) { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let post = Post.TransformPostPhoto(dict: dict, key: snapshot.key)
                 complete(post)
             }
+        }
+    }
+    
+    func observeTopPosts(complete: @escaping (Post) -> Void) {
+        Ref_posts.queryOrdered(byChild: "LikeCount").observeSingleEvent(of: .value) { (snapshot) in
+            let arraySnapshot = (snapshot.children.allObjects as! [DataSnapshot]).reversed()
+            arraySnapshot.forEach({ (child) in
+                if let dict = child.value as? [String: Any] {
+                    let NewPost = Post.TransformPostPhoto(dict: dict,key: snapshot.key)
+                    complete(NewPost)
+                }
+            })
         }
     }
 }
