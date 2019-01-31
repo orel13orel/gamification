@@ -12,5 +12,5 @@ import FirebaseDatabase
 class MypostAPI {
     var Ref_mypost = Database.database().reference().child("Myposts")
     
-
+    
 }

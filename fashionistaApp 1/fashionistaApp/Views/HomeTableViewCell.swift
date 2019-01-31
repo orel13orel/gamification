@@ -58,9 +58,6 @@ class HomeTableViewCell: UITableViewCell {
       //  setUserInfo()
     }
     
-    
-    
-    
        func updateLike(post : Post){
         
        let imageName = post.likes == nil || !post.isLiked! ? "likeme" : "likeisdone"

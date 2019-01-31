@@ -36,6 +36,9 @@
 		848ADC8821C05D0C0047128B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8721C05D0C0047128B /* GoogleService-Info.plist */; };
 		84ACFF7321FFC541001CCD15 /* NotificationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7221FFC541001CCD15 /* NotificationApi.swift */; };
 		84ACFF7521FFC970001CCD15 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7421FFC970001CCD15 /* Notification.swift */; };
+		84ACFF7722030528001CCD15 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7622030528001CCD15 /* ActivityViewController.swift */; };
+		84ACFF7B22030B1D001CCD15 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84ACFF7A22030B1D001CCD15 /* Activity.storyboard */; };
+		84ACFF7D220311A1001CCD15 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7C220311A1001CCD15 /* ActivityTableViewCell.swift */; };
 		84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */; };
 		84C3BA6621D3DA59008AB6AE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3BA6521D3DA59008AB6AE /* User.swift */; };
 		84D5B05D21DE24DC009FFCF9 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */; };
@@ -113,6 +116,9 @@
 		848ADC8721C05D0C0047128B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84ACFF7221FFC541001CCD15 /* NotificationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApi.swift; sourceTree = "<group>"; };
 		84ACFF7421FFC970001CCD15 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		84ACFF7622030528001CCD15 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		84ACFF7A22030B1D001CCD15 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		84ACFF7C220311A1001CCD15 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		84C3BA6221D3AF41008AB6AE /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		84C3BA6521D3DA59008AB6AE /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84D5B05C21DE24DC009FFCF9 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 		848ADC8521C0470F0047128B /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				84ACFF7A22030B1D001CCD15 /* Activity.storyboard */,
 				3D3F8C5B21BFC90200705DB8 /* Main.storyboard */,
 				848ADC7821C03B390047128B /* start.storyboard */,
 				848ADC7B21C03D760047128B /* Home.storyboard */,
@@ -278,6 +285,7 @@
 				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
 				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
 				84DB106C21DCCFA100D82BE0 /* CommentViewController.swift */,
+				84ACFF7622030528001CCD15 /* ActivityViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -290,6 +298,7 @@
 				84DB106E21DCCFEC00D82BE0 /* CommentTableViewCell.swift */,
 				84DB9C0121E1263C00EA229E /* HeaderProfileCollectionReusableView.swift */,
 				84DB9C0521E1FEAF00EA229E /* PhotoCollectionViewCell.swift */,
+				84ACFF7C220311A1001CCD15 /* ActivityTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -422,6 +431,7 @@
 				848ADC7D21C03D760047128B /* Home.storyboard in Resources */,
 				848ADC7A21C03B390047128B /* start.storyboard in Resources */,
 				3D3F8C5F21BFC90500705DB8 /* Assets.xcassets in Resources */,
+				84ACFF7B22030B1D001CCD15 /* Activity.storyboard in Resources */,
 				848ADC7F21C03E070047128B /* Search.storyboard in Resources */,
 				3D3F8C5D21BFC90200705DB8 /* Main.storyboard in Resources */,
 			);
@@ -559,6 +569,7 @@
 				84C3BA6621D3DA59008AB6AE /* User.swift in Sources */,
 				3D3F8C8C21C00AF400705DB8 /* SearchViewController.swift in Sources */,
 				84178FD421D28605005204EA /* Post.swift in Sources */,
+				84ACFF7722030528001CCD15 /* ActivityViewController.swift in Sources */,
 				840CCE9821FC8ACB00C2C0B2 /* DiscoverViewController.swift in Sources */,
 				3D3F8C8A21C00A9F00705DB8 /* HomeViewController.swift in Sources */,
 				3D3F8C5A21BFC90200705DB8 /* ViewController.swift in Sources */,
@@ -576,6 +587,7 @@
 				84DB9C0621E1FEAF00EA229E /* PhotoCollectionViewCell.swift in Sources */,
 				84D5B05D21DE24DC009FFCF9 /* PostAPI.swift in Sources */,
 				84178FCD21D01C85005204EA /* Configuration.swift in Sources */,
+				84ACFF7D220311A1001CCD15 /* ActivityTableViewCell.swift in Sources */,
 				3D3F8C8821BFD77400705DB8 /* SignUpViewController.swift in Sources */,
 				3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */,
 				3D3F8C8621BFCB3000705DB8 /* SignInViewController.swift in Sources */,

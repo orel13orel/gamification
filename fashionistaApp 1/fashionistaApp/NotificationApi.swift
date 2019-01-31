@@ -12,7 +12,6 @@ class NotificationApi {
     var REF_NOTIFICATION = Database.database().reference().child("notification")
     
     func ObserveNotification(withId id : String , completion: @escaping(Notification)-> Void) {
-        
         REF_NOTIFICATION.child(id).observe(.childAdded) { (snapshot) in
             if let dict = snapshot.value as? [String: Any] {
                 let newNoti = Notification.Transform(dict: dict, key: snapshot.key)
