@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
    
     var posts = [Post]()
     var users = [User]()
-    
+    var notifications = [Notification]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,11 @@ class HomeViewController: UIViewController {
         
         TabView.dataSource = self
         LoadPost()
-        
+       
     }
+    
+  
+    
     
     func LoadPost() {
 
@@ -79,4 +82,5 @@ extension HomeViewController: UITableViewDataSource {
         cell.homeVC = self
         return cell
     }
+    
 }
