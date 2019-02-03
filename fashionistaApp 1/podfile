@@ -13,6 +13,9 @@ target 'fashionistaApp' do
   pod 'Firebase/Storage'
   pod 'ProgressHUD'
   pod 'SDWebImage'
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  
   
     target 'fashionistaAppTests' do
     inherit! :search_paths

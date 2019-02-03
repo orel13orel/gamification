@@ -47,6 +47,7 @@ class DiscoverUserTableViewCell: UITableViewCell {
         followBTN.backgroundColor = UIColor(red: 69/255, green: 142/255, blue: 255/255, alpha: 1)
         followBTN.setTitle("Follow", for: UIControlState.normal)
         followBTN.addTarget(self, action: #selector(self.followAction), for: UIControlEvents.touchUpInside)
+        
     }
     
     func configureUnFollowBtn() {

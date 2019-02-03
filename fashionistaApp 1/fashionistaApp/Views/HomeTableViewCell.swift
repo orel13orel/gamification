@@ -10,6 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
+import ProgressHUD
+
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var ProfileImageView: UIImageView!
@@ -23,7 +25,6 @@ class HomeTableViewCell: UITableViewCell {
     var homeVC : HomeViewController?
     var postRef : DatabaseReference!
     
-    
     var post: Post? {
         didSet {
             updateView()
@@ -36,13 +37,13 @@ class HomeTableViewCell: UITableViewCell {
             
         }
     }
-    
-    
+
     func updateView() {
         CaptionLabel.text = post?.caption
         if let photoUrlString = post?.photoUrl {
             let photoUrl = URL(string: photoUrlString)
-            PostImageView.sd_setImage(with: photoUrl)
+            PostImageView?.sd_setImage(with: photoUrl)
+            
         }
         API.Post.Ref_posts.child(post!.id!).observeSingleEvent(of: .value) { (snapshot) in
             if let dict = snapshot.value as? [String : Any ] {

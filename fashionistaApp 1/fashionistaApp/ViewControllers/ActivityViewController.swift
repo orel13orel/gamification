@@ -11,7 +11,6 @@ import  FirebaseAuth
 
 class ActivityViewController: UIViewController {
 
-    
     @IBOutlet weak var tableView: UITableView!
     var notifications = [Notification]()
     var users = [User]()
@@ -25,7 +24,7 @@ class ActivityViewController: UIViewController {
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
-        API.Notification.ObserveNotification(withId: currentUser.uid) { (notification) in
+        API.Notification.ObserveNotification(withId: currentUser.uid,completion: { (notification) in
             guard let uid = notification.from else {
                 return
             }
@@ -33,7 +32,7 @@ class ActivityViewController: UIViewController {
                 self.notifications.insert(notification, at: 0)
                 self.tableView.reloadData()
             })
-        }
+        })
     }
 
     func fetchUser(uid:String,completed: @escaping () -> Void ){

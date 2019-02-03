@@ -34,6 +34,7 @@
 		848ADC8221C03E2E0047128B /* Camera.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8021C03E2E0047128B /* Camera.storyboard */; };
 		848ADC8421C03E5C0047128B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8321C03E5C0047128B /* Profile.storyboard */; };
 		848ADC8821C05D0C0047128B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8721C05D0C0047128B /* GoogleService-Info.plist */; };
+		849BFD602207488700C44D33 /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BFD5F2207488700C44D33 /* MyLocationViewController.swift */; };
 		84ACFF7321FFC541001CCD15 /* NotificationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7221FFC541001CCD15 /* NotificationApi.swift */; };
 		84ACFF7521FFC970001CCD15 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7421FFC970001CCD15 /* Notification.swift */; };
 		84ACFF7722030528001CCD15 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7622030528001CCD15 /* ActivityViewController.swift */; };
@@ -114,6 +115,7 @@
 		848ADC8121C03E2E0047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/fashionistaApp/Base.lproj/Camera.storyboard; sourceTree = "<group>"; };
 		848ADC8321C03E5C0047128B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		848ADC8721C05D0C0047128B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		849BFD5F2207488700C44D33 /* MyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewController.swift; sourceTree = "<group>"; };
 		84ACFF7221FFC541001CCD15 /* NotificationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApi.swift; sourceTree = "<group>"; };
 		84ACFF7421FFC970001CCD15 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		84ACFF7622030528001CCD15 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
 				84DB106C21DCCFA100D82BE0 /* CommentViewController.swift */,
 				84ACFF7622030528001CCD15 /* ActivityViewController.swift */,
+				849BFD5F2207488700C44D33 /* MyLocationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				3D3F8C5121BFC90200705DB8 /* Frameworks */,
 				3D3F8C5221BFC90200705DB8 /* Resources */,
 				F1949469C1663D1ED5B7C180 /* [CP] Embed Pods Frameworks */,
+				EF9B21E577F0BC85BDC9A438 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -498,6 +502,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EF9B21E577F0BC85BDC9A438 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F1949469C1663D1ED5B7C180 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -582,6 +610,7 @@
 				84C3BA6321D3AF41008AB6AE /* HomeTableViewCell.swift in Sources */,
 				84ACFF7521FFC970001CCD15 /* Notification.swift in Sources */,
 				3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */,
+				849BFD602207488700C44D33 /* MyLocationViewController.swift in Sources */,
 				840CCE9421FBD8F500C2C0B2 /* FeedAPI.swift in Sources */,
 				84DB107121DCF2AF00D82BE0 /* Comment.swift in Sources */,
 				84DB9C0621E1FEAF00EA229E /* PhotoCollectionViewCell.swift in Sources */,

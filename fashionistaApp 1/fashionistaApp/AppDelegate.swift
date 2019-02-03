@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import GoogleMaps
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -18,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         UITabBar.appearance().tintColor = .black
         FirebaseApp.configure()
+        
+     //   GMSServices.provideAPIKey("AIzaSyA6F8fx8yLlyLkIS04zIEqVu6cdec2UEAU")
+        
         return true
     }
 

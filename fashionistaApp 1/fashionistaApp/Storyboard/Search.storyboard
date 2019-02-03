@@ -10,6 +10,38 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--My Location-->
+        <scene sceneID="DbE-0l-x8k">
+            <objects>
+                <viewController title="My Location" id="6qy-AD-hun" customClass="MyLocationViewController" customModule="fashionistaApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Rg-Um-riD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="H7c-ED-A66">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="6qy-AD-hun" id="A62-fb-7ru"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H7c-ED-A66" firstAttribute="trailing" secondItem="jlf-cK-28w" secondAttribute="trailing" id="FJc-Gg-7GY"/>
+                            <constraint firstItem="H7c-ED-A66" firstAttribute="top" secondItem="5Rg-Um-riD" secondAttribute="top" id="MOG-bI-z3S"/>
+                            <constraint firstItem="H7c-ED-A66" firstAttribute="leading" secondItem="jlf-cK-28w" secondAttribute="leading" id="TbS-0V-xL3"/>
+                            <constraint firstItem="H7c-ED-A66" firstAttribute="bottom" secondItem="jlf-cK-28w" secondAttribute="bottom" id="Vfg-Ke-fka"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jlf-cK-28w"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="H7c-ED-A66" id="YrU-kU-Pgu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxr-yf-fub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568.8" y="402.54872563718146"/>
+        </scene>
         <!--Search-->
         <scene sceneID="Dls-sU-NSf">
             <objects>
@@ -63,6 +95,11 @@
                         <viewLayoutGuide key="safeArea" id="LNO-uG-33n"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="C7z-rw-W4m">
+                        <barButtonItem key="leftBarButtonItem" title="My Location" id="OWn-p1-mmC">
+                            <connections>
+                                <segue destination="6qy-AD-hun" kind="show" id="5oc-Lx-6Xg"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="AHg-fj-QtJ">
                             <connections>
                                 <segue destination="DUq-Nx-Mzh" kind="show" id="bpn-B7-pc0"/>
