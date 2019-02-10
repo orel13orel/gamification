@@ -22,6 +22,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var LikeCount: UIButton!
     @IBOutlet weak var CaptionLabel: UILabel!
     
+    @IBOutlet weak var LocationImageView: UIImageView!
+    
     var homeVC : HomeViewController?
     var postRef : DatabaseReference!
     
@@ -92,6 +94,12 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         LabelName.text = ""
         CaptionLabel.text = ""
+        
+        let TapGesture1 = UITapGestureRecognizer(target: self, action: #selector(self.LocationImageView_TouchUpInside))
+        LocationImageView.addGestureRecognizer(TapGesture1)
+        LocationImageView.isUserInteractionEnabled = true
+        
+        
         let TapGesture = UITapGestureRecognizer(target: self, action: #selector(self.CommentImageView_Btn))
         CommentImageView.addGestureRecognizer(TapGesture)
         CommentImageView.isUserInteractionEnabled = true
@@ -99,6 +107,14 @@ class HomeTableViewCell: UITableViewCell {
         let TapGestureLikeImageView = UITapGestureRecognizer(target: self, action: #selector(self.LikeImageView_Btn))
         LikeImageView.addGestureRecognizer(TapGestureLikeImageView)
         LikeImageView.isUserInteractionEnabled = true
+        
+    }
+    
+    @objc func LocationImageView_TouchUpInside(){
+        print("LocationImageView_TouchUpInside")
+        if let id = post?.id{
+            homeVC?.performSegue(withIdentifier: "LocationSegue", sender: id)
+        }
         
     }
 

@@ -21,6 +21,7 @@
 		3D3F8C8C21C00AF400705DB8 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */; };
 		3D3F8C8E21C00B2A00705DB8 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */; };
 		3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */; };
+		3D8B91062209E44800EC9DDC /* PostLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B91052209E44800EC9DDC /* PostLocationViewController.swift */; };
 		4B2A854676D69C390DA34B2F /* Pods_fashionistaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96A50332A0388ABA8889DEC8 /* Pods_fashionistaApp.framework */; };
 		840CCE9421FBD8F500C2C0B2 /* FeedAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CCE9321FBD8F500C2C0B2 /* FeedAPI.swift */; };
 		840CCE9621FBE47D00C2C0B2 /* HelpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840CCE9521FBE47D00C2C0B2 /* HelpService.swift */; };
@@ -100,6 +101,7 @@
 		3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3D8B91052209E44800EC9DDC /* PostLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationViewController.swift; sourceTree = "<group>"; };
 		7770D1545BECE92F64EE5131 /* Pods-fashionistaAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaAppTests/Pods-fashionistaAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7D897FDBBD4FD05C11A3B2CE /* Pods-fashionistaAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaAppTests/Pods-fashionistaAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		840CCE9321FBD8F500C2C0B2 /* FeedAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPI.swift; sourceTree = "<group>"; };
@@ -277,18 +279,19 @@
 		848ADC8621C0476C0047128B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3D3F8C8521BFCB3000705DB8 /* SignInViewController.swift */,
-				3D3F8C5921BFC90200705DB8 /* ViewController.swift */,
-				3D3F8C8721BFD77400705DB8 /* SignUpViewController.swift */,
-				3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */,
+				84ACFF7622030528001CCD15 /* ActivityViewController.swift */,
+				3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */,
+				84DB106C21DCCFA100D82BE0 /* CommentViewController.swift */,
 				84DB9C0721E22F1A00EA229E /* DiscoverUserViewController.swift */,
 				840CCE9721FC8ACB00C2C0B2 /* DiscoverViewController.swift */,
-				3D3F8C8D21C00B2A00705DB8 /* CameraViewController.swift */,
-				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
 				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
-				84DB106C21DCCFA100D82BE0 /* CommentViewController.swift */,
-				84ACFF7622030528001CCD15 /* ActivityViewController.swift */,
 				849BFD5F2207488700C44D33 /* MyLocationViewController.swift */,
+				3D8B91052209E44800EC9DDC /* PostLocationViewController.swift */,
+				3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */,
+				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
+				3D3F8C8521BFCB3000705DB8 /* SignInViewController.swift */,
+				3D3F8C8721BFD77400705DB8 /* SignUpViewController.swift */,
+				3D3F8C5921BFC90200705DB8 /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -463,15 +466,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-fashionistaAppTests-checkManifestLockResult.txt",
 			);
@@ -485,15 +484,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-fashionistaApp-checkManifestLockResult.txt",
 			);
@@ -507,16 +502,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
@@ -531,8 +522,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -543,8 +532,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -563,15 +550,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-fashionistaAppUITests-checkManifestLockResult.txt",
 			);
@@ -621,6 +604,7 @@
 				3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */,
 				3D3F8C8621BFCB3000705DB8 /* SignInViewController.swift in Sources */,
 				84D5B05F21DE2763009FFCF9 /* UserAPI.swift in Sources */,
+				3D8B91062209E44800EC9DDC /* PostLocationViewController.swift in Sources */,
 				84DB9C0A21E22F8400EA229E /* DiscoverUserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

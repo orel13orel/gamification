@@ -11,18 +11,30 @@ import ProgressHUD
 import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
+import MapKit
 
-class CameraViewController: UIViewController {
+
+class CameraViewController: UIViewController , CLLocationManagerDelegate {
 
     @IBOutlet weak var Photo: UIImageView!
     @IBOutlet weak var TextView: UITextView!
     @IBOutlet weak var ShareBtn: UIButton!
     @IBOutlet weak var CancelButton: UIBarButtonItem!
     var selectedImage: UIImage?
+    var locationManager = CLLocationManager()
+    var longtitude : Double?
+    var latitude :Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled(){
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     
         let TapGesture = UITapGestureRecognizer(target: self, action: #selector(self.SelectPhoto))
         Photo.addGestureRecognizer(TapGesture)
@@ -70,11 +82,20 @@ class CameraViewController: UIViewController {
         present(PickImageController, animated: true, completion: nil)
     }
     
+    func locationManager (_ manager: CLLocationManager , didUpdateLocations location :[CLLocation]){
+        let localValue: CLLocationCoordinate2D = manager.location!.coordinate
+        print("locations \(localValue.latitude) \(localValue.longitude)")
+        latitude = localValue.latitude
+        longtitude = localValue.longitude
+    }
+    
+    
     @IBAction func ShareButton(_ sender: Any) {
+        
         view.endEditing(true)
         ProgressHUD.show("waiting", interaction: false)
       if let profileImage = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImage, 0.1) {
-        HelpService.uploadToserver(data: imageData, caption: TextView.text!, onSuccess: {
+        HelpService.uploadToserver(data: imageData, caption: TextView.text!, lat: latitude! ,long: longtitude! , onSuccess: {
             
             self.clean()
             self.tabBarController?.selectedIndex = 0

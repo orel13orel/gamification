@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = .black
         FirebaseApp.configure()
         
-     //   GMSServices.provideAPIKey("AIzaSyA6F8fx8yLlyLkIS04zIEqVu6cdec2UEAU")
+        GMSServices.provideAPIKey("AIzaSyA6F8fx8yLlyLkIS04zIEqVu6cdec2UEAU")
         
         return true
     }

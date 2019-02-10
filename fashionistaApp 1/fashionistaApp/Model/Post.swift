@@ -18,6 +18,8 @@ class Post{
     var LikeCount : Int?
     var likes : Dictionary<String, Any>?
     var isLiked : Bool?
+    var lat : Double?
+    var long : Double?
 }
 
 extension Post {
@@ -28,6 +30,9 @@ extension Post {
         post.photoUrl = dict["photoUrl"] as? String
         post.uid = dict["uid"] as? String
         post.LikeCount = dict["LikeCount"] as? Int
+        post.lat = dict["Latitude"]as? Double
+        post.long = dict["Longitude"]as? Double
+        
         post.likes = dict["Likes"] as? Dictionary<String,Any>
         if let currentUserId = Auth.auth().currentUser?.uid{
             if post.likes != nil {

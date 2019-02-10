@@ -65,6 +65,14 @@ class HomeViewController: UIViewController {
             let postid = sender as! String
             commentVc.postId = postid
         }
+        
+        if segue.identifier == "LocationSegue"{
+            let locationVc = segue.destination as! PostLocationViewController
+            let postid = sender as! String
+            locationVc.postId = postid
+           
+        
+        }
     }
     
 }

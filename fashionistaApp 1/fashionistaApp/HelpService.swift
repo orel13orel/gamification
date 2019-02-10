@@ -13,7 +13,7 @@ import Foundation
 
 class HelpService {
     
-    static func uploadToserver(data: Data , caption: String , onSuccess: @escaping ()-> Void){
+    static func uploadToserver(data: Data , caption: String, lat: Double, long: Double , onSuccess: @escaping ()-> Void){
              let photoIDstring = NSUUID().uuidString
                 let storageRef = Storage.storage().reference(forURL: configuration.Conf_storage_root).child("Posts").child(photoIDstring)
       
@@ -24,20 +24,20 @@ class HelpService {
             }
             storageRef.downloadURL(completion: { (url: URL?, error: Error?) in
                 let photoUrl = url?.absoluteString
-                self.sendDataToDatabase(photoUrl : photoUrl!, caption: caption , onSuccess: onSuccess)
+                self.sendDataToDatabase(photoUrl : photoUrl!, caption: caption, lat: lat, long: long , onSuccess: onSuccess)
         })
     }
    
 }
     
-    static func sendDataToDatabase(photoUrl : String , caption : String , onSuccess: @escaping ()-> Void) {
+    static func sendDataToDatabase(photoUrl : String , caption : String, lat: Double, long: Double , onSuccess: @escaping ()-> Void) {
         let newPostid = API.Post.Ref_posts.childByAutoId().key
         let newPostRef = API.Post.Ref_posts.child(newPostid!)
         guard let currentUser = Auth.auth().currentUser else {
             return
         }
         let currentUserID = currentUser.uid
-        newPostRef.setValue(["uid": currentUserID, "photoUrl" : photoUrl, "caption" : caption, "LikeCount" : 0] ) { (error, ref) in
+        newPostRef.setValue(["uid": currentUserID, "photoUrl" : photoUrl, "caption" : caption, "LikeCount" : 0, "Latitude" : lat , "Longitude" : long] ) { (error, ref) in
             if error != nil {
                 ProgressHUD.showError(error!.localizedDescription)
                 return
