@@ -44,10 +44,24 @@ exports.makeUppercase = functions.database.ref('/messages/{pushId}/original')
     });
 
 exports.addPointToSet = functions.https.onRequest((req,res)=>{
-    const original = req.query.text;
+    const point = req.query.text;
 
-    return admin.database().ref('/Points').push({original: original}).then((snapshot) => {
+    return admin.database().ref('/Points').push({point: point}).then((snapshot) => {
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
         return res.redirect(303, snapshot.ref.toString());
     });
 });
+
+exports.addBadgeToSet=functions.https.onRequest((req,res)=>{
+
+
+    var temp=req.query.text.split(",");
+
+    const  caption=temp[0];
+    const photoUrl = temp[1];
+    return admin.database().ref('/Badges').push({caption: caption , photoUrl: photoUrl}).then((snapshot) => {
+        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+        return res.redirect(303, snapshot.ref.toString());
+    });
+});
+
