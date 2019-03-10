@@ -48,7 +48,12 @@ class AuthenticationService {
         let ref = Database.database().reference()
         let usersRef = ref.child("Users")
         let newUserRef = usersRef.child(uid)
-        newUserRef.setValue(["FullName" : fullName , "Username" : username , "Username_lowercase" : username.lowercased()  , "Email" : email , "Password" : password, "profilePicture" : profileimageurl ])
+       	 let newBadge = newUserRef.child("Badge")
+        
+        
+        
+        newUserRef.setValue(["FullName" : fullName , "Username" : username , "Username_lowercase" : username.lowercased()  , "Email" : email , "Password" : password, "profilePicture" : profileimageurl,"SumOfPoints" : "0" ])
+        newBadge.setValue(["Caption" : "","PhotoUrl" : "" , ])
         onSuccess()
     }
 }
