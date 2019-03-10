@@ -42,3 +42,12 @@ exports.makeUppercase = functions.database.ref('/messages/{pushId}/original')
         // Setting an "uppercase" sibling in the Realtime Database returns a Promise.
         return snapshot.ref.parent.child('uppercase').set(uppercase);
     });
+
+exports.addPointToSet = functions.https.onRequest((req,res)=>{
+    const original = req.query.text;
+
+    return admin.database().ref('/Points').push({original: original}).then((snapshot) => {
+        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+        return res.redirect(303, snapshot.ref.toString());
+    });
+});

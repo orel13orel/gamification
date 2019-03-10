@@ -30,6 +30,7 @@ class AuthenticationService {
                 return
             }
             
+            
             let uid = authResult?.user.uid
             
             let storageRef = Storage.storage().reference(forURL: configuration.Conf_storage_root).child("profile_pictures").child(uid!)
@@ -49,11 +50,12 @@ class AuthenticationService {
         let usersRef = ref.child("Users")
         let newUserRef = usersRef.child(uid)
        	 let newBadge = newUserRef.child("Badge")
-        
+        let newBadgeid = newBadge.childByAutoId().key
+        let newBadgeRef = newBadge.child(newBadgeid!)
         
         
         newUserRef.setValue(["FullName" : fullName , "Username" : username , "Username_lowercase" : username.lowercased()  , "Email" : email , "Password" : password, "profilePicture" : profileimageurl,"SumOfPoints" : "0" ])
-        newBadge.setValue(["Caption" : "","PhotoUrl" : "" , ])
+        newBadgeRef.setValue(["Caption" : "","PhotoUrl" : "" , ])
         onSuccess()
     }
 }
