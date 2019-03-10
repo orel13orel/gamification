@@ -11,10 +11,12 @@ target 'fashionistaApp' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Functions'
   pod 'ProgressHUD'
   pod 'SDWebImage'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  
   
   
     target 'fashionistaAppTests' do

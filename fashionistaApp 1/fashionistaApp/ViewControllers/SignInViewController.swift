@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseAuth
 import ProgressHUD
+import FirebaseCore
+import FirebaseFunctions
 
 class SignInViewController: UIViewController {
     
@@ -42,6 +44,20 @@ class SignInViewController: UIViewController {
         ProgressHUD.show("waiting", interaction: false)
         AuthenticationService.SignInMethod(email: EmailTextField.text!, password: passwordTextField.text!, onSuccess: {
             ProgressHUD.showSuccess("welcome back :)")
+//            var functions = Functions.functions()
+//            functions.httpsCallable("addMessage2").call(["text": inputField.text]) { (result, error) in
+//                if let error = error as NSError? {
+//                    if error.domain == FunctionsErrorDomain {
+//                        let code = FunctionsErrorCode(rawValue: error.code)
+//                        let message = error.localizedDescription
+//                        let details = error.userInfo[FunctionsErrorDetailsKey]
+//                    }
+//                    // ...
+//                }
+//                if let text = (result?.data as? [String: Any])?["text"] as? String {
+//                    self.resultField.text = text
+//                }
+//            }
         self.performSegue(withIdentifier: "SignInToTabBarVC", sender: nil)
         }, onError: { error in
             ProgressHUD.showError(error!)
