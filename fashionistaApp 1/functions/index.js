@@ -53,10 +53,7 @@ exports.addPointToSet = functions.https.onRequest((req,res)=>{
 });
 
 exports.addBadgeToSet=functions.https.onRequest((req,res)=>{
-
-
     var temp=req.query.text.split(",");
-
     const  caption=temp[0];
     const photoUrl = temp[1];
     return admin.database().ref('/Badges').push({caption: caption , photoUrl: photoUrl}).then((snapshot) => {
@@ -65,3 +62,20 @@ exports.addBadgeToSet=functions.https.onRequest((req,res)=>{
     });
 });
 
+exports.addActionToSet = functions.https.onRequest((req,res)=>{
+    const action = req.query.text;
+
+    return admin.database().ref('/Action').push({action: action}).then((snapshot) => {
+        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+        return res.redirect(303, snapshot.ref.toString());
+    });
+});
+
+exports.addContextToSet = functions.https.onRequest((req,res)=>{
+    const context = req.query.text;
+
+    return admin.database().ref('/Context').push({context: context}).then((snapshot) => {
+        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+        return res.redirect(303, snapshot.ref.toString());
+    });
+});
