@@ -19,7 +19,30 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var SignInBtn: UIButton!
+ //   @IBOutlet weak var inputField: MDCTextField!
+    @IBOutlet weak var inputField: UITextField!
+    @IBOutlet weak var resultField: UITextField!
     
+    @IBOutlet weak var sendBtn: UIButton!
+    @IBAction func sendBtn(_ sender: Any) {
+        var functions = Functions.functions()
+        
+        
+        functions.httpsCallable("addMessage3").call(["text": self.inputField.text]) { (result, error) in
+            if let error = error as NSError? {
+                if error.domain == FunctionsErrorDomain {
+                    let code = FunctionsErrorCode(rawValue: error.code)
+                    let message = error.localizedDescription
+                    let details = error.userInfo[FunctionsErrorDetailsKey]
+                }
+                // ...
+            }
+            if let text = (result?.data as? [String: Any])?["text"] as? String {
+                self.resultField.text = text
+            }
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,20 +67,15 @@ class SignInViewController: UIViewController {
         ProgressHUD.show("waiting", interaction: false)
         AuthenticationService.SignInMethod(email: EmailTextField.text!, password: passwordTextField.text!, onSuccess: {
             ProgressHUD.showSuccess("welcome back :)")
-//            var functions = Functions.functions()
-//            functions.httpsCallable("addMessage2").call(["text": inputField.text]) { (result, error) in
-//                if let error = error as NSError? {
-//                    if error.domain == FunctionsErrorDomain {
-//                        let code = FunctionsErrorCode(rawValue: error.code)
-//                        let message = error.localizedDescription
-//                        let details = error.userInfo[FunctionsErrorDetailsKey]
-//                    }
-//                    // ...
-//                }
-//                if let text = (result?.data as? [String: Any])?["text"] as? String {
-//                    self.resultField.text = text
-//                }
-//            }
+            
+         
+            
+            
+            
+            
+            
+            
+            
         self.performSegue(withIdentifier: "SignInToTabBarVC", sender: nil)
         }, onError: { error in
             ProgressHUD.showError(error!)

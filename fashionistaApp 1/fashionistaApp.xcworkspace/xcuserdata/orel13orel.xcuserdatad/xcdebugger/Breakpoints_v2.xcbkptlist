@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "TransformUser(dict:key:)"
-            landmarkType = "7">
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "fashionistaApp/ViewControllers/SignInViewController.swift"
-            timestampString = "573922957.121925"
+            timestampString = "574535123.443651"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "SignInButton(_:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "sendBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -79,3 +79,52 @@ exports.addContextToSet = functions.https.onRequest((req,res)=>{
         return res.redirect(303, snapshot.ref.toString());
     });
 });
+// Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
+exports.addMessage2 = functions.https.onCall((data, context) => {
+    // Message text passed from the client.
+    const text = data.text;
+// Authentication / user information is automatically added to the request.
+    const uid = context.auth.uid;
+    const name = context.auth.token.name || null;
+    const picture = context.auth.token.picture || null;
+    const email = context.auth.token.email || null;
+
+    // Checking attribute.
+    if (!(typeof text === 'string') || text.length === 0) {
+        // Throwing an HttpsError so that the client gets the error details.
+        throw new functions.https.HttpsError('invalid-argument', 'The function must be called with ' +
+            'one arguments "text" containing the message text to add.');
+    }
+// Checking that the user is authenticated.
+    if (!context.auth) {
+        // Throwing an HttpsError so that the client gets the error details.
+        throw new functions.https.HttpsError('failed-precondition', 'The function must be called ' +
+            'while authenticated.');
+    }
+
+
+    // Saving the new message to the Realtime Database.
+    const sanitizedMessage = sanitizer.sanitizeText(text); // Sanitize the message.
+    return admin.database().ref('/messages').push({
+        text: sanitizedMessage,
+        author: { uid, name, picture, email },
+    }).then(() => {
+        console.log('New Message written');
+        // Returning the sanitized message to the client.
+        return { text: sanitizedMessage };
+    })
+
+
+
+
+});
+
+exports.addMessage3 = functions.https.onCall((data, context) => {
+
+    const myContext = data.text;
+
+    return admin.database().ref('/Context').push({context: myContext}).then((snapshot) => {
+        console.log('New Message written');
+        return{text: 'New Message written'}
+    });
+});
