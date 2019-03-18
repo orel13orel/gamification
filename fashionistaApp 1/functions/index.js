@@ -74,11 +74,20 @@ exports.addActionToSet = functions.https.onRequest((req,res)=>{
 exports.addContextToSet = functions.https.onRequest((req,res)=>{
     const context = req.query.text;
 
-    return admin.database().ref('/Context').push({context: context}).then((snapshot) => {
+    return admin.database().ref('/Rp/Context').push({name: context}).then((snapshot) => {
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-        return res.redirect(303, snapshot.ref.toString());
+        console.log(snapshot);
+
+        var arr=snapshot.toString().split("/");
+
+        var context_id=arr[5];
+        console.log(context_id);
+        return res.redirect(303, context_id);
     });
 });
+
+
+
 // Saves a message to the Firebase Realtime Database but sanitizes the text by removing swearwords.
 exports.addMessage2 = functions.https.onCall((data, context) => {
     // Message text passed from the client.
@@ -121,10 +130,20 @@ exports.addMessage2 = functions.https.onCall((data, context) => {
 
 exports.addMessage3 = functions.https.onCall((data, context) => {
 
-    const myContext = data.text;
+    const mac = data.text;
+    console.log(data);
 
-    return admin.database().ref('/Context').push({context: myContext}).then((snapshot) => {
+
+
+    //add MAC to table
+    admin.database().ref('/MAC').push({context: mac});
+
+
+    return admin.database().ref('/MAC').push({context: mac}).then((snapshot) => {
         console.log('New Message written');
         return{text: 'New Message written'}
     });
 });
+
+
+

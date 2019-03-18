@@ -12,7 +12,8 @@ import FirebaseStorage
 import FirebaseDatabase
 import FirebaseAuth
 import MapKit
-
+import FirebaseFunctions
+import FirebaseCore
 
 class CameraViewController: UIViewController , CLLocationManagerDelegate {
 
@@ -97,23 +98,33 @@ class CameraViewController: UIViewController , CLLocationManagerDelegate {
       if let profileImage = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImage, 0.1) {
         HelpService.uploadToserver(data: imageData, caption: TextView.text!, lat: latitude! ,long: longtitude! , onSuccess: {
             
+            // call for Rp function
+            var functions = Functions.functions()
+            guard let currentUser = Auth.auth().currentUser else {
+                return
+            }
+            let currentUserID = currentUser.uid
+            functions.httpsCallable("addMessage3").call(["text": ["user_id" : currentUserID ,
+                                                        "action_id" : "-L_bspntl0frhDdpry1Q" ,
+                                                        "context_id" : "-L_bth1Oso3573LU1S9F"]]){ (result, error) in
+                if let error = error as NSError? {
+                    if error.domain == FunctionsErrorDomain {
+                        let code = FunctionsErrorCode(rawValue: error.code)
+                        let message = error.localizedDescription
+                        let details = error.userInfo[FunctionsErrorDetailsKey]
+                    }
+                    // ...
+                }
+                if let text = (result?.data as? [String: Any])?["text"] as? String {
+                  //  self.resultField.text = text
+                    print(text)
+                }
+            }
+            
+            
             self.clean()
             self.tabBarController?.selectedIndex = 0
         })
-        
-       /*     let photoIDstring = NSUUID().uuidString
-            print(photoIDstring)
-            let storageRef = Storage.storage().reference(forURL: configuration.Conf_storage_root).child("Posts").child(photoIDstring)
-            storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    ProgressHUD.showError(error!.localizedDescription)
-                    return
-                }
-                storageRef.downloadURL(completion: { (url: URL?, error: Error?) in
-                    let photoUrl = url?.absoluteString
-                    self.sendDataToDatabase(photoUrl : photoUrl!)
-                })
-        })*/
         } else {
             ProgressHUD.showError("profile picture can not be empty")
         }

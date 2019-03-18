@@ -12,6 +12,7 @@ import ProgressHUD
 import FirebaseCore
 import FirebaseFunctions
 
+
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -19,16 +20,17 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var SignInBtn: UIButton!
- //   @IBOutlet weak var inputField: MDCTextField!
     @IBOutlet weak var inputField: UITextField!
     @IBOutlet weak var resultField: UITextField!
     
     @IBOutlet weak var sendBtn: UIButton!
     @IBAction func sendBtn(_ sender: Any) {
-        var functions = Functions.functions()
+         var functions = Functions.functions()
         
+    
         
-        functions.httpsCallable("addMessage3").call(["text": self.inputField.text]) { (result, error) in
+       
+        functions.httpsCallable("addMessage3").call(["text": ["uid" : self.inputField.text]]) { (result, error) in
             if let error = error as NSError? {
                 if error.domain == FunctionsErrorDomain {
                     let code = FunctionsErrorCode(rawValue: error.code)
@@ -41,6 +43,7 @@ class SignInViewController: UIViewController {
                 self.resultField.text = text
             }
         }
+        
         
     }
     override func viewDidLoad() {
