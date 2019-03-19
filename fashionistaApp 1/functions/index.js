@@ -61,27 +61,34 @@ exports.addBadgeToSet=functions.https.onRequest((req,res)=>{
         return res.redirect(303, snapshot.ref.toString());
     });
 });
-
+//receives existing context id and new action name, return the new action id
 exports.addActionToSet = functions.https.onRequest((req,res)=>{
-    const action = req.query.text;
-
-    return admin.database().ref('/Action').push({action: action}).then((snapshot) => {
+    let arr = req.query.text.split("/");
+    let context_id=arr[0];
+    let action_name=arr[1];
+    console.log("arr : "+arr);
+    console.log("context id : "+context_id);
+    console.log("action name : "+action_name);
+    return admin.database().ref('/Rp/Context/'+context_id.toString()+'/////action').push({name: action_name}).then((snapshot) => {
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-        return res.redirect(303, snapshot.ref.toString());
+        let arr2=snapshot.toString().split("/");
+        console.log("arr2 : "+arr2);
+        console.log("action id : "+arr2[5]);
+        return res.redirect(303, arr2[5]);
     });
 });
-
+//receives new context name, return the context id
 exports.addContextToSet = functions.https.onRequest((req,res)=>{
     const context = req.query.text;
 
     return admin.database().ref('/Rp/Context').push({name: context}).then((snapshot) => {
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-        console.log(snapshot);
+        //console.log(snapshot);
 
-        var arr=snapshot.toString().split("/");
+        let arr=snapshot.toString().split("/");
 
-        var context_id=arr[5];
-        console.log(context_id);
+        let context_id=arr[5];
+       // console.log(context_id);
         return res.redirect(303, context_id);
     });
 });
