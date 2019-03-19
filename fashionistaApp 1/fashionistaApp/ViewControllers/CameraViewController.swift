@@ -95,6 +95,7 @@ class CameraViewController: UIViewController , CLLocationManagerDelegate {
         
         view.endEditing(true)
         ProgressHUD.show("waiting", interaction: false)
+        if(latitude != nil && longtitude != nil){
       if let profileImage = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImage, 0.1) {
         HelpService.uploadToserver(data: imageData, caption: TextView.text!, lat: latitude! ,long: longtitude! , onSuccess: {
             
@@ -120,13 +121,14 @@ class CameraViewController: UIViewController , CLLocationManagerDelegate {
                     print(text)
                 }
             }
-            
-            
             self.clean()
             self.tabBarController?.selectedIndex = 0
         })
         } else {
             ProgressHUD.showError("profile picture can not be empty")
+        }
+        }else {
+            ProgressHUD.showError("turn on your location mode !")
         }
     }
     
