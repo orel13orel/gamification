@@ -54,7 +54,7 @@ admin.initializeApp();
 
 
 //receives new challenge_name, badge_id, start_time, end_time,points. returns the new challenge_id.
-exports.addchallenge=functions.https.onRequest((req,res)=>{
+exports.addChallenge=functions.https.onRequest((req,res)=>{
     let arr=req.query.text.split("/");
     const challenge_name=arr[0];
     const badge_id = arr[1];
@@ -175,15 +175,43 @@ exports.addRb = functions.https.onRequest((req,res)=>{
 });
 
 // receives user_id,action_id,context_id.
-exports.addUserActivity = functions.https.onCall((data, context) => {
-    let arr = data.text.split("/");
+exports.addUserActivity = functions.https.onRequest((req,res)=>{
+    let arr = req.query.text.split("/");
     let user_id=arr[0];
     let action_id=arr[1];
     let context_id=arr[2];
+    const date= new Date().toString();
+    console.log(date);
     //get the action count for the user
-    let count=admin.database().ref('/User/Action/'+action_id).get('Count');
+    return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date}).then((snapshot) => {
+
+        let arr2=snapshot.toString().split("/");
+
+        return res.redirect(303, arr2[4]);
+    });
+
+     });
+// exports.addUserActivity = functions.https.onCall((data, context) => {
+//     let arr = data.text.split("/");
+//     let user_id=arr[0];
+//     let action_id=arr[1];
+//     let context_id=arr[2];
+//     //get the action count for the user
+//     let count=admin.database().ref('/User/Action/'+action_id).get('Count');
+//
+//
+// });
 
 
+
+exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onWrite((snapshot,context) => {
+    const uerActivityID = context.params.userActivityID;
+   const action_id = context.params.userActivityID.action_id;
+    const context_id = context.params.userActivityID.context_id;
+    const user_id=context.params.userActivityID.user_id;
+    console.log(uerActivityID);
+    console.log("snapshot:  " + snapshot.toString());
+    console.log("challenges is on!!!!!");
 });
 
 // exports.exmple1 = functions.https.onRequest(()=>{
