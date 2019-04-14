@@ -15,53 +15,22 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
-
-// // Take the text parameter passed to this HTTP endpoint and insert it into the
-// // Realtime Database under the path /messages/:pushId/original
-// exports.addMessage = functions.https.onRequest((req, res) => {
-//     // Grab the text parameter.
-//     const original = req.query.text;
-//     // Push the new message into the Realtime Database using the Firebase Admin SDK.
-//     return admin.database().ref('/messages').push({original: original}).then((snapshot) => {
-//         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-//         return res.redirect(303, snapshot.ref.toString());
-//     });
-// });
-
-//
-// // Listens for new messages added to /messages/:pushId/original and creates an
-// // uppercase version of the message to /messages/:pushId/uppercase
-// exports.makeUppercase = functions.database.ref('/messages/{pushId}/original')
-//     .onCreate((snapshot, context) => {
-//         // Grab the current value of what was written to the Realtime Database.
-//         const original = snapshot.val();
-//         console.log('Uppercasing', context.params.pushId, original);
-//         const uppercase = original.toUpperCase();
-//         // You must return a Promise when performing asynchronous tasks inside a Functions such as
-//         // writing to the Firebase Realtime Database.
-//         // Setting an "uppercase" sibling in the Realtime Database returns a Promise.
-//         return snapshot.ref.parent.child('uppercase').set(uppercase);
-//     });
-
-// exports.addPointToSet = functions.https.onRequest((req,res)=>{
-//     const point = req.query.text;
-//
-//     return admin.database().ref('/Points').push({point: point}).then((snapshot) => {
-//         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-//         return res.redirect(303, snapshot.ref.toString());
-//     });
-// });
-
+// Get a database reference to our posts
+const database = admin.database();
 
 //receives new challenge_name, badge_id, start_time, end_time,points. returns the new challenge_id.
 exports.addChallenge=functions.https.onRequest((req,res)=>{
     let arr=req.query.text.split("/");
     const challenge_name=arr[0];
     const badge_id = arr[1];
-    const strat_time = arr[2];
-    const end_time = arr[3];
+    const  start_time_arr = arr[2].toString().split(".");
+    console.log(start_time_arr);
+    const start_time=new Date(parseInt( start_time_arr[2]),parseInt(start_time_arr[1])-1,parseInt(start_time_arr[0])).toDateString();
+    console.log(start_time);
+    const end_time_arr = arr[3].toString().split(".");
+    const end_time=new Date(parseInt( end_time_arr[2]),parseInt(end_time_arr[1])-1,parseInt(end_time_arr[0])).toDateString();
     const points = arr[4];
-    return admin.database().ref('/Challenge/').push({name: challenge_name ,badge_id:badge_id ,strat_time:strat_time, end_time: end_time, points:points}).then((snapshot) => {
+    return admin.database().ref('/Challenge/').push({name: challenge_name ,badge_id:badge_id ,start_time:start_time, end_time: end_time, points:points}).then((snapshot) => {
         let arr2 = snapshot.toString().split("/");
         //console.log("arr2 : "+arr2);
         //console.log("arr2[4] : "+arr2[4]);
@@ -180,7 +149,7 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
     let user_id=arr[0];
     let action_id=arr[1];
     let context_id=arr[2];
-    const date= new Date().toString();
+    const date= new Date().toDateString();
     console.log(date);
     //get the action count for the user
     return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date}).then((snapshot) => {
@@ -204,14 +173,29 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
 
 
 
-exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onWrite((snapshot,context) => {
+exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
     const uerActivityID = context.params.userActivityID;
-   const action_id = context.params.userActivityID.action_id;
-    const context_id = context.params.userActivityID.context_id;
-    const user_id=context.params.userActivityID.user_id;
-    console.log(uerActivityID);
-    console.log("snapshot:  " + snapshot.toString());
-    console.log("challenges is on!!!!!");
+    console.log("uerActivityID: "+uerActivityID);
+    const data=snapshot.val();
+    const action_id=data.action_id;
+    const context_id=data.context_id;
+    const user_id=data.user_id;
+    const activityDate=data.date;
+    console.log("user_id: "+user_id+"action_id: "+action_id+"context_id: "+context_id+"activityDate: "+activityDate);
+    //geting
+    database.ref('/Challenge/').on("value", function(snapshot2) {
+        let challengeJSON=snapshot2.val();
+        console.log(challengeJSON);
+        Object.keys(challengeJSON).forEach(function (key) {
+            console.log(challengeJSON[key].points);
+
+        });
+    }, function (errorObject) {
+        console.log("The read failed: " + errorObject.code);
+    });
+
+
+    return snapshot;
 });
 
 // exports.exmple1 = functions.https.onRequest(()=>{
