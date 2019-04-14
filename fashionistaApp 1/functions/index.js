@@ -175,19 +175,45 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
 
 exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
     const uerActivityID = context.params.userActivityID;
-    console.log("uerActivityID: "+uerActivityID);
+    //console.log("uerActivityID: "+uerActivityID);
     const data=snapshot.val();
     const action_id=data.action_id;
     const context_id=data.context_id;
     const user_id=data.user_id;
     const activityDate=data.date;
-    console.log("user_id: "+user_id+"action_id: "+action_id+"context_id: "+context_id+"activityDate: "+activityDate);
+    //console.log("user_id: "+user_id+"action_id: "+action_id+"context_id: "+context_id+"activityDate: "+activityDate);
     //geting
     database.ref('/Challenge/').on("value", function(snapshot2) {
         let challengeJSON=snapshot2.val();
         console.log(challengeJSON);
+        //Running on Challenges and check if the date is between start and end time
         Object.keys(challengeJSON).forEach(function (key) {
-            console.log(challengeJSON[key].points);
+           // console.log("end_time: "+challengeJSON[key].end_time);
+            const start_date=new Date(challengeJSON[key].start_time);
+            const end_date=new Date(challengeJSON[key].end_time);
+            const activity_date=new Date(data.date);
+           // console.log("end date: "+end_date);
+            if(activity_date>=start_date&&activity_date<=end_date) {
+                console.log("enter actions on challengeID: "+key);
+                database.ref('/Challenge/'+key+'/Actions/').on("value",function (snapshot3) {
+                    let actionsJSON = snapshot3.val();
+                    console.log(actionsJSON);
+             Object.keys(actionsJSON).forEach(function (actionKey) {
+                 const actionInChallengeId = actionsJSON[actionKey].action_id;
+                 if(actionInChallengeId === action_id){
+                     console.log(actionKey);
+                     console.log("same action id" + actionInChallengeId);
+                 database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/done').once('value').then(function (snap_done) {
+                     const done=snap_done.val();
+                     console.log(done);
+                     //we stoped here!!!
+                 })
+                 }
+             })
+                })
+            }
+           // else {console.log("Didn't enter actions on challengeID: "+challengeJSON[key])}
+            //console.log(challengeJSON[key].points);
 
         });
     }, function (errorObject) {
