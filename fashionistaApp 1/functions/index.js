@@ -223,24 +223,28 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                      const PIC_JSON=snap_PIC.val();
                      console.log("PIC_JSON: ");
                      console.log(PIC_JSON);
-                     const done=PIC_JSON.done;
-                     console.log("done: "+done);
+
                      // checking if the record is exists or not
-                    if(done === null ){
+                    if(PIC_JSON === null ){
+
                         admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "0"});
                         //checking if not done then count++
-                    }else if( done === "0"){
+                    }else{
+                        const done=PIC_JSON.done;
+                        console.log("done: "+done);
+                     if( done === "0"){
                         let count=parseInt( PIC_JSON.count);
+                        count++;
                         console.log("count: "+count);
-                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : (++count)});
 
+                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count,done : "0"});
+                     }
                     }
                  })
                  }
              })
                 })
-            }
-            else {console.log("Didn't enter actions on challengeID: ");
+            } else {console.log("Didn't enter actions on challengeID: ");
                 console.log(challengeJSON[key]);}
             //console.log(challengeJSON[key].points);
 
