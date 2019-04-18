@@ -218,12 +218,23 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                      console.log("same action id" + actionInChallengeId);
 
 
-                 database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/done').on('value',function (snap_done) {
-                     const doneJSON=snap_done.val();
-                     console.log("doneJSON: ");
-                     console.log(doneJSON);
-                    
+                 database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/').on('value',function (snap_PIC) {
+                     //PIC_JSON = ProgressInChallenges
+                     const PIC_JSON=snap_PIC.val();
+                     console.log("PIC_JSON: ");
+                     console.log(PIC_JSON);
+                     const done=PIC_JSON.done;
+                     console.log("done: "+done);
+                     // checking if the record is exists or not
+                    if(done === null ){
+                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "0"});
+                        //checking if not done then count++
+                    }else if( done === "0"){
+                        let count=parseInt( PIC_JSON.count);
+                        console.log("count: "+count);
+                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : (++count)});
 
+                    }
                  })
                  }
              })
