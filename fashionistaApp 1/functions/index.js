@@ -217,13 +217,14 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                      console.log(actionKey);
                      console.log("same action id" + actionInChallengeId);
 
-
-                 database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/').on('value',function (snap_PIC) {
                      //PIC_JSON = ProgressInChallenges
-                     const PIC_JSON=snap_PIC.val();
+                     let PIC_JSON=null;
+                 database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/').on('value',function (snap_PIC) {
+
+                     PIC_JSON=snap_PIC.val();
                      console.log("PIC_JSON: ");
                      console.log(PIC_JSON);
-
+                 })
                      // checking if the record is exists or not
                     if(PIC_JSON === null ){
 
@@ -237,10 +238,10 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         count++;
                         console.log("count: "+count);
 
-                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count,done : "0"});
+                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count.toString(),done : "0"});
                      }
                     }
-                 })
+                 //})
                  }
              })
                 })
