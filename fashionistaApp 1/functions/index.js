@@ -200,20 +200,24 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
     console.log(challengeJSON);
 
         //Running on Challenges and check if the date is between start and end time
-        Object.keys(challengeJSON).forEach(function (key) {
-           // console.log("end_time: "+challengeJSON[key].end_time);
-            const start_date=new Date(challengeJSON[key].start_time);
-            const end_date=new Date(challengeJSON[key].end_time);
+        Object.keys(challengeJSON).forEach(function (challengeId) {
+           // console.log("end_time: "+challengeJSON[challengeId].end_time);
+            const start_date=new Date(challengeJSON[challengeId].start_time);
+            const end_date=new Date(challengeJSON[challengeId].end_time);
             const activity_date=new Date(data.date);
            // console.log("end date: "+end_date);
             if(activity_date>=start_date&&activity_date<=end_date) {
-                console.log("enter actions on challengeID: "+key);
+                var actionKeyArray=new Array();
+                var subActionFlag=false;
+                console.log("enter actions on challengeID: "+challengeId);
                 let actionsJSON=null;
-                database.ref('/Challenge/'+key+'/Actions/').on("value",function (snapshotAction) {
+                database.ref('/Challenge/'+challengeId+'/Actions/').on('value',function (snapshotAction) {
                     actionsJSON = snapshotAction.val();
                     console.log("actionsJSON: ");
                     console.log(actionsJSON);
+
              Object.keys(actionsJSON).forEach(function (actionKey) {
+                 actionKeyArray.push(actionKey);
                  const actionInChallengeId = actionsJSON[actionKey].action_id;
                  if(actionInChallengeId === action_id){
                      console.log(actionKey);
@@ -231,8 +235,11 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                             console.log("amount: "+actionsJSON[actionKey].amount);
                             if(actionsJSON[actionKey].amount>1)
                                 admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "0"});
-                            else
-                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "1"});
+                            else {
+                                admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({count: "1", done: "1"});
+                                subActionFlag = true;
+
+                            }
                         //checking if not done then count++
                     }else{
                         const done=PIC_JSON.done;
@@ -243,18 +250,49 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         console.log("count: "+count);
                          if(actionsJSON[actionKey].amount>count)
                         admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count.toString(),done : "0"});
-                         else
-                             admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count.toString(),done : "1"});
+                         else {
+                             admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({count: count.toString(), done: "1"});
+                             subActionFlag = true;
+                         }
 
                      }
                     }
                  //})
                  }
-             })//end of actionJSON forEach
-                })
+             })//end of forEach action
+                })//end of actionJSON forEach
+                console.log("subActionFlag: "+subActionFlag);
+                var challengeComplete=true;
+                if(subActionFlag){
+                    actionKeyArray.forEach(function (actionKey) {
+                        database.ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey+'/done').on('value',function (doneSnapshot) {
+                            var val = doneSnapshot.val();
+                            if(val !== "1")
+                                challengeComplete = false;
+                        })
+                    })
+                }else {challengeComplete=false;}
+                    console.log("challengeComplete: "+challengeComplete);
+                    if(challengeComplete){
+                        var points=challengeJSON[challengeId].points;
+                        var badge=challengeJSON[challengeId].badge_id;
+                        var userPoints=null;
+                        database.ref('/Users/' + user_id + '/Points').on('value',function (pointsSnapshot) {
+                            userPoints = pointsSnapshot.val();
+                        })
+                        userPoints= (parseInt(points)+parseInt(userPoints)).toString();
+                        database.ref('/Users/' + user_id + '/Points').set(userPoints);
+                        console.log("userPoints added: "+userPoints);
+
+
+
+                    }
+
+
             } else {console.log("Didn't enter actions on challengeID: ");
-                console.log(challengeJSON[key]);}
-            //console.log(challengeJSON[key].points);
+                    console.log(challengeJSON[challengeId]);
+                    }
+            //console.log(challengeJSON[challengeId].points);
 
         });//end of challengeJSON forEach
      }, function (errorObject) {
