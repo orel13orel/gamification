@@ -192,12 +192,13 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
     const context_id=data.context_id;
     const user_id=data.user_id;
     const activityDate=data.date;
+
     //console.log("user_id: "+user_id+"action_id: "+action_id+"context_id: "+context_id+"activityDate: "+activityDate);
-    //geting
-    database.ref('/Challenge/').on("value", function(snapshot2) {
-        let challengeJSON=snapshot2.val();
-        console.log("challengeJSON: ");
-        console.log(challengeJSON);
+    database.ref('/Challenge/').on('value', function(snapshotChallenge) {
+        const challengeJSON= snapshotChallenge.val();
+    console.log("challengeJSON: ");
+    console.log(challengeJSON);
+
         //Running on Challenges and check if the date is between start and end time
         Object.keys(challengeJSON).forEach(function (key) {
            // console.log("end_time: "+challengeJSON[key].end_time);
@@ -207,8 +208,9 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
            // console.log("end date: "+end_date);
             if(activity_date>=start_date&&activity_date<=end_date) {
                 console.log("enter actions on challengeID: "+key);
-                database.ref('/Challenge/'+key+'/Actions/').on("value",function (snapshot3) {
-                    let actionsJSON = snapshot3.val();
+                let actionsJSON=null;
+                database.ref('/Challenge/'+key+'/Actions/').on("value",function (snapshotAction) {
+                    actionsJSON = snapshotAction.val();
                     console.log("actionsJSON: ");
                     console.log(actionsJSON);
              Object.keys(actionsJSON).forEach(function (actionKey) {
@@ -220,15 +222,17 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                      //PIC_JSON = ProgressInChallenges
                      let PIC_JSON=null;
                  database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/').on('value',function (snap_PIC) {
-
                      PIC_JSON=snap_PIC.val();
                      console.log("PIC_JSON: ");
                      console.log(PIC_JSON);
                  })
                      // checking if the record is exists or not
                     if(PIC_JSON === null ){
-
-                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "0"});
+                            console.log("amount: "+actionsJSON[actionKey].amount);
+                            if(actionsJSON[actionKey].amount>1)
+                                admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "0"});
+                            else
+                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "1"});
                         //checking if not done then count++
                     }else{
                         const done=PIC_JSON.done;
@@ -237,21 +241,24 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         let count=parseInt( PIC_JSON.count);
                         count++;
                         console.log("count: "+count);
-
+                         if(actionsJSON[actionKey].amount>count)
                         admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count.toString(),done : "0"});
+                         else
+                             admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count.toString(),done : "1"});
+
                      }
                     }
                  //})
                  }
-             })
+             })//end of actionJSON forEach
                 })
             } else {console.log("Didn't enter actions on challengeID: ");
                 console.log(challengeJSON[key]);}
             //console.log(challengeJSON[key].points);
 
-        });
-    }, function (errorObject) {
-        console.log("The read failed: " + errorObject.code);
+        });//end of challengeJSON forEach
+     }, function (errorObject) {
+         console.log("The read failed: " + errorObject.code);
     });
 
 
