@@ -179,7 +179,33 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     const context_id = data.context_id;
     const user_id = data.user_id;
     const activityDate = data.date;
+    let Action_count;
 
+
+
+    let ActionCounterJSON=null;
+    database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').once(`value`).then(function(snap_ActionCounter){
+        ActionCounterJSON=snap_ActionCounter.val();
+        console.log("ActionCounterJSON: ");
+        console.log(ActionCounterJSON);
+
+
+
+        if(ActionCounterJSON === null){
+            database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').set({count: "1"});
+            Action_count=1;
+        }
+        else {
+            Action_count = parseInt(ActionCounterJSON.count);
+            Action_count++;
+            database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').set({count: Action_count.toString()});
+        }
+        console.log("Action_count"+Action_count);
+        return;
+
+    }).catch(function(error) {
+        console.log("Error deleting app:", error);
+    });
 
 
 });
