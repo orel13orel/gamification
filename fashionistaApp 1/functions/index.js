@@ -171,6 +171,8 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
 //
 // });
 
+
+//RP function
 exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
     const uerActivityID = context.params.userActivityID;
     //console.log("uerActivityID: "+uerActivityID);
@@ -182,7 +184,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     let Action_count;
 
 
-
+// get Atcion_CounterJSON fron the specific user and specific action
     let ActionCounterJSON=null;
     database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').once(`value`).then(function(snap_ActionCounter){
         ActionCounterJSON=snap_ActionCounter.val();
@@ -190,15 +192,17 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
         console.log(ActionCounterJSON);
 
 
-
+// if not exist set counter to 1
         if(ActionCounterJSON === null){
             database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').set({count: "1"});
             Action_count=1;
         }
+        // set counter++
         else {
             Action_count = parseInt(ActionCounterJSON.count);
             Action_count++;
             database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').set({count: Action_count.toString()});
+
         }
         console.log("Action_count"+Action_count);
         return;
@@ -208,6 +212,45 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     });
 
 
+// get RpJSON
+    let RpJSON=null;
+
+    let points = database.ref('/Rp/').once(`value`).then(function(snap_Rp){
+        RpJSON=snap_Rp.val();
+        console.log("RpJSON: ");
+        console.log(RpJSON);
+
+        var BreakException = {};
+
+        try {
+            // run loop on all keys that exist
+            Object.keys(RpJSON).forEach(function (Rpkey) {
+                let RpActionId = RpJSON[Rpkey].action_id;
+                console.log("RpActionId: " + RpActionId);
+
+                let RpPoints = RpJSON[Rpkey].points;
+                let RpValue = RpJSON[Rpkey].value;
+
+
+                // cheaking for matching the action_id and action_count(value)
+                if (RpActionId === action_id && RpValue === Action_count.toString()) {
+                    console.log("RpPoints: " + RpPoints);
+                    points = RpPoints;
+
+
+                    throw BreakException;
+                }
+
+
+            })
+        }catch (e) {
+            if(e!== BreakException) throw e;
+        }
+        return null;
+
+    }).catch(function(error) {
+        console.log("Error deleting app:", error);
+    });
 });
 
 exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
