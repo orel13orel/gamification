@@ -236,10 +236,39 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                 if (RpActionId === action_id && RpValue === Action_count.toString()) {
                     console.log("RpPoints: " + RpPoints);
                     points = RpPoints;
+                    // Adding points to user
+                    database.ref(`/Users/`+ user_id + `/Points/`).once(`value`).then(function(pointsSnapshot){
+                        var userPoints = pointsSnapshot.val();
+                        userPoints=userPoints + parseInt(RpPoints);
+                        database.ref(`/Users/`+ user_id + `/Points/`).set(userPoints);
+
+                        return null;
+                     }).catch(function(error) {
+                console.log("Error deleting app:", error);
+            });
+
+
+                    database.ref(`/Users/`+ user_id + `/ContextPointes/` + context_id /*+`/sumOfPoints/`*/).once(`value`).then(function(pointsSnapshot){
+                        var contextPointsJSON = pointsSnapshot.val();
+                        //WE STOP HERE 
+                        var sumOfpoints = contextPointsJSON.sumOfPoints;
+                        console.log(sumOfpoints);
+
+                        sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
+
+                        database.ref(`/Users/`+ user_id + `/ContextPointes/` + context_id).set({sumOfPoints: sumOfpoints.toString()});
+
+                        return null;
+                    }).catch(function(error) {
+                        console.log("Error deleting app:", error);
+                    });
 
 
                     throw BreakException;
                 }
+
+
+
 
 
             })
@@ -251,6 +280,8 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     }).catch(function(error) {
         console.log("Error deleting app:", error);
     });
+
+
 });
 
 exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
