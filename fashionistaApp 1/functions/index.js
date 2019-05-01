@@ -213,10 +213,8 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 
 
 // get RpJSON
-    let RpJSON=null;
-
-    let points = database.ref('/Rp/').once(`value`).then(function(snap_Rp){
-        RpJSON=snap_Rp.val();
+    let points = database.ref('/Rp/').once('value').then(function(snap_Rp){
+        let RpJSON=snap_Rp.val();
         console.log("RpJSON: ");
         console.log(RpJSON);
 
@@ -237,10 +235,10 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                     console.log("RpPoints: " + RpPoints);
                     points = RpPoints;
                     // Adding points to user
-                    database.ref(`/Users/`+ user_id + `/Points/`).once(`value`).then(function(pointsSnapshot){
+                    database.ref('/Users/'+ user_id + '/Points/').once('value').then(function(pointsSnapshot){
                         var userPoints = pointsSnapshot.val();
                         userPoints=userPoints + parseInt(RpPoints);
-                        database.ref(`/Users/`+ user_id + `/Points/`).set(userPoints);
+                        database.ref('/Users/'+ user_id + '/Points/').set(userPoints);
 
                         return null;
                      }).catch(function(error) {
@@ -248,21 +246,27 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
             });
 
 
-                    database.ref(`/Users/`+ user_id + `/ContextPointes/` + context_id /*+`/sumOfPoints/`*/).once(`value`).then(function(pointsSnapshot){
-                        var contextPointsJSON = pointsSnapshot.val();
-                        //WE STOP HERE 
-                        var sumOfpoints = contextPointsJSON.sumOfPoints;
-                        console.log(sumOfpoints);
+                    database.ref('/Users/'+ user_id +'/ContextPointes/ֿ'+ context_id+'/' /*+`/sumOfPoints/`*/).once('value').then(function(pointsSnapshot){
+                       let contextPointsJSON = pointsSnapshot.val();
 
-                        sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
 
-                        database.ref(`/Users/`+ user_id + `/ContextPointes/` + context_id).set({sumOfPoints: sumOfpoints.toString()});
+
+                       if(contextPointsJSON === null){
+                           database.ref('/Users/'+ user_id + '/ContextPointes/' + context_id).set({sumOfPoints: RpPoints.toString()});
+
+                       }else{
+                           var sumOfpoints = contextPointsJSON.sumOfPoints;
+                           sumOfpoints = parseInt(sumOfpoints) + parseInt(RpPoints);
+                           console.log(sumOfpoints);
+                           sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
+                           database.ref('/Users/'+ user_id + '/ContextPointes/' + context_id).set({sumOfPoints: sumOfpoints.toString()});
+                       }
+
 
                         return null;
                     }).catch(function(error) {
                         console.log("Error deleting app:", error);
                     });
-
 
                     throw BreakException;
                 }
