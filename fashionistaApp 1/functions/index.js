@@ -270,11 +270,6 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 
                     throw BreakException;
                 }
-
-
-
-
-
             })
         }catch (e) {
             if(e!== BreakException) throw e;
@@ -284,8 +279,6 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     }).catch(function(error) {
         console.log("Error deleting app:", error);
     });
-
-
 });
 
 exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
@@ -298,7 +291,7 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
     const activityDate=data.date;
 
     //console.log("user_id: "+user_id+"action_id: "+action_id+"context_id: "+context_id+"activityDate: "+activityDate);
-    database.ref('/Challenge/').on('value', function(snapshotChallenge) {
+    database.ref('/Challenge/').once('value').then( function(snapshotChallenge) {
         const challengeJSON= snapshotChallenge.val();
     console.log("challengeJSON: ");
     console.log(challengeJSON);
@@ -314,82 +307,107 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                 var actionKeyArray=new Array();
                 var subActionFlag=false;
                 console.log("enter actions on challengeID: "+challengeId);
-                let actionsJSON=null;
-                database.ref('/Challenge/'+challengeId+'/Actions/').on('value',function (snapshotAction) {
-                    actionsJSON = snapshotAction.val();
+                database.ref('/Challenge/'+challengeId+'/Actions/').once('value').then(function (snapshotAction) {
+                   let actionsJSON = snapshotAction.val();
                     console.log("actionsJSON: ");
                     console.log(actionsJSON);
 
              Object.keys(actionsJSON).forEach(function (actionKey) {
                  actionKeyArray.push(actionKey);
                  const actionInChallengeId = actionsJSON[actionKey].action_id;
-                 if(actionInChallengeId === action_id){
+                 if(actionInChallengeId === action_id) {
                      console.log(actionKey);
                      console.log("same action id" + actionInChallengeId);
-
                      //PIC_JSON = ProgressInChallenges
-                     let PIC_JSON=null;
-                 database.ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey+'/').on('value',function (snap_PIC) {
-                     PIC_JSON=snap_PIC.val();
-                     console.log("PIC_JSON: ");
-                     console.log(PIC_JSON);
-                 })
+                     database.ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey + '/').once('value').then( function (snap_PIC) {
+                         let PIC_JSON = snap_PIC.val();
+                         console.log("PIC_JSON: ");
+                         console.log(PIC_JSON);
+
                      // checking if the record is exists or not
-                    if(PIC_JSON === null ){
-                            console.log("amount: "+actionsJSON[actionKey].amount);
-                            if(actionsJSON[actionKey].amount>1)
-                                admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : "1", done: "0"});
-                            else {
-                                admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({count: "1", done: "1"});
-                                subActionFlag = true;
-
-                            }
-                        //checking if not done then count++
-                    }else{
-                        const done=PIC_JSON.done;
-                        console.log("done: "+done);
-                     if( done === "0"){
-                        let count=parseInt( PIC_JSON.count);
-                        count++;
-                        console.log("count: "+count);
-                         if(actionsJSON[actionKey].amount>count)
-                        admin.database().ref('/Users/'+user_id+'/ProgressInChallenges/'+actionKey).set({count : count.toString(),done : "0"});
-                         else {
-                             admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({count: count.toString(), done: "1"});
+                     if (PIC_JSON === null) {
+                         console.log("amount: " + actionsJSON[actionKey].amount);
+                         if (actionsJSON[actionKey].amount > 1)
+                             admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({
+                                 count: "1",
+                                 done: "0"
+                             });
+                         else {//amount=1
+                             admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({
+                                 count: "1",
+                                 done: "1"
+                             });
                              subActionFlag = true;
-                         }
 
+                         }
+                         //checking if not done then count++
+                     } else {
+                         const done = PIC_JSON.done;
+                         console.log("done: " + done);
+                         if (done === "0") {
+                             let count = parseInt(PIC_JSON.count);
+                             count++;
+                             console.log("count: " + count);
+                             if (actionsJSON[actionKey].amount > count)
+                                 admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({
+                                     count: count.toString(),
+                                     done: "0"
+                                 });
+                             else {
+                                 admin.database().ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey).set({
+                                     count: count.toString(),
+                                     done: "1"
+                                 });
+                                 subActionFlag = true;
+                             }
+
+                         }
                      }
-                    }
+                     return;
+                 }).catch(function(error) {
+                 console.log("Error deleting app:", error);
+             });
                  //})
                  }
              })//end of forEach action
-                })//end of actionJSON forEach
+                    return;
+                }).catch(function(error) {
+                    console.log("Error deleting app:", error);
+                });//end of actionJSON forEach
+
+
                 console.log("subActionFlag: "+subActionFlag);
                 var challengeComplete=true;
                 if(subActionFlag){
                     actionKeyArray.forEach(function (actionKey) {
-                        database.ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey+'/done').on('value',function (doneSnapshot) {
-                            var val = doneSnapshot.val();
+                        database.ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey+'/done').once('value').then(function (doneSnapshot) {
+                            let val = doneSnapshot.val();
                             if(val !== "1")
                                 challengeComplete = false;
-                        })
+                            return;
+                        }).catch(function(error) {
+                            console.log("Error deleting app:", error);
+                        });
                     })
                 }else {challengeComplete=false;}
                     console.log("challengeComplete: "+challengeComplete);
+
+                //challenge has been completed, we add the points and badge to the user
                     if(challengeComplete){
                         var points=challengeJSON[challengeId].points;
+                        console.log("points!: ");
+                        console.log(points);
                         var badge=challengeJSON[challengeId].badge_id;
-                        var userPoints=null;
-                        database.ref('/Users/' + user_id + '/Points').on('value',function (pointsSnapshot) {
-                            userPoints = pointsSnapshot.val();
-                        })
-                        userPoints= (parseInt(points)+parseInt(userPoints)).toString();
-                        database.ref('/Users/' + user_id + '/Points').set(userPoints);
-                        console.log("userPoints added: "+userPoints);
-
-
-
+                        database.ref('/Users/' + user_id + '/Points').once('value').then(function (pointsSnapshot) {
+                          let userPointsJSON = pointsSnapshot.val();
+                          userPointsJSON= (parseInt(points)+parseInt(userPointsJSON)).toString();
+                          database.ref('/Users/' + user_id + '/Points').set(userPointsJSON);
+                          console.log("userPointsJSON added: ");
+                          console.log(userPointsJSON);
+                          return;
+                        }).catch(function(error) {
+                            console.log("Error deleting app:", error);
+                        });
                     }
 
 
@@ -399,11 +417,10 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
             //console.log(challengeJSON[challengeId].points);
 
         });//end of challengeJSON forEach
-     }, function (errorObject) {
-         console.log("The read failed: " + errorObject.code);
+        return;
+    }).catch(function(error) { // the firsrt once challengeJSON
+        console.log("Error deleting app:", error);
     });
-
-
     return snapshot;
 });
 

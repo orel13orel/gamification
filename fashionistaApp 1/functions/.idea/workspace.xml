@@ -19,8 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="261" column="137" selection-start-line="261" selection-start-column="137" selection-end-line="261" selection-end-column="137" />
+            <state relative-caret-position="360">
+              <caret line="369" column="21" lean-forward="true" selection-start-line="369" selection-start-column="21" selection-end-line="369" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -142,7 +142,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147372000" />
+    <option name="totallyTimeSpent" value="152229000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -206,8 +206,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="261" column="137" selection-start-line="261" selection-start-column="137" selection-end-line="261" selection-end-column="137" />
+        <state relative-caret-position="360">
+          <caret line="369" column="21" lean-forward="true" selection-start-line="369" selection-start-column="21" selection-end-line="369" selection-end-column="21" />
         </state>
       </provider>
     </entry>
