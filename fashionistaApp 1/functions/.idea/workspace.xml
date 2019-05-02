@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="440" column="144" selection-start-line="440" selection-start-column="144" selection-end-line="440" selection-end-column="144" />
+            <state relative-caret-position="307">
+              <caret line="132" column="23" lean-forward="true" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -59,7 +59,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="22" />
     <option name="width" value="1680" />
     <option name="height" value="944" />
@@ -141,12 +141,12 @@
       <workItem from="1555931963925" duration="550000" />
       <workItem from="1555932538111" duration="2760000" />
       <workItem from="1556780815881" duration="1026000" />
-      <workItem from="1556789260991" duration="6960000" />
+      <workItem from="1556789260991" duration="9766000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162771000" />
+    <option name="totallyTimeSpent" value="165577000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -247,8 +247,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="440" column="144" selection-start-line="440" selection-start-column="144" selection-end-line="440" selection-end-column="144" />
+        <state relative-caret-position="307">
+          <caret line="132" column="23" lean-forward="true" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
         </state>
       </provider>
     </entry>

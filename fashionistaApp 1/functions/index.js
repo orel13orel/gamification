@@ -53,14 +53,13 @@ exports.addActionToChallenge = functions.https.onRequest((req,res)=>{
     });
 });
 
-//receives new badge_name, context_id, isPermanent, photoURL. returns the new badge_id.
+//receives new badge_name, context_id, photoURL. returns the new badge_id.
 exports.addBadge=functions.https.onRequest((req,res)=>{
     let arr=req.query.text.split("/");
     const badge_name=arr[0];
     const context_id = arr[1];
-    const isPermanent = arr[2];
-    const photoUrl = arr[3];
-    return admin.database().ref('/Badges/').push({name: badge_name ,context_id:context_id ,isPermanent:isPermanent, photoUrl: photoUrl}).then((snapshot) => {
+    const photoUrl = arr[2];
+    return admin.database().ref('/Badges/').push({name: badge_name ,context_id:context_id , photoUrl: photoUrl}).then((snapshot) => {
         let arr2 = snapshot.toString().split("/");
         console.log("arr2 : "+arr2);
         console.log("arr2[4] : "+arr2[4]);
@@ -116,7 +115,7 @@ exports.addRp = functions.https.onRequest((req,res)=>{
     let points=arr[2];
 
 
-    return admin.database().ref('/Rp/').push({action_id: action_id , value:value , points: points}).then((snapshot) => {
+    return admin.database().ref('/Rp/').push({action_id: action_id , value: value , points: points}).then((snapshot) => {
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
         let arr2=snapshot.toString().split("/");
         // console.log("arr2 : "+arr2);
@@ -125,16 +124,16 @@ exports.addRp = functions.https.onRequest((req,res)=>{
     });
 });
 
-//receives  badge_id, valueOfPoints, time(in hr). return rule id
+//receives  badge_id, valueOfPoints,context return rule id
 //Rb table
 exports.addRb = functions.https.onRequest((req,res)=>{
     let arr = req.query.text.split("/");
     let badge_id=arr[0];
     let valueOfPoints=arr[1];
-    let time=arr[2];
+    let context=arr[2];
 
 
-    return admin.database().ref('/Rb/').push({badge_id: badge_id , valueOfPoints:valueOfPoints , time: time}).then((snapshot) => {
+    return admin.database().ref('/Rb/').push({badge_id: badge_id , valueOfPoints: valueOfPoints , context: context}).then((snapshot) => {
         // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
         let arr2=snapshot.toString().split("/");
         // console.log("arr2 : "+arr2);
@@ -253,6 +252,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 
                        if(contextPointsJSON === null){
                            database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: RpPoints.toString()});
+                           // call Rb
 
                        }else{
                            var sumOfpoints = contextPointsJSON.sumOfPoints;
@@ -260,7 +260,9 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                            console.log(sumOfpoints);
                            sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
                            database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: sumOfpoints.toString()});
+                           // call Rb
                        }
+
 
 
                         return null;
@@ -281,6 +283,11 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     });
 });
 //function foo(){console.log("blabla");}
+
+
+// exports.Rb = function Rb(userId){
+
+//}
 
 
 
@@ -439,10 +446,6 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                             let photoUrl = badgeJSON.photoUrl;
 
                             database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').set({context_id : context_id , isPermanent:isPermanent, name: badgeName, photoUrl:photoUrl});
-                            
-
-
-
                         return;
                         }).catch(function (error) {
                     console.log("Error deleting app:", error);
