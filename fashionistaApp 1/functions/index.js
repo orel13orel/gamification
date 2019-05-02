@@ -393,6 +393,7 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                 setTimeout( function() {
                     console.log("subActionFlag4: " + subActionFlag);
                     if (subActionFlag) {
+                        //checking if all challenge is complete
                         actionKeyArray.forEach(function (actionKey) {
                             database.ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey + '/done').once('value').then(function (doneSnapshot) {
                                 let val = doneSnapshot.val();
@@ -413,7 +414,9 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         var points = challengeJSON[challengeId].points;
                         console.log("points!: ");
                         console.log(points);
-                        var badge = challengeJSON[challengeId].badge_id;
+                        var badge_id = challengeJSON[challengeId].badge_id;
+                        console.log("badge!: ");
+                        console.log(badge_id);
                         database.ref('/Users/' + user_id + '/Points').once('value').then(function (pointsSnapshot) {
                             let userPointsJSON = pointsSnapshot.val();
                             userPointsJSON = (parseInt(points) + parseInt(userPointsJSON)).toString();
@@ -424,6 +427,26 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         }).catch(function (error) {
                             console.log("Error deleting app:", error);
                         });
+
+                        database.ref( 'Badges/' + badge_id + '/').once('value').then(function(badgeSnap){
+                            let badgeJSON = badgeSnap.val();
+                            console.log("badgeJSON: ");
+                            console.log(badgeJSON);
+
+                            let context_id = badgeJSON.context_id;
+                            let isPermanent = badgeJSON.isPermanent;
+                            let badgeName = badgeJSON.name;
+                            let photoUrl = badgeJSON.photoUrl;
+
+                            database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').set({context_id : context_id , isPermanent:isPermanent, name: badgeName, photoUrl:photoUrl});
+                            
+
+
+
+                        return;
+                        }).catch(function (error) {
+                    console.log("Error deleting app:", error);
+                });
                     }
                   // return;
                 },4000);
