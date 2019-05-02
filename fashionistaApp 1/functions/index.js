@@ -246,20 +246,20 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
             });
 
 
-                    database.ref('/Users/'+ user_id +'/ContextPointes/ֿ'+ context_id+'/' /*+`/sumOfPoints/`*/).once('value').then(function(pointsSnapshot){
+                    database.ref('/Users/'+ user_id +'/ContextPoints/ֿ'+ context_id+'/' /*+`/sumOfPoints/`*/).once('value').then(function(pointsSnapshot){
                        let contextPointsJSON = pointsSnapshot.val();
 
 
 
                        if(contextPointsJSON === null){
-                           database.ref('/Users/'+ user_id + '/ContextPointes/' + context_id).set({sumOfPoints: RpPoints.toString()});
+                           database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: RpPoints.toString()});
 
                        }else{
                            var sumOfpoints = contextPointsJSON.sumOfPoints;
                            sumOfpoints = parseInt(sumOfpoints) + parseInt(RpPoints);
                            console.log(sumOfpoints);
                            sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
-                           database.ref('/Users/'+ user_id + '/ContextPointes/' + context_id).set({sumOfPoints: sumOfpoints.toString()});
+                           database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: sumOfpoints.toString()});
                        }
 
 
@@ -280,7 +280,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
         console.log("Error deleting app:", error);
     });
 });
-
+function foo(){console.log("blabla");}
 exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
     const uerActivityID = context.params.userActivityID;
     //console.log("uerActivityID: "+uerActivityID);
@@ -289,13 +289,14 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
     const context_id=data.context_id;
     const user_id=data.user_id;
     const activityDate=data.date;
+   // function foo(){console.log("blabla");}
 
     //console.log("user_id: "+user_id+"action_id: "+action_id+"context_id: "+context_id+"activityDate: "+activityDate);
     database.ref('/Challenge/').once('value').then( function(snapshotChallenge) {
         const challengeJSON= snapshotChallenge.val();
     console.log("challengeJSON: ");
     console.log(challengeJSON);
-
+        foo();
         //Running on Challenges and check if the date is between start and end time
         Object.keys(challengeJSON).forEach(function (challengeId) {
            // console.log("end_time: "+challengeJSON[challengeId].end_time);
