@@ -18,6 +18,8 @@ admin.initializeApp();
 // Get a database reference to our posts
 const database = admin.database();
 
+//let log=console.log();
+
 //receives new challenge_name, badge_id, start_time, end_time,points. returns the new challenge_id.
 exports.addChallenge=functions.https.onRequest((req,res)=>{
     let arr=req.query.text.split("/");
@@ -285,9 +287,66 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 //function foo(){console.log("blabla");}
 
 
-// exports.Rb = function Rb(userId){
+ exports.Rb = function Rb(userActivityID){
+     //get UserActivity
+     database.ref('/UserActivity/'+userActivityID+'/').once('value').then( function(userActivitySnap) {
+    let userActivityJSON=userActivitySnap.val();
+         console.log("Rb: userActivityJSON");
+         console.log(userActivityJSON);
+    let user_id=userActivityJSON.user_id;
 
-//}
+        //get user sum of points
+         database.ref('/Users/'+user_id+'/').once('value').then( function(userSnap) {
+             let userJSON=userSnapSnap.val();
+             console.log("userJSON");
+             console.log(userJSON);
+             let userPoints=userJSON.points;
+             console.log("userPoints: "+userPoints)
+             //get user's contextPoints
+             database.ref('/Users/'+user_id+'/ContextPointes/').once('value').then( function(contextPointsSnap) {
+                 let contextPointsJSON=contextPointsSnap.val();
+                 console.log("contextPointsJSON");
+                 console.log(contextPointsJSON);
+                //get the badge rule table
+                 database.ref('/Rb/').once('value').then( function(RbSnap) {
+                     let RbJSON=RbSnap.val();
+                     console.log("RbJSON");
+                     console.log(RbJSON);
+
+                     Object.keys(RbJSON).forEach(function (RbKey) {
+                        let Rb_context= RbJSON[RbKey].context;
+
+                        //If the user is entitled to the badge then we will assign it to him else we'll delete the badge from the user's badges
+                         //case context is global
+                         if(Rb_context==="global"){
+
+                         }else if(1){
+
+                         }else {
+                             
+                         }
+                     }
+
+                     return;
+                 }).catch(function (error) {
+                     console.log("RbJSONBlock:Error deleting app inside catch:", error);
+                 });
+
+                 return;
+             }).catch(function (error) {
+                 console.log("contextPointsJSONBlock:Error deleting app inside catch:", error);
+             });
+             return;
+         }).catch(function (error) {
+             console.log("userJSONBlock:Error deleting app inside catch:", error);
+         });
+         return;
+     }).catch(function (error) {
+         console.log("userActivityuJSONBlock:Error deleting app inside catch:", error);
+     });
+
+
+}
 
 
 
