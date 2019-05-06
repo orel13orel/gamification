@@ -260,11 +260,13 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                            //Rb(uerActivityID);
 
                        }else{
-                           var sumOfpoints = contextPointsJSON.sumOfPoints;
-                           sumOfpoints = parseInt(sumOfpoints) + parseInt(RpPoints);
-                           console.log(sumOfpoints);
-                           sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
-                           database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: sumOfpoints.toString()});
+
+                           //neet to be checked 6.5.2019
+                           var sumOfPoints = contextPointsJSON.sumOfPoints;
+                           sumOfPoints = parseInt(sumOfPoints) + parseInt(RpPoints);
+                           console.log(sumOfPoints);
+                           //sumOfPoints= parseInt(sumOfPoints) + parseInt(RpPoints);
+                           database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: sumOfPoints.toString()});
                            // call Rb
                            //Rb(uerActivityID);
                        }
@@ -338,6 +340,8 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                              addBadgeToUser(user_id,badge_id);
                          }else {
                             log("take badge from user");
+
+                             database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').remove();
                          }
 
                      });
