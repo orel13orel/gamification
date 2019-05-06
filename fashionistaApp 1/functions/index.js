@@ -18,7 +18,9 @@ admin.initializeApp();
 // Get a database reference to our posts
 const database = admin.database();
 
-//let log=console.log();
+function log(a) {
+    console.log(a);
+}
 
 //receives new challenge_name, badge_id, start_time, end_time,points. returns the new challenge_id.
 exports.addChallenge=functions.https.onRequest((req,res)=>{
@@ -183,14 +185,14 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     const user_id = data.user_id;
     const activityDate = data.date;
     let Action_count;
-
+    Rb(uerActivityID);
 
 // get Atcion_CounterJSON fron the specific user and specific action
     let ActionCounterJSON=null;
     database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').once(`value`).then(function(snap_ActionCounter){
         ActionCounterJSON=snap_ActionCounter.val();
-        console.log("ActionCounterJSON: ");
-        console.log(ActionCounterJSON);
+        // console.log("ActionCounterJSON: ");
+        // console.log(ActionCounterJSON);
 
 
 // if not exist set counter to 1
@@ -205,7 +207,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
             database.ref('/Users/'+user_id+'/ActionCounter/'+action_id+'/').set({count: Action_count.toString()});
 
         }
-        console.log("Action_count"+Action_count);
+        // console.log("Action_count"+Action_count);
         return;
 
     }).catch(function(error) {
@@ -216,8 +218,8 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 // get RpJSON
     let points = database.ref('/Rp/').once('value').then(function(snap_Rp){
         let RpJSON=snap_Rp.val();
-        console.log("RpJSON: ");
-        console.log(RpJSON);
+        // console.log("RpJSON: ");
+        // console.log(RpJSON);
 
         var BreakException = {};
 
@@ -225,7 +227,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
             // run loop on all keys that exist
             Object.keys(RpJSON).forEach(function (Rpkey) {
                 let RpActionId = RpJSON[Rpkey].action_id;
-                console.log("RpActionId: " + RpActionId);
+                // console.log("RpActionId: " + RpActionId);
 
                 let RpPoints = RpJSON[Rpkey].points;
                 let RpValue = RpJSON[Rpkey].value;
@@ -233,7 +235,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 
                 // cheaking for matching the action_id and action_count(value)
                 if (RpActionId === action_id && RpValue === Action_count.toString()) {
-                    console.log("RpPoints: " + RpPoints);
+                    // console.log("RpPoints: " + RpPoints);
                     points = RpPoints;
                     // Adding points to user
                     database.ref('/Users/'+ user_id + '/Points/').once('value').then(function(pointsSnapshot){
@@ -255,6 +257,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                        if(contextPointsJSON === null){
                            database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: RpPoints.toString()});
                            // call Rb
+                           //Rb(uerActivityID);
 
                        }else{
                            var sumOfpoints = contextPointsJSON.sumOfPoints;
@@ -263,6 +266,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                            sumOfpoints= parseInt(sumOfpoints) + parseInt(RpPoints);
                            database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: sumOfpoints.toString()});
                            // call Rb
+                           //Rb(uerActivityID);
                        }
 
 
@@ -287,7 +291,8 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 //function foo(){console.log("blabla");}
 
 
- exports.Rb = function Rb(userActivityID){
+  function Rb(userActivityID){
+     //console.log("Rb");
      //get UserActivity
      database.ref('/UserActivity/'+userActivityID+'/').once('value').then( function(userActivitySnap) {
     let userActivityJSON=userActivitySnap.val();
@@ -297,37 +302,47 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 
         //get user sum of points
          database.ref('/Users/'+user_id+'/').once('value').then( function(userSnap) {
-             let userJSON=userSnapSnap.val();
-             console.log("userJSON");
+             let userJSON=userSnap.val();
+             console.log("Rb:userJSON");
              console.log(userJSON);
-             let userPoints=userJSON.points;
-             console.log("userPoints: "+userPoints)
+             let userPoints=userJSON.Points;
+             console.log("Rb:userPoints: ");
+             console.log(userPoints);
              //get user's contextPoints
-             database.ref('/Users/'+user_id+'/ContextPointes/').once('value').then( function(contextPointsSnap) {
+             database.ref('/Users/'+user_id+'/ContextPoints/').once('value').then( function(contextPointsSnap) {
                  let contextPointsJSON=contextPointsSnap.val();
-                 console.log("contextPointsJSON");
+                 console.log("Rb:contextPointsJSON");
                  console.log(contextPointsJSON);
                 //get the badge rule table
                  database.ref('/Rb/').once('value').then( function(RbSnap) {
                      let RbJSON=RbSnap.val();
-                     console.log("RbJSON");
+                     console.log("Rb:RbJSON");
                      console.log(RbJSON);
 
                      Object.keys(RbJSON).forEach(function (RbKey) {
                         let Rb_context= RbJSON[RbKey].context;
+                         log("Rb_context");
+                        log(Rb_context);
+                        let Rb_points=RbJSON[RbKey].valueOfPoints;
+                        log("Rb_points");
+                         log(Rb_points);
+                         let badge_id=RbJSON[RbKey].badge_id;
 
                         //If the user is entitled to the badge then we will assign it to him else we'll delete the badge from the user's badges
                          //case context is global
-                         if(Rb_context==="global"){
-
-                         }else if(1){
-
+                         if(Rb_context==="global"&&parseInt(userPoints)>=parseInt(Rb_points)){
+                                log("give badge for global points");
+                                addBadgeToUser(user_id,badge_id);
+                         }else if(Rb_context!=="global"&& (typeof contextPointsJSON[Rb_context]!== 'undefined') &&(parseInt( contextPointsJSON[Rb_context].sumOfPoints)>=parseInt(Rb_points))){
+                                log("give badge for specific context");
+                             addBadgeToUser(user_id,badge_id);
                          }else {
-                             
+                            log("take badge from user");
                          }
-                     }
 
-                     return;
+                     });
+
+                     return ;
                  }).catch(function (error) {
                      console.log("RbJSONBlock:Error deleting app inside catch:", error);
                  });
@@ -493,22 +508,7 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         }).catch(function (error) {
                             console.log("Error deleting app:", error);
                         });
-
-                        database.ref( 'Badges/' + badge_id + '/').once('value').then(function(badgeSnap){
-                            let badgeJSON = badgeSnap.val();
-                            console.log("badgeJSON: ");
-                            console.log(badgeJSON);
-
-                            let context_id = badgeJSON.context_id;
-                            let isPermanent = badgeJSON.isPermanent;
-                            let badgeName = badgeJSON.name;
-                            let photoUrl = badgeJSON.photoUrl;
-
-                            database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').set({context_id : context_id , isPermanent:isPermanent, name: badgeName, photoUrl:photoUrl});
-                        return;
-                        }).catch(function (error) {
-                    console.log("Error deleting app:", error);
-                });
+                        addBadgeToUser(user_id,badge_id);
                     }
                   // return;
                 },4000);
@@ -526,6 +526,24 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
     return snapshot;
 });
 
+
+  function addBadgeToUser(user_id,badge_id) {
+      database.ref( 'Badges/' + badge_id + '/').once('value').then(function(badgeSnap){
+          let badgeJSON = badgeSnap.val();
+          console.log("badgeJSON: ");
+          console.log(badgeJSON);
+
+          let context_id = badgeJSON.context_id;
+
+          let badgeName = badgeJSON.name;
+          let photoUrl = badgeJSON.photoUrl;
+
+          database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').set({context_id : context_id , name: badgeName, photoUrl:photoUrl});
+          return;
+      }).catch(function (error) {
+          console.log("addBadgeToUser: Error deleting app:", error);
+      });
+  }
 // exports.exmple1 = functions.https.onRequest(()=>{
 //     admin.database().ref("/Points/-LaLQsQFUVwKvzJE7G_R").on("value",function (snapshot) {
 //         console.log("answer " +snapshot.val());
