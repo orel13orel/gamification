@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,10 +22,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-498">
-              <caret line="271" column="24" selection-start-line="271" selection-start-column="24" selection-end-line="271" selection-end-column="24" />
+            <state relative-caret-position="474">
+              <caret line="308" column="27" lean-forward="true" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
               <folding>
-                <element signature="e#14116#23604#0" />
+                <element signature="e#11179#14585#0" />
               </folding>
             </state>
           </provider>
@@ -54,6 +55,9 @@
       <find>call</find>
       <find>ContextPointes</find>
       <find>ContextPoints</find>
+      <find>badgeJSON:</find>
+      <find>points</find>
+      <find>uerActivityID</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -77,7 +81,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -89,6 +92,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -150,12 +154,13 @@
       <workItem from="1556780815881" duration="1026000" />
       <workItem from="1556789260991" duration="9766000" />
       <workItem from="1557043459243" duration="9842000" />
-      <workItem from="1557127396137" duration="16079000" />
+      <workItem from="1557127396137" duration="16987000" />
+      <workItem from="1557219868652" duration="11308000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191498000" />
+    <option name="totallyTimeSpent" value="203714000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -185,8 +190,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.752809" visible="true" weight="0.041899443" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.24719101" side_tool="true" visible="true" weight="0.041899443" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.75214803" visible="true" weight="0.041899443" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.24785195" side_tool="true" visible="true" weight="0.041899443" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4970258" weight="0.07122905" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -250,10 +255,10 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-498">
-          <caret line="271" column="24" selection-start-line="271" selection-start-column="24" selection-end-line="271" selection-end-column="24" />
+        <state relative-caret-position="474">
+          <caret line="308" column="27" lean-forward="true" selection-start-line="308" selection-start-column="27" selection-end-line="308" selection-end-column="27" />
           <folding>
-            <element signature="e#14116#23604#0" />
+            <element signature="e#11179#14585#0" />
           </folding>
         </state>
       </provider>

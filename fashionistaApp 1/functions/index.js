@@ -155,7 +155,7 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
     const date= new Date().toDateString();
     console.log(date);
     //get the action count for the user
-    return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date}).then((snapshot) => {
+    return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date,points:"0"}).then((snapshot) => {
 
         let arr2=snapshot.toString().split("/");
 
@@ -163,6 +163,55 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
     });
 
      });
+function getRndInteger(min, max) {return Math.floor(Math.random() * (max - min) ) + min;}
+
+exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
+    let days =parseInt( req.query.text);
+    let user_id="5jU7ajzY1RgWgVwFtxJqDTo5Xxn1";
+    var date= new Date();
+    //contexts id:
+    //action id:
+    let post_id_c="-Lbr-1NUNlyOVz4qRj2p";
+    let post_id_a="-Lbr4afUT1Q8GM8Wfzhm";
+    let commentMe_id_a="-LbvZ-DDBmNVfJkwqpws";
+    let likeMe_id_a= "-LbvZ2ReJ1ZmcNcAS1gD";
+
+    let signUp_id_c= "-LbvUlLRn6ElLrj62YSS";
+
+    let login_id_c ="-LbvUu_fYK9MPENSQYtj";
+    let login_id_a="-LbvWSJ6Nb0S79-6jtsh";
+    let invite_id_a ="-LbvWc8oL5zk-HCzaMaz";
+
+    let profile_id_c="-LbvV5DHAybGUXNPS-0E";
+    let following_id_a="-LbvWyZ2Di1p1jo3pOZR";
+    let followers_id_a="-LbvX84LDLtxAgUSQ375";
+
+    let feed_id_c ="-LbvV8kDuZdkQM37TTNC";
+    let comment_id_a="-LbvYT3xx6_xEKR7FDon";
+    let like_id_a="-LbvYYqvdtNg7LsOK_Gy";
+
+
+
+    for (var i=0;i<days;i++) {
+        date.setDate(date.getDate() + 1);
+        //action login
+
+
+        //get the action count for the user
+        database.ref('/UserActivity/').push({
+            user_id: user_id,
+            action_id: action_id,
+            context_id: context_id,
+            date: date
+        });
+    }
+
+        return res.redirect(303,"done");
+
+
+});
+
+
 // exports.addUserActivity = functions.https.onCall((data, context) => {
 //     let arr = data.text.split("/");
 //     let user_id=arr[0];
@@ -177,7 +226,7 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
 
 //RP function
 exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
-    const uerActivityID = context.params.userActivityID;
+    const userActivityID = context.params.userActivityID;
     //console.log("uerActivityID: "+uerActivityID);
     const data = snapshot.val();
     const action_id = data.action_id;
@@ -185,7 +234,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
     const user_id = data.user_id;
     const activityDate = data.date;
     let Action_count;
-    Rb(uerActivityID);
+    //Rb(uerActivityID);
 
 // get Atcion_CounterJSON fron the specific user and specific action
     let ActionCounterJSON=null;
@@ -237,10 +286,12 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                 if (RpActionId === action_id && RpValue === Action_count.toString()) {
                     // console.log("RpPoints: " + RpPoints);
                     points = RpPoints;
+                    addPointsToUserActivity(points,userActivityID)
                     // Adding points to user
                     database.ref('/Users/'+ user_id + '/Points/').once('value').then(function(pointsSnapshot){
                         var userPoints = pointsSnapshot.val();
-                        userPoints=userPoints + parseInt(RpPoints);
+                        userPoints=parseInt(userPoints) + parseInt(RpPoints);
+                        log(userPoints);
                         database.ref('/Users/'+ user_id + '/Points/').set(userPoints);
 
                         return null;
@@ -248,27 +299,29 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                 console.log("Error deleting app:", error);
             });
 
-
-                    database.ref('/Users/'+ user_id +'/ContextPoints/ֿ'+ context_id+'/' /*+`/sumOfPoints/`*/).once('value').then(function(pointsSnapshot){
-                       let contextPointsJSON = pointsSnapshot.val();
-
-
-
-                       if(contextPointsJSON === null){
+                    log("context_id");
+                    log(context_id);
+                    database.ref('/Users/'+user_id+'/ContextPoints/'+context_id+'/sumOfPoints/').once('value').then(function (pointsSnapshot) {
+                       let userSumOfPoints = pointsSnapshot.val();
+                        log("userSumOfPoints:");
+                        log(userSumOfPoints);
+                       if(userSumOfPoints === null){
+                           
                            database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: RpPoints.toString()});
                            // call Rb
-                           //Rb(uerActivityID);
+                           Rb(userActivityID);
 
                        }else{
 
-                           //neet to be checked 6.5.2019
-                           var sumOfPoints = contextPointsJSON.sumOfPoints;
-                           sumOfPoints = parseInt(sumOfPoints) + parseInt(RpPoints);
-                           console.log(sumOfPoints);
+                           log("userSumOfPoints before:");
+                           log(userSumOfPoints);
+                           userSumOfPoints = parseInt(userSumOfPoints) + parseInt(RpPoints);
+                           log("userSumOfPoints after:");
+                           console.log(userSumOfPoints);
                            //sumOfPoints= parseInt(sumOfPoints) + parseInt(RpPoints);
-                           database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: sumOfPoints.toString()});
+                           database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: userSumOfPoints.toString()});
                            // call Rb
-                           //Rb(uerActivityID);
+                           Rb(userActivityID);
                        }
 
 
@@ -298,48 +351,48 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
      //get UserActivity
      database.ref('/UserActivity/'+userActivityID+'/').once('value').then( function(userActivitySnap) {
     let userActivityJSON=userActivitySnap.val();
-         console.log("Rb: userActivityJSON");
-         console.log(userActivityJSON);
+         //console.log("Rb: userActivityJSON");
+         //console.log(userActivityJSON);
     let user_id=userActivityJSON.user_id;
 
         //get user sum of points
          database.ref('/Users/'+user_id+'/').once('value').then( function(userSnap) {
              let userJSON=userSnap.val();
-             console.log("Rb:userJSON");
-             console.log(userJSON);
+             //console.log("Rb:userJSON");
+             //console.log(userJSON);
              let userPoints=userJSON.Points;
-             console.log("Rb:userPoints: ");
-             console.log(userPoints);
+             //console.log("Rb:userPoints: ");
+             //console.log(userPoints);
              //get user's contextPoints
              database.ref('/Users/'+user_id+'/ContextPoints/').once('value').then( function(contextPointsSnap) {
                  let contextPointsJSON=contextPointsSnap.val();
-                 console.log("Rb:contextPointsJSON");
-                 console.log(contextPointsJSON);
+                 //console.log("Rb:contextPointsJSON");
+                 //console.log(contextPointsJSON);
                 //get the badge rule table
                  database.ref('/Rb/').once('value').then( function(RbSnap) {
                      let RbJSON=RbSnap.val();
-                     console.log("Rb:RbJSON");
-                     console.log(RbJSON);
+                     // console.log("Rb:RbJSON");
+                     //console.log(RbJSON);
 
                      Object.keys(RbJSON).forEach(function (RbKey) {
                         let Rb_context= RbJSON[RbKey].context;
-                         log("Rb_context");
-                        log(Rb_context);
+                         // log("Rb_context");
+                         //log(Rb_context);
                         let Rb_points=RbJSON[RbKey].valueOfPoints;
-                        log("Rb_points");
-                         log(Rb_points);
+                         // log("Rb_points");
+                         //log(Rb_points);
                          let badge_id=RbJSON[RbKey].badge_id;
 
                         //If the user is entitled to the badge then we will assign it to him else we'll delete the badge from the user's badges
                          //case context is global
                          if(Rb_context==="global"&&parseInt(userPoints)>=parseInt(Rb_points)){
-                                log("give badge for global points");
+                             // log("give badge for global points");
                                 addBadgeToUser(user_id,badge_id);
                          }else if(Rb_context!=="global"&& (typeof contextPointsJSON[Rb_context]!== 'undefined') &&(parseInt( contextPointsJSON[Rb_context].sumOfPoints)>=parseInt(Rb_points))){
-                                log("give badge for specific context");
+                             // log("give badge for specific context");
                              addBadgeToUser(user_id,badge_id);
                          }else {
-                            log("take badge from user");
+                             //  log("take badge from user");
 
                              database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').remove();
                          }
@@ -371,7 +424,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
 
 
 exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').onCreate((snapshot,context) => {
-    const uerActivityID = context.params.userActivityID;
+    const userActivityID = context.params.userActivityID;
     //console.log("uerActivityID: "+uerActivityID);
     const data=snapshot.val();
     const action_id=data.action_id;
@@ -502,16 +555,21 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         var badge_id = challengeJSON[challengeId].badge_id;
                         console.log("badge!: ");
                         console.log(badge_id);
+                        //add points to user
                         database.ref('/Users/' + user_id + '/Points').once('value').then(function (pointsSnapshot) {
                             let userPointsJSON = pointsSnapshot.val();
                             userPointsJSON = (parseInt(points) + parseInt(userPointsJSON)).toString();
                             database.ref('/Users/' + user_id + '/Points').set(userPointsJSON);
                             console.log("userPointsJSON added: ");
                             console.log(userPointsJSON);
+
                             return;
                         }).catch(function (error) {
                             console.log("Error deleting app:", error);
                         });
+                        //add points to userActivity
+                        addPointsToUserActivity(points,userActivityID);
+
                         addBadgeToUser(user_id,badge_id);
                     }
                   // return;
@@ -534,8 +592,8 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
   function addBadgeToUser(user_id,badge_id) {
       database.ref( 'Badges/' + badge_id + '/').once('value').then(function(badgeSnap){
           let badgeJSON = badgeSnap.val();
-          console.log("badgeJSON: ");
-          console.log(badgeJSON);
+          //console.log("badgeJSON: ");
+          //console.log(badgeJSON);
 
           let context_id = badgeJSON.context_id;
 
@@ -548,6 +606,23 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
           console.log("addBadgeToUser: Error deleting app:", error);
       });
   }
+
+  function addPointsToUserActivity(points, userActivityID) {
+
+      database.ref('/UserActivity/' + userActivityID + '/points').once('value').then(function (activityPointsSnapshot) {
+          let activityPointsJSON = activityPointsSnapshot.val();
+          let activityPoints = (parseInt(points) + parseInt(activityPointsJSON)).toString();
+          database.ref('/UserActivity/' + userActivityID + '/points').set(activityPoints);
+          console.log("activityPoints added: ");
+          console.log(activityPoints);
+
+          return;
+      }).catch(function (error) {
+          console.log("Error deleting app:", error);
+      });
+
+  }
+
 // exports.exmple1 = functions.https.onRequest(()=>{
 //     admin.database().ref("/Points/-LaLQsQFUVwKvzJE7G_R").on("value",function (snapshot) {
 //         console.log("answer " +snapshot.val());
