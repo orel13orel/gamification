@@ -156,17 +156,28 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
     console.log(date);
     //get the action count for the user
     return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date,points:"0"}).then((snapshot) => {
-
         let arr2=snapshot.toString().split("/");
-
         return res.redirect(303, arr2[4]);
     });
 
      });
-function getRndInteger(min, max) {return Math.floor(Math.random() * (max - min) ) + min;}
+//function getRndInteger(min, max) {return Math.floor(Math.random() * (max - min) ) + min;}
+function addActivity(user_id,action_id,context_id,date) {
+    setTimeout(function () {
+        database.ref('/UserActivity/').push({
+            user_id: user_id,
+            action_id: action_id,
+            context_id: context_id,
+            date: date,
+            points:"0"
+        });
+    },4000);
 
+
+}
 exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let days =parseInt( req.query.text);
+    log("days: "+days);
     let user_id="5jU7ajzY1RgWgVwFtxJqDTo5Xxn1";
     var date= new Date();
     //contexts id:
@@ -175,8 +186,6 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let post_id_a="-Lbr4afUT1Q8GM8Wfzhm";
     let commentMe_id_a="-LbvZ-DDBmNVfJkwqpws";
     let likeMe_id_a= "-LbvZ2ReJ1ZmcNcAS1gD";
-
-    let signUp_id_c= "-LbvUlLRn6ElLrj62YSS";
 
     let login_id_c ="-LbvUu_fYK9MPENSQYtj";
     let login_id_a="-LbvWSJ6Nb0S79-6jtsh";
@@ -190,21 +199,93 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let comment_id_a="-LbvYT3xx6_xEKR7FDon";
     let like_id_a="-LbvYYqvdtNg7LsOK_Gy";
 
+    let exponential = 2.718281828;
+
 
 
     for (var i=0;i<days;i++) {
         date.setDate(date.getDate() + 1);
         //action login
+        log("today: "+date);
+       admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:post_id_a ,context_id:post_id_c, date:date.toDateString(),points:"0"});
 
 
-        //get the action count for the user
-        database.ref('/UserActivity/').push({
-            user_id: user_id,
-            action_id: action_id,
-            context_id: context_id,
-            date: date
-        });
+        //let numOfPostsPerDay=poisson(i,post_landa);
+        //log("numOfPostsPerDay: "+numOfPostsPerDay);
+       // for(var j=0;j<numOfPostsPerDay;j++) {
+       //  setTimeout(function () {
+       //      database.ref('/UserActivity/').push({
+       //          user_id: user_id,
+       //          action_id: login_id_a,
+       //          context_id: login_id_c,
+       //          date: date,
+       //          points:"0"
+       //      });
+       //  },2000);
+        // setTimeout(function () {
+        //     database.ref('/UserActivity/').push({
+        //         user_id: user_id,
+        //         action_id: post_id_a,
+        //         context_id: post_id_c,
+        //         date: date,
+        //         points:"0"
+        //     });
+        // },4000);
+            //
+            // addActivity(user_id,login_id_a,login_id_c,date);
+            // addActivity(user_id,post_id_a,post_id_c,date);
+            // addActivity(user_id,post_id_a,post_id_c,date);
+            // addActivity(user_id,comment_id_a,feed_id_c,date);
+            // addActivity(user_id,comment_id_a,feed_id_c,date);
+            // addActivity(user_id,like_id_a,feed_id_c,date);
+            //  addActivity(user_id,like_id_a,feed_id_c,date);
+            //   addActivity(user_id,like_id_a,feed_id_c,date);
+            //  addActivity(user_id,like_id_a,feed_id_c,date);
+            // addActivity(user_id,following_id_a,profile_id_c,date);
+            // addActivity(user_id,followers_id_a,profile_id_c,date);
+            // addActivity(user_id,likeMe_id_a,post_id_c,date);
+
+            //1 login, 2 post,2 comment,4 like, 2 following, 1 likeMe
+
+
+
+
+       // }
     }
+
+
+
+    //var k_total = 10; // number of times the event is repeated
+    //var landa = 8;  // Promedian number of error expected in a given time (Landa symbol)
+    // let exponential = 2.718281828;
+   // var total = 0;
+   // var numerator, denominator;
+
+// Sumatorio de k terminos usando la formula de poisson
+
+    function poisson(k, landa) {
+       var exponentialPower = Math.pow(exponential, -landa); // negative power k
+       var landaPowerK = Math.pow(landa, k); // Landa elevated k
+        numerator = exponentialPower * landaPowerK;
+        denominator = fact(k); // factorial of k.
+
+        return (numerator / denominator);
+    }
+    function fact(x) {
+        if(x===0) {
+            return 1;
+        }
+        return x * fact(x-1);
+    }
+    // for (var i = 0; i < k_total; i++) {
+    //     total += poisson(i, landa);
+    // }
+    //
+    // console.log("Total sum is " + total);
+
+
+
+
 
         return res.redirect(303,"done");
 
@@ -535,6 +616,8 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                         actionKeyArray.forEach(function (actionKey) {
                             database.ref('/Users/' + user_id + '/ProgressInChallenges/' + actionKey + '/done').once('value').then(function (doneSnapshot) {
                                 let val = doneSnapshot.val();
+                                log("doneSnapshot.val");
+                                log(val);
                                 if (val !== "1")
                                     challengeComplete = false;
                                 return;
@@ -545,33 +628,37 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                     } else {
                         challengeComplete = false;
                     }
-                    console.log("challengeComplete: " + challengeComplete);
+
 
                     //challenge has been completed, we add the points and badge to the user
-                    if (challengeComplete) {
-                        var points = challengeJSON[challengeId].points;
-                        console.log("points!: ");
-                        console.log(points);
-                        var badge_id = challengeJSON[challengeId].badge_id;
-                        console.log("badge!: ");
-                        console.log(badge_id);
-                        //add points to user
-                        database.ref('/Users/' + user_id + '/Points').once('value').then(function (pointsSnapshot) {
-                            let userPointsJSON = pointsSnapshot.val();
-                            userPointsJSON = (parseInt(points) + parseInt(userPointsJSON)).toString();
-                            database.ref('/Users/' + user_id + '/Points').set(userPointsJSON);
-                            console.log("userPointsJSON added: ");
-                            console.log(userPointsJSON);
+                    setTimeout(function () {
+                        console.log("challengeComplete: " + challengeComplete);
+                        if (challengeComplete) {
+                            console.log("challengeComplete22: " + challengeComplete);
+                            var points = challengeJSON[challengeId].points;
+                            console.log("points!: ");
+                            console.log(points);
+                            var badge_id = challengeJSON[challengeId].badge_id;
+                            console.log("badge!: ");
+                            console.log(badge_id);
+                            //add points to user
+                            database.ref('/Users/' + user_id + '/Points').once('value').then(function (pointsSnapshot) {
+                                let userPointsJSON = pointsSnapshot.val();
+                                userPointsJSON = (parseInt(points) + parseInt(userPointsJSON)).toString();
+                                database.ref('/Users/' + user_id + '/Points').set(userPointsJSON);
+                                console.log("userPointsJSON added: ");
+                                console.log(userPointsJSON);
 
-                            return;
-                        }).catch(function (error) {
-                            console.log("Error deleting app:", error);
-                        });
-                        //add points to userActivity
-                        addPointsToUserActivity(points,userActivityID);
-
-                        addBadgeToUser(user_id,badge_id);
-                    }
+                                return;
+                            }).catch(function (error) {
+                                console.log("Error deleting app:", error);
+                            });
+                            //add points to userActivity
+                            addPointsToUserActivity(points, userActivityID);
+                            Rb(userActivityID);
+                            addBadgeToUser(user_id, badge_id);
+                        }
+                    },4000);
                   // return;
                 },4000);
                 //setTimeout(func(), 10000);
