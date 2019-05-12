@@ -18,9 +18,6 @@ class User{
     var profilePicture: String?
     var id: String?
     var isfollowing: Bool?
-    var sumOfPoints: Int?
-    var badges: [Badge]?
-    
 
 }
 extension User{
@@ -31,9 +28,6 @@ extension User{
         user.Password = dict["Password" ] as? String
         user.Username = dict["Username" ] as? String
         user.profilePicture = dict["profilePicture" ] as? String
-        user.sumOfPoints = dict["SumOfPoints"] as? Int
-        user.badges = dict["Badge"] as? [Badge]
-        //user.badges?.append(dict)
         user.id = key
         return user
     }

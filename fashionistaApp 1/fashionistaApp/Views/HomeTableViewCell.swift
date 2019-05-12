@@ -12,6 +12,13 @@ import FirebaseAuth
 
 import ProgressHUD
 
+protocol HomeTableViewCellDelegate {
+    func goToCommentVC(postId: String)
+    func goToLocationVC(postId: String)
+    func goToProfileUserVC(userId: String)
+}
+
+
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var ProfileImageView: UIImageView!
@@ -24,7 +31,8 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var LocationImageView: UIImageView!
     
-    var homeVC : HomeViewController?
+    var delegate: HomeTableViewCellDelegate?
+   // var homeVC : HomeViewController?
     var postRef : DatabaseReference!
     
     var post: Post? {
@@ -108,12 +116,25 @@ class HomeTableViewCell: UITableViewCell {
         LikeImageView.addGestureRecognizer(TapGestureLikeImageView)
         LikeImageView.isUserInteractionEnabled = true
         
+        let TapGestureForNameLabel = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_Btn))
+        LabelName.addGestureRecognizer(TapGestureForNameLabel)
+        LabelName.isUserInteractionEnabled = true
+    }
+    
+  
+    
+    @objc func nameLabel_Btn() {
+        if let id = user?.id {
+            delegate?.goToProfileUserVC(userId: id)
+            //            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+        }
     }
     
     @objc func LocationImageView_TouchUpInside(){
         print("LocationImageView_TouchUpInside")
         if let id = post?.id{
-            homeVC?.performSegue(withIdentifier: "LocationSegue", sender: id)
+                delegate?.goToLocationVC(postId: id)
+ //           homeVC?.performSegue(withIdentifier: "LocationSegue", sender: id)
         }
         
     }
@@ -161,7 +182,8 @@ class HomeTableViewCell: UITableViewCell {
     @objc func CommentImageView_Btn() {
         print("CommentImageView_Btn")
         if let id = post?.id {
-            homeVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
+            delegate?.goToCommentVC(postId: id)
+          //  homeVC?.performSegue(withIdentifier: "CommentSegue", sender: id)
 
         }
     }
@@ -172,3 +194,6 @@ class HomeTableViewCell: UITableViewCell {
     }
 
 }
+
+
+

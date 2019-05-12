@@ -43,15 +43,16 @@ class PostLocationViewController: UIViewController  {
             
             
             
-            
+        
             let camera = GMSCameraPosition.camera(withLatitude: post.lat!, longitude: post.long!, zoom: 10.0)
+            
             //let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
             self.map.camera = camera
-
+            
             let marker = GMSMarker(position: CLLocationCoordinate2D(latitude: post.lat!, longitude: post.long!))
 
             self.map.selectedMarker = marker
-            
+        
 //            let camera = GMSCameraPosition.camera(withLatitude: post.lat!, longitude: post.long!, zoom: 6.0)
 //            let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
 //            self.map.camera = camera

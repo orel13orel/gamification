@@ -18,7 +18,7 @@ class Post{
     var LikeCount : Int?
     var likes : Dictionary<String, Any>?
     var isLiked : Bool?
-    var lat : Double?
+    var lat : Double? 
     var long : Double?
 }
 

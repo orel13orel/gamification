@@ -44,6 +44,16 @@ class DiscoverViewController: UIViewController {
     func Isfollowing(userId: String, completed: @escaping(Bool)->Void) {
         API.Follow.Isfollowing(userId: userId, completed: completed)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Search_ProfileSeque" {
+            let profileVC = segue.destination as! ProfileUserViewController
+            let userid = sender as! String
+            profileVC.userId = userid
+            profileVC.delegate = self
+        }
+    }
+    
 }
 
 extension DiscoverViewController: UISearchBarDelegate {
@@ -63,6 +73,23 @@ extension DiscoverViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiscoverUserTableViewCell", for: indexPath) as! DiscoverUserTableViewCell
         let user = users[indexPath.row]
         cell.user = user
+        cell.delegate = self
         return cell
+    }
+}
+extension DiscoverViewController: DiscoverUserTableViewCellDelegate {
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "Search_ProfileSeque", sender: userId)
+    }
+}
+
+extension DiscoverViewController: HeaderProfileCollectionReusableViewDelegate {
+    func updateFollowBtn(forUser user: User) {
+        for u in self.users {
+            if u.id == user.id {
+                u.isfollowing = user.isfollowing
+                self.tableView.reloadData()
+            }
+        }
     }
 }

@@ -306,7 +306,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                         log("userSumOfPoints:");
                         log(userSumOfPoints);
                        if(userSumOfPoints === null){
-                           
+
                            database.ref('/Users/'+ user_id + '/ContextPoints/' + context_id).set({sumOfPoints: RpPoints.toString()});
                            // call Rb
                            Rb(userActivityID);

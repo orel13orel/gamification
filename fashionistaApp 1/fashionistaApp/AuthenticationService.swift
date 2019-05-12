@@ -30,7 +30,6 @@ class AuthenticationService {
                 return
             }
             
-            
             let uid = authResult?.user.uid
             
             let storageRef = Storage.storage().reference(forURL: configuration.Conf_storage_root).child("profile_pictures").child(uid!)
@@ -49,13 +48,47 @@ class AuthenticationService {
         let ref = Database.database().reference()
         let usersRef = ref.child("Users")
         let newUserRef = usersRef.child(uid)
-       	 let newBadge = newUserRef.child("Badge")
-        let newBadgeid = newBadge.childByAutoId().key
-        let newBadgeRef = newBadge.child(newBadgeid!)
-        
-        
-        newUserRef.setValue(["FullName" : fullName , "Username" : username , "Username_lowercase" : username.lowercased()  , "Email" : email , "Password" : password, "profilePicture" : profileimageurl,"SumOfPoints" : "0" ])
-        newBadgeRef.setValue(["Caption" : "","PhotoUrl" : "" , ])
+        newUserRef.setValue(["FullName" : fullName , "Username" : username , "Username_lowercase" : username.lowercased()  , "Email" : email , "Password" : password, "profilePicture" : profileimageurl ])
         onSuccess()
     }
+    
+    
+    static func updateUserInfo(username: String, email: String,  imageData: Data, onSuccess: @escaping ()-> Void, onError: @escaping (_ errorMessage: String?)-> Void) {
+       
+        Auth.auth().currentUser?.updateEmail(to: email, completion: { (error) in
+            if error != nil {
+                onError(error?.localizedDescription)
+            } else {
+                let uid = Auth.auth().currentUser?.uid
+                let storageRef = Storage.storage().reference(forURL: configuration.Conf_storage_root).child("profile_pictures").child(uid!)
+                storageRef.putData(imageData, metadata: nil, completion: { (metadata, error) in
+                    if error != nil {
+                        return
+                    }
+                    storageRef.downloadURL(completion: { (url: URL?, error: Error?) in
+                        let profileimageurl = url?.absoluteString
+                        
+                        self.updateDatabase(profileimageurl: profileimageurl!, username: username, email: email, onSuccess: onSuccess, onError: onError)
+                    })
+                    
+                })
+            }
+        })
+    }
+    
+    
+    static  func updateDatabase(profileimageurl: String, username: String, email: String,  onSuccess: @escaping ()-> Void, onError: @escaping (_ errorMessage: String?)-> Void) {
+     
+        let dict = ["Username" : username , "Username_lowercase" : username.lowercased()  , "Email" : email , "profilePicture" : profileimageurl ]
+        API.User.Ref_users.child((Auth.auth().currentUser?.uid)!).updateChildValues(dict, withCompletionBlock: { (error,ref) in
+            if error != nil {
+              onError(error?.localizedDescription)
+            } else {
+              onSuccess()
+            }
+    })
+
+
+    }
+    
 }

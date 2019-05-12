@@ -9,12 +9,17 @@
 import UIKit
 import FirebaseAuth
 
+protocol DiscoverUserTableViewCellDelegate {
+    func goToProfileUserVC(userId: String)
+}
+
 class DiscoverUserTableViewCell: UITableViewCell {
 
     @IBOutlet weak var ProfileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var followBTN: UIButton!
     
+    var delegate : DiscoverUserTableViewCellDelegate?
     var user: User? {
         didSet {
             updateView()
@@ -82,7 +87,16 @@ class DiscoverUserTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-   
+        let TapGesture = UITapGestureRecognizer(target: self, action: #selector(self.nameLabel_Btn))
+        nameLabel.addGestureRecognizer(TapGesture)
+        nameLabel.isUserInteractionEnabled = true
+    }
+    
+    @objc func nameLabel_Btn() {
+        if let id = user?.id {
+            delegate?.goToProfileUserVC(userId: id)
+//            peopleVC?.performSegue(withIdentifier: "ProfileSegue", sender: id)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

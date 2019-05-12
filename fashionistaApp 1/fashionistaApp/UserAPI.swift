@@ -58,7 +58,7 @@ class UserAPI {
             snapshot.children.forEach({ (s) in
                 let child = s as! DataSnapshot
                 if let dict = child.value as? [String: Any] {
-                    let user = User.TransformUser(dict:dict, key: snapshot.key)
+                    let user = User.TransformUser(dict:dict, key: child.key)
                     if user.id! != Auth.auth().currentUser?.uid {
                         complete(user)
                     }

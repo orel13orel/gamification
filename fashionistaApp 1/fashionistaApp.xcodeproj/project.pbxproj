@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2973EF7C12BBD25DE93DD9A9 /* Pods_fashionistaAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D1C27458CBE62BABCE499B0 /* Pods_fashionistaAppTests.framework */; };
-		35EBA090223139330057438C /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EBA08F223139330057438C /* Point.swift */; };
-		35EBA09222313ADE0057438C /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EBA09122313ADE0057438C /* Badge.swift */; };
-		35EBA094223143720057438C /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EBA093223143720057438C /* Action.swift */; };
-		35EBA096223146080057438C /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EBA095223146080057438C /* Context.swift */; };
 		3D3F8C5821BFC90200705DB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C5721BFC90200705DB8 /* AppDelegate.swift */; };
 		3D3F8C5A21BFC90200705DB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3F8C5921BFC90200705DB8 /* ViewController.swift */; };
 		3D3F8C5D21BFC90200705DB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3F8C5B21BFC90200705DB8 /* Main.storyboard */; };
@@ -33,6 +29,11 @@
 		84178FCB21D00653005204EA /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84178FCA21D00653005204EA /* AuthenticationService.swift */; };
 		84178FCD21D01C85005204EA /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84178FCC21D01C85005204EA /* Configuration.swift */; };
 		84178FD421D28605005204EA /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84178FD321D28605005204EA /* Post.swift */; };
+		8431E3752270C97D00042D61 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8431E3742270C97D00042D61 /* ProfileUserViewController.swift */; };
+		8433038222770E35009816FD /* SAButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8433038122770E35009816FD /* SAButton.swift */; };
+		8433038422771816009816FD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8433038322771816009816FD /* MessageUI.framework */; };
+		843303862277303B009816FD /* InviteAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843303852277303B009816FD /* InviteAPI.swift */; };
+		84330388227732BC009816FD /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84330387227732BC009816FD /* Invite.swift */; };
 		848ADC7A21C03B390047128B /* start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC7821C03B390047128B /* start.storyboard */; };
 		848ADC7D21C03D760047128B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC7B21C03D760047128B /* Home.storyboard */; };
 		848ADC7F21C03E070047128B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC7E21C03E070047128B /* Search.storyboard */; };
@@ -40,6 +41,7 @@
 		848ADC8421C03E5C0047128B /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8321C03E5C0047128B /* Profile.storyboard */; };
 		848ADC8821C05D0C0047128B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 848ADC8721C05D0C0047128B /* GoogleService-Info.plist */; };
 		849BFD602207488700C44D33 /* MyLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849BFD5F2207488700C44D33 /* MyLocationViewController.swift */; };
+		84A744D52275C4A500825584 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A744D42275C4A500825584 /* SettingTableViewController.swift */; };
 		84ACFF7321FFC541001CCD15 /* NotificationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7221FFC541001CCD15 /* NotificationApi.swift */; };
 		84ACFF7521FFC970001CCD15 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7421FFC970001CCD15 /* Notification.swift */; };
 		84ACFF7722030528001CCD15 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84ACFF7622030528001CCD15 /* ActivityViewController.swift */; };
@@ -85,10 +87,6 @@
 		21B556750C61E8355ADAF3C6 /* Pods-fashionistaAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaAppUITests/Pods-fashionistaAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		23B7CC48DD152B7821BBF917 /* Pods-fashionistaAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaAppUITests/Pods-fashionistaAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		29FFDC864FBA9F605F6508C8 /* Pods-fashionistaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fashionistaApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-fashionistaApp/Pods-fashionistaApp.release.xcconfig"; sourceTree = "<group>"; };
-		35EBA08F223139330057438C /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
-		35EBA09122313ADE0057438C /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
-		35EBA093223143720057438C /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
-		35EBA095223146080057438C /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		3D0B84622210A18400CC98CD /* fashionistaApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fashionistaApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D1C27458CBE62BABCE499B0 /* Pods_fashionistaAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fashionistaAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3F8C5421BFC90200705DB8 /* fashionistaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fashionistaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +118,11 @@
 		84178FCC21D01C85005204EA /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		84178FCE21D146CF005204EA /* ProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressHUD.h; sourceTree = "<group>"; };
 		84178FD321D28605005204EA /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8431E3742270C97D00042D61 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileUserViewController.swift; sourceTree = "<group>"; };
+		8433038122770E35009816FD /* SAButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAButton.swift; sourceTree = "<group>"; };
+		8433038322771816009816FD /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		843303852277303B009816FD /* InviteAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteAPI.swift; sourceTree = "<group>"; };
+		84330387227732BC009816FD /* Invite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
 		848ADC7921C03B390047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/Base.lproj/start.storyboard; sourceTree = "<group>"; };
 		848ADC7C21C03D760047128B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = fashionistaApp/fashionistaApp/Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		848ADC7E21C03E070047128B /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		848ADC8321C03E5C0047128B /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		848ADC8721C05D0C0047128B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		849BFD5F2207488700C44D33 /* MyLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationViewController.swift; sourceTree = "<group>"; };
+		84A744D42275C4A500825584 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		84ACFF7221FFC541001CCD15 /* NotificationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationApi.swift; sourceTree = "<group>"; };
 		84ACFF7421FFC970001CCD15 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		84ACFF7622030528001CCD15 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8433038422771816009816FD /* MessageUI.framework in Frameworks */,
 				4B2A854676D69C390DA34B2F /* Pods_fashionistaApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,21 +186,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		35EBA08E223138DD0057438C /* GamificationModel */ = {
-			isa = PBXGroup;
-			children = (
-				35EBA08F223139330057438C /* Point.swift */,
-				35EBA09122313ADE0057438C /* Badge.swift */,
-				35EBA093223143720057438C /* Action.swift */,
-				35EBA095223146080057438C /* Context.swift */,
-			);
-			path = GamificationModel;
-			sourceTree = "<group>";
-		};
 		3D3F8C4B21BFC90200705DB8 = {
 			isa = PBXGroup;
 			children = (
-				35EBA08E223138DD0057438C /* GamificationModel */,
 				3D3F8C5621BFC90200705DB8 /* fashionistaApp */,
 				3D3F8C6B21BFC90500705DB8 /* fashionistaAppTests */,
 				3D3F8C7621BFC90500705DB8 /* fashionistaAppUITests */,
@@ -219,6 +212,7 @@
 		3D3F8C5621BFC90200705DB8 /* fashionistaApp */ = {
 			isa = PBXGroup;
 			children = (
+				8433038122770E35009816FD /* SAButton.swift */,
 				84178FCA21D00653005204EA /* AuthenticationService.swift */,
 				3D3F8C5721BFC90200705DB8 /* AppDelegate.swift */,
 				84178FCC21D01C85005204EA /* Configuration.swift */,
@@ -229,6 +223,7 @@
 				840CCE9321FBD8F500C2C0B2 /* FeedAPI.swift */,
 				84ACFF7221FFC541001CCD15 /* NotificationApi.swift */,
 				84D5B06021DE297A009FFCF9 /* API.swift */,
+				843303852277303B009816FD /* InviteAPI.swift */,
 				84D5B06221DE2A60009FFCF9 /* CommentAPI.swift */,
 				84DB9C0321E1363C00EA229E /* MypostsAPI.swift */,
 				84D5B06421DE2D9D009FFCF9 /* PostCommentAPI.swift */,
@@ -266,6 +261,7 @@
 		4885F16329441311ABC10FF1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8433038322771816009816FD /* MessageUI.framework */,
 				96A50332A0388ABA8889DEC8 /* Pods_fashionistaApp.framework */,
 				3D1C27458CBE62BABCE499B0 /* Pods_fashionistaAppTests.framework */,
 				C56188C12F0B4350B96932DC /* Pods_fashionistaAppUITests.framework */,
@@ -278,6 +274,7 @@
 			children = (
 				84178FD321D28605005204EA /* Post.swift */,
 				84ACFF7421FFC970001CCD15 /* Notification.swift */,
+				84330387227732BC009816FD /* Invite.swift */,
 				84C3BA6521D3DA59008AB6AE /* User.swift */,
 				84DB107021DCF2AF00D82BE0 /* Comment.swift */,
 			);
@@ -309,11 +306,13 @@
 				3D3F8C8921C00A9F00705DB8 /* HomeViewController.swift */,
 				849BFD5F2207488700C44D33 /* MyLocationViewController.swift */,
 				3D8B91052209E44800EC9DDC /* PostLocationViewController.swift */,
+				8431E3742270C97D00042D61 /* ProfileUserViewController.swift */,
 				3D3F8C8F21C00B6200705DB8 /* ProfileViewController.swift */,
 				3D3F8C8B21C00AF400705DB8 /* SearchViewController.swift */,
 				3D3F8C8521BFCB3000705DB8 /* SignInViewController.swift */,
 				3D3F8C8721BFD77400705DB8 /* SignUpViewController.swift */,
 				3D3F8C5921BFC90200705DB8 /* ViewController.swift */,
+				84A744D42275C4A500825584 /* SettingTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -594,7 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84ACFF7321FFC541001CCD15 /* NotificationApi.swift in Sources */,
-				35EBA094223143720057438C /* Action.swift in Sources */,
+				8431E3752270C97D00042D61 /* ProfileUserViewController.swift in Sources */,
 				84DB106D21DCCFA100D82BE0 /* CommentViewController.swift in Sources */,
 				84D5B06121DE297A009FFCF9 /* API.swift in Sources */,
 				84DB9C0C21E23D2300EA229E /* FollowAPI.swift in Sources */,
@@ -603,10 +602,10 @@
 				84D5B06521DE2D9D009FFCF9 /* PostCommentAPI.swift in Sources */,
 				84C3BA6621D3DA59008AB6AE /* User.swift in Sources */,
 				3D3F8C8C21C00AF400705DB8 /* SearchViewController.swift in Sources */,
+				84A744D52275C4A500825584 /* SettingTableViewController.swift in Sources */,
 				84178FD421D28605005204EA /* Post.swift in Sources */,
 				84ACFF7722030528001CCD15 /* ActivityViewController.swift in Sources */,
 				840CCE9821FC8ACB00C2C0B2 /* DiscoverViewController.swift in Sources */,
-				35EBA096223146080057438C /* Context.swift in Sources */,
 				3D3F8C8A21C00A9F00705DB8 /* HomeViewController.swift in Sources */,
 				3D3F8C5A21BFC90200705DB8 /* ViewController.swift in Sources */,
 				84178FCB21D00653005204EA /* AuthenticationService.swift in Sources */,
@@ -627,12 +626,13 @@
 				84ACFF7D220311A1001CCD15 /* ActivityTableViewCell.swift in Sources */,
 				3D3F8C8821BFD77400705DB8 /* SignUpViewController.swift in Sources */,
 				3D3F8C9021C00B6200705DB8 /* ProfileViewController.swift in Sources */,
-				35EBA090223139330057438C /* Point.swift in Sources */,
 				3D3F8C8621BFCB3000705DB8 /* SignInViewController.swift in Sources */,
+				84330388227732BC009816FD /* Invite.swift in Sources */,
+				843303862277303B009816FD /* InviteAPI.swift in Sources */,
 				84D5B05F21DE2763009FFCF9 /* UserAPI.swift in Sources */,
 				3D8B91062209E44800EC9DDC /* PostLocationViewController.swift in Sources */,
+				8433038222770E35009816FD /* SAButton.swift in Sources */,
 				84DB9C0A21E22F8400EA229E /* DiscoverUserTableViewCell.swift in Sources */,
-				35EBA09222313ADE0057438C /* Badge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,8 +32,15 @@ class DiscoverUserViewController: UIViewController {
     func Isfollowing(userId: String, completed: @escaping(Bool)->Void) {
         API.Follow.Isfollowing(userId: userId, completed: completed)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ProfileSegue" {
+            let profileVC = segue.destination as! ProfileUserViewController
+            let userid = sender as! String
+            profileVC.userId = userid
+            profileVC.delegate  = self
+        }
+    }
 }
-
 extension DiscoverUserViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return users.count
@@ -42,7 +49,26 @@ extension DiscoverUserViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DiscoverUserTableViewCell", for: indexPath) as! DiscoverUserTableViewCell
         let user = users[indexPath.row]
         cell.user = user
+        cell.delegate = self
         return cell
     }
 }
 
+extension DiscoverUserViewController: DiscoverUserTableViewCellDelegate{
+    
+    func goToProfileUserVC(userId: String) {
+        performSegue(withIdentifier: "ProfileSegue", sender: userId)
+    }
+    
+}
+
+extension DiscoverUserViewController: HeaderProfileCollectionReusableViewDelegate {
+    func updateFollowBtn(forUser user: User) {
+        for u in self.users {
+            if u.id == user.id {
+                u.isfollowing = user.isfollowing
+                self.TableView.reloadData()
+            }
+        }
+    }
+}

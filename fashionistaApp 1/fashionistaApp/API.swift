@@ -16,4 +16,5 @@ struct API {
     static var Follow = FollowAPI()
     static var Feed = FeedAPI()
     static var Notification = NotificationApi()
+    static var Invite = InviteAPI()
 }
