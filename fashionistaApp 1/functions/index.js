@@ -245,7 +245,7 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             // addActivity(user_id,followers_id_a,profile_id_c,date);
             // addActivity(user_id,likeMe_id_a,post_id_c,date);
 
-            //1 login, 2 post,2 comment,4 like, 2 following, 1 likeMe
+            //1 login, 4 post,2 comment,2 like, 2 following,2 followers, 1 likeMe. total: 14 actions per day
     var i=1;
     var a=setInterval(function () {
         date.setDate(date.getDate() + 1);
@@ -263,7 +263,7 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             date: date.toDateString(),
             points:"0"
         });
-    },4000);
+    },1);
 
     setTimeout(function () {
         database.ref('/UserActivity/').push({
@@ -273,7 +273,37 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             date: date.toDateString(),
             points:"0"
         });
-    },8000);
+    },4000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },8000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },12000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },16000);
 
     setTimeout(function () {
         database.ref('/UserActivity/').push({
@@ -283,7 +313,17 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             date: date.toDateString(),
             points:"0"
         });
-    },12000);
+    },20000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: comment_id_a,
+                context_id: feed_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },24000);
 
     setTimeout(function () {
         database.ref('/UserActivity/').push({
@@ -293,11 +333,74 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             date: date.toDateString(),
             points:"0"
         });
-    },1);
+    },28000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: like_id_a,
+                context_id: feed_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },32000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },36000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },40000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },44000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },48000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0"
+            });
+        },52000);
 
 
 
-    },16000)
+
+
+
+    },56000)
 
        // }
    // }
@@ -342,16 +445,24 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
 });
 
 
-// exports.addUserActivity = functions.https.onCall((data, context) => {
-//     let arr = data.text.split("/");
-//     let user_id=arr[0];
-//     let action_id=arr[1];
-//     let context_id=arr[2];
-//     //get the action count for the user
-//     let count=admin.database().ref('/User/Action/'+action_id).get('Count');
-//
-//
-// });
+exports.addUserActivityApp = functions.https.onCall((data, context) => {
+    let arr = data.text.split("/");
+    let user_id=arr[0];
+    let action_id=arr[1];
+    let context_id=arr[2];
+    const date= new Date().toDateString();
+    //console.log(date);
+    //get the action count for the user
+    return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date,points:"0"}).then((snap) => {
+            return log("user id: " + user_id + "action_id" + action_id + "context_id" + context_id + "date: " + date);
+
+    }).catch(function(error) {
+        console.log("addUserActivityApp : Error deleting app:", error);
+    });
+
+
+
+    });
 
 
 //RP function

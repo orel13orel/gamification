@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +22,28 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="348" column="23" lean-forward="true" selection-start-line="348" selection-start-column="23" selection-end-line="348" selection-end-column="23" />
+            <state relative-caret-position="202">
+              <caret line="455" column="158" selection-start-line="455" selection-start-column="158" selection-end-line="455" selection-end-column="158" />
+              <folding>
+                <element signature="e#6177#6429#0" />
+                <element signature="e#6509#11357#0" />
+                <element signature="e#7308#7310#0" />
+                <element signature="e#7614#7659#0" />
+                <element signature="e#9230#9457#0" />
+                <element signature="e#9502#9729#0" />
+                <element signature="e#10009#10235#0" />
+                <element signature="e#10306#10532#0" />
+                <element signature="e#10621#10847#0" />
+                <element signature="e#9765#9992#0" />
+                <element signature="e#11178#11407#0" />
+                <element signature="e#10028#10255#0" />
+                <element signature="e#11738#11964#0" />
+                <element signature="e#12041#12267#0" />
+                <element signature="e#12347#12613#0" />
+                <element signature="e#12646#12912#0" />
+                <element signature="e#12952#13218#0" />
+                <element signature="e#13256#13522#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,12 +179,12 @@
       <workItem from="1557127396137" duration="16987000" />
       <workItem from="1557219868652" duration="12006000" />
       <workItem from="1557646322472" duration="21003000" />
-      <workItem from="1557736946995" duration="7190000" />
+      <workItem from="1557736946995" duration="12863000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232605000" />
+    <option name="totallyTimeSpent" value="238278000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -258,8 +279,28 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="348" column="23" lean-forward="true" selection-start-line="348" selection-start-column="23" selection-end-line="348" selection-end-column="23" />
+        <state relative-caret-position="202">
+          <caret line="455" column="158" selection-start-line="455" selection-start-column="158" selection-end-line="455" selection-end-column="158" />
+          <folding>
+            <element signature="e#6177#6429#0" />
+            <element signature="e#6509#11357#0" />
+            <element signature="e#7308#7310#0" />
+            <element signature="e#7614#7659#0" />
+            <element signature="e#9230#9457#0" />
+            <element signature="e#9502#9729#0" />
+            <element signature="e#10009#10235#0" />
+            <element signature="e#10306#10532#0" />
+            <element signature="e#10621#10847#0" />
+            <element signature="e#9765#9992#0" />
+            <element signature="e#11178#11407#0" />
+            <element signature="e#10028#10255#0" />
+            <element signature="e#11738#11964#0" />
+            <element signature="e#12041#12267#0" />
+            <element signature="e#12347#12613#0" />
+            <element signature="e#12646#12912#0" />
+            <element signature="e#12952#13218#0" />
+            <element signature="e#13256#13522#0" />
+          </folding>
         </state>
       </provider>
     </entry>
