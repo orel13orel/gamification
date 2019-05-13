@@ -21,8 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="585" column="55" lean-forward="true" selection-start-line="585" selection-start-column="55" selection-end-line="585" selection-end-column="55" />
+            <state relative-caret-position="255">
+              <caret line="348" column="23" lean-forward="true" selection-start-line="348" selection-start-column="23" selection-end-line="348" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -58,6 +58,7 @@
       <find>sett</find>
       <find>sub</find>
       <find>done</find>
+      <find>addBa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -157,11 +158,12 @@
       <workItem from="1557127396137" duration="16987000" />
       <workItem from="1557219868652" duration="12006000" />
       <workItem from="1557646322472" duration="21003000" />
+      <workItem from="1557736946995" duration="7190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="225415000" />
+    <option name="totallyTimeSpent" value="232605000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -191,8 +193,8 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.75148714" visible="true" weight="0.041899443" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2485129" side_tool="true" visible="true" weight="0.041899443" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.7508262" visible="true" weight="0.041899443" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.24917382" side_tool="true" visible="true" weight="0.041899443" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4970258" weight="0.07122905" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
@@ -256,8 +258,8 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="585" column="55" lean-forward="true" selection-start-line="585" selection-start-column="55" selection-end-line="585" selection-end-column="55" />
+        <state relative-caret-position="255">
+          <caret line="348" column="23" lean-forward="true" selection-start-line="348" selection-start-column="23" selection-end-line="348" selection-end-column="23" />
         </state>
       </provider>
     </entry>

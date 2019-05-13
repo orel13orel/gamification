@@ -22,7 +22,7 @@ function log(a) {
     console.log(a);
 }
 
-//receives new challenge_name, badge_id, start_time, end_time,points. returns the new challenge_id.
+//receives new challenge_name, badge_id, start_time, end_time,points. returns the new challenge_id.date example: /day.month.year/
 exports.addChallenge=functions.https.onRequest((req,res)=>{
     let arr=req.query.text.split("/");
     const challenge_name=arr[0];
@@ -168,7 +168,7 @@ function addActivity(user_id,action_id,context_id,date) {
             user_id: user_id,
             action_id: action_id,
             context_id: context_id,
-            date: date,
+            date: date.toDateString(),
             points:"0"
         });
     },4000);
@@ -199,16 +199,16 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let comment_id_a="-LbvYT3xx6_xEKR7FDon";
     let like_id_a="-LbvYYqvdtNg7LsOK_Gy";
 
-    let exponential = 2.718281828;
+    //let exponential = 2.718281828;
 
 
-
-    for (var i=0;i<days;i++) {
-        date.setDate(date.getDate() + 1);
-        //action login
-        log("today: "+date);
-       admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:post_id_a ,context_id:post_id_c, date:date.toDateString(),points:"0"});
-
+    //
+    // for (var i=0;i<days;i++) {
+    //     date.setDate(date.getDate() + 1);
+    //     //action login
+    //     log("today: "+date);
+    //    database.ref('/UserActivity/').push({user_id: user_id , action_id:post_id_a ,context_id:post_id_c, date:date.toDateString(),points:"0"});
+    //
 
         //let numOfPostsPerDay=poisson(i,post_landa);
         //log("numOfPostsPerDay: "+numOfPostsPerDay);
@@ -246,12 +246,61 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             // addActivity(user_id,likeMe_id_a,post_id_c,date);
 
             //1 login, 2 post,2 comment,4 like, 2 following, 1 likeMe
+    var i=1;
+    var a=setInterval(function () {
+        date.setDate(date.getDate() + 1);
+    if(i<days) {
+        i++;
+    }else {
+        clearInterval(a);
+    }
+
+    setTimeout(function () {
+        database.ref('/UserActivity/').push({
+            user_id: user_id,
+            action_id: login_id_a,
+            context_id: login_id_c,
+            date: date.toDateString(),
+            points:"0"
+        });
+    },4000);
+
+    setTimeout(function () {
+        database.ref('/UserActivity/').push({
+            user_id: user_id,
+            action_id: post_id_a,
+            context_id: post_id_c,
+            date: date.toDateString(),
+            points:"0"
+        });
+    },8000);
+
+    setTimeout(function () {
+        database.ref('/UserActivity/').push({
+            user_id: user_id,
+            action_id: comment_id_a,
+            context_id: feed_id_c,
+            date: date.toDateString(),
+            points:"0"
+        });
+    },12000);
+
+    setTimeout(function () {
+        database.ref('/UserActivity/').push({
+            user_id: user_id,
+            action_id: like_id_a,
+            context_id: feed_id_c,
+            date: date.toDateString(),
+            points:"0"
+        });
+    },1);
 
 
 
+    },16000)
 
        // }
-    }
+   // }
 
 
 
@@ -263,20 +312,20 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
 
 // Sumatorio de k terminos usando la formula de poisson
 
-    function poisson(k, landa) {
-       var exponentialPower = Math.pow(exponential, -landa); // negative power k
-       var landaPowerK = Math.pow(landa, k); // Landa elevated k
-        numerator = exponentialPower * landaPowerK;
-        denominator = fact(k); // factorial of k.
-
-        return (numerator / denominator);
-    }
-    function fact(x) {
-        if(x===0) {
-            return 1;
-        }
-        return x * fact(x-1);
-    }
+    // function poisson(k, landa) {
+    //    var exponentialPower = Math.pow(exponential, -landa); // negative power k
+    //    var landaPowerK = Math.pow(landa, k); // Landa elevated k
+    //     numerator = exponentialPower * landaPowerK;
+    //     denominator = fact(k); // factorial of k.
+    //
+    //     return (numerator / denominator);
+    // }
+    // function fact(x) {
+    //     if(x===0) {
+    //         return 1;
+    //     }
+    //     return x * fact(x-1);
+    // }
     // for (var i = 0; i < k_total; i++) {
     //     total += poisson(i, landa);
     // }
@@ -373,7 +422,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                         var userPoints = pointsSnapshot.val();
                         userPoints=parseInt(userPoints) + parseInt(RpPoints);
                         log(userPoints);
-                        database.ref('/Users/'+ user_id + '/Points/').set(userPoints);
+                        database.ref('/Users/'+ user_id + '/Points/').set(userPoints.toString());
 
                         return null;
                      }).catch(function(error) {
