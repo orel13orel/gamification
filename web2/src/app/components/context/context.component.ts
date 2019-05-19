@@ -1,0 +1,19 @@
+import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {AngularFireDatabase} from '@angular/fire/database';
+
+@Component({
+  selector: 'app-context',
+  templateUrl: './context.component.html',
+  styleUrls: ['./context.component.css']
+})
+export class ContextComponent implements OnInit {
+  context: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.context = db.list('Context').snapshotChanges();
+  }
+
+  ngOnInit() {
+  }
+
+}

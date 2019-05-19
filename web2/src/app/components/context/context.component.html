@@ -1,0 +1,6 @@
+<p>
+  context works!
+</p>
+<li *ngFor="let i of context | async">
+  {{i.key}} : {{i.payload.val().name}}
+</li>

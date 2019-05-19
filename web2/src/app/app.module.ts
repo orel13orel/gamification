@@ -8,10 +8,14 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 import {AngularFirestore} from '@angular/fire/firestore';
+import { ContextComponent } from './components/context/context.component';
+import { ActionComponent } from './components/action/action.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContextComponent,
+    ActionComponent
   ],
   imports: [
     BrowserModule,

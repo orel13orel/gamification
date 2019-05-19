@@ -1,0 +1,6 @@
+<p>
+  action works!
+</p>
+<li *ngFor="let i of action | async">
+  {{i.key}} : {{i.payload.val().name}}
+</li>
