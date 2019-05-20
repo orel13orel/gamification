@@ -1,9 +1,16 @@
+<table style="width:100%">
+  <tr>
+    <th>
+      <h2>contexts:</h2>
+      <app-context (clicked)="showAction($event)"></app-context>
+    </th>
+    <th>
+      <h2>actions:</h2>
+      <li *ngFor="let i of action | async">
+      {{i.key}} : {{i.payload.val().name}}
+      </li>
+    </th>
+  </tr>
+</table>
 
 
-<button type="button" (click)="showAction()">show action</button>
-
-<div *ngIf = "switch">
-<li *ngFor="let i of action | async">
-  {{i.key}} : {{i.payload.val().name}}
-</li>
-</div>

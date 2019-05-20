@@ -18,10 +18,10 @@ export class ActionComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-   public showAction() {
-    this.switch = !this.switch;
     this.action = this.db.list('Context/' + this.childContextID + '/Action').snapshotChanges();
   }
+   public showAction(event: string) {
+    this.action = this.db.list('Context/' + event + '/Action').snapshotChanges();
+   }
 
 }

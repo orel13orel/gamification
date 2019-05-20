@@ -12,10 +12,11 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
+import { ContextActionComponent } from './components/context-action/context-action.component';
 
 const appRoutes: Routes = [
   {path: '', component : HomeComponent},
-  {path: 'context', component : ContextComponent}
+  {path: 'action', component : ActionComponent}
 ]
 
 @NgModule({
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     ContextComponent,
     ActionComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    ContextActionComponent
   ],
   imports: [
     BrowserModule,
