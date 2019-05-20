@@ -1,6 +1,17 @@
 <p>
   context works!
 </p>
-<li *ngFor="let i of context | async">
-  {{i.key}} : {{i.payload.val().name}}
-</li>
+<table style="width:100%">
+  <tr>
+    <th><h2>contexts:</h2>
+      <li *ngFor="let i of context | async">
+      {{i.key}} : {{i.payload.val().name}}
+    </li>
+    </th>
+    <th>
+      <h2>actions:</h2>
+      <app-action [childContextID]="contextID" ></app-action>
+    </th>
+  </tr>
+</table>
+

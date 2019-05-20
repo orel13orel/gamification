@@ -1,6 +1,9 @@
 <p>
   action works!
 </p>
+
+
+Say {{ childContextID }}
 <li *ngFor="let i of action | async">
   {{i.key}} : {{i.payload.val().name}}
 </li>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
 
@@ -9,8 +9,11 @@ import {Observable} from 'rxjs';
 })
 export class ActionComponent implements OnInit {
   action: Observable<any[]>;
-  constructor(contextID , private db: AngularFireDatabase) {
-    this.action = db.list('Context/' + contextID + '/Action').snapshotChanges();
+  @Input() childContextID: string;
+  constructor( private db: AngularFireDatabase) {
+    console.log(this.childContextID);
+   // this.action = db.list('Context/' + this.childContextID + '/Action').snapshotChanges();
+    this.action = db.list('Context/-Lbr-1NUNlyOVz4qRj2p/Action').snapshotChanges();
   }
 
   ngOnInit() {
