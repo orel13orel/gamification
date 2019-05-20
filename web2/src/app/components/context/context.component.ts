@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFireDatabase} from '@angular/fire/database';
 
+
 @Component({
   selector: 'app-context',
   templateUrl: './context.component.html',
@@ -17,4 +18,9 @@ export class ContextComponent implements OnInit {
   ngOnInit() {
   }
 
+  updateContextID(key: any) {
+    this.contextID = key;
+    console.log(this.contextID);
+  }
 }
+

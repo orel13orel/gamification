@@ -1,9 +1,9 @@
-<p>
-  action works!
-</p>
 
 
-Say {{ childContextID }}
+<button type="button" (click)="showAction()">show action</button>
+
+<div *ngIf = "switch">
 <li *ngFor="let i of action | async">
   {{i.key}} : {{i.payload.val().name}}
 </li>
+</div>
