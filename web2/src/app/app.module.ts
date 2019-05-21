@@ -12,11 +12,20 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
+import { BadgesComponent } from './components/badges/badges.component';
+import { ChallengeComponent } from './components/challenge/challenge.component';
+import { ChallengeActionComponent } from './components/challenge-action/challenge-action.component';
+import { RpComponent } from './components/rp/rp.component';
+import { RbComponent } from './components/rb/rb.component';
 
 
 const appRoutes: Routes = [
   {path: '', component : HomeComponent},
-  {path: 'action', component : ActionComponent}
+  {path: 'action', component : ActionComponent},
+  {path: 'badge', component : BadgesComponent},
+  {path: 'challengeAction', component : ChallengeActionComponent},
+  {path: 'Rp', component : RpComponent},
+  {path: 'Rb', component : RbComponent},
 ]
 
 @NgModule({
@@ -25,7 +34,12 @@ const appRoutes: Routes = [
     ContextComponent,
     ActionComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    BadgesComponent,
+    ChallengeComponent,
+    ChallengeActionComponent,
+    RpComponent,
+    RbComponent
   ],
   imports: [
     BrowserModule,
