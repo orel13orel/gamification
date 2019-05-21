@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Component({
   selector: 'app-rb',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./rb.component.css']
 })
 export class RbComponent implements OnInit {
-
-  constructor() { }
+  rb: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.rb = db.list('Rb').snapshotChanges();
+  }
 
   ngOnInit() {
   }

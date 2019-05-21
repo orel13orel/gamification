@@ -1,3 +1,8 @@
 <p>
   rb works!
 </p>
+
+<li *ngFor="let i of rb | async">
+  {{i.key}} : {{i.payload.val().badge_id}} : {{i.payload.val().context}} : {{i.payload.val().valueOfPoints}}
+
+</li>

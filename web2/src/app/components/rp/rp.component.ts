@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Component({
   selector: 'app-rp',
@@ -7,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RpComponent implements OnInit {
 
-  constructor() { }
+  rp: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.rp = db.list('Rp').snapshotChanges();
+  }
 
   ngOnInit() {
   }

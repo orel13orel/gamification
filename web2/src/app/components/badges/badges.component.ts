@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireDatabase} from '@angular/fire/database';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-badges',
@@ -6,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./badges.component.css']
 })
 export class BadgesComponent implements OnInit {
-
-  constructor() { }
+  badge: Observable<any[]>;
+  constructor(private db: AngularFireDatabase) {
+    this.badge = db.list('Badges').snapshotChanges();
+  }
 
   ngOnInit() {
   }

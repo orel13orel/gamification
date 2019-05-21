@@ -1,3 +1,14 @@
-<p>
-  challenge-action works!
-</p>
+<table style="width:100%">
+  <tr>
+    <th>
+      <h2>challenges:</h2>
+      <app-challenge (clicked)="showChallengeAction($event)"></app-challenge>
+    </th>
+    <th>
+      <h2>actions:</h2>
+      <li *ngFor="let i of challengeAction | async">
+        {{i.key}} : {{i.payload.val().action_id}} : {{i.payload.val().amount}}
+      </li>
+    </th>
+  </tr>
+</table>

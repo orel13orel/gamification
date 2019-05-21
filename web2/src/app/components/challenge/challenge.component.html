@@ -1,3 +1,4 @@
-<p>
-  challenge works!
-</p>
+<li *ngFor="let i of challenge | async" (click)="updateChallengeID(i.key)">
+  {{i.key}} : {{i.payload.val().name}} : {{i.payload.val().points}} : {{i.payload.val().badge_id}} : {{i.payload.val().start_time}} : {{i.payload.val().end_time}}
+
+</li>

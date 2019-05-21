@@ -1,3 +1,8 @@
 <p>
   badges works!
 </p>
+
+<li *ngFor="let i of badge | async">
+  {{i.key}} : {{i.payload.val().name}} : {{i.payload.val().context_id}} : {{i.payload.val().photoUrl}}
+
+</li>

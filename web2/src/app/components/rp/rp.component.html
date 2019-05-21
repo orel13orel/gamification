@@ -1,3 +1,7 @@
 <p>
   rp works!
 </p>
+
+<li *ngFor="let i of rp | async">
+  {{i.key}} : {{i.payload.val().action_id}} : {{i.payload.val().points}} : {{i.payload.val().value}}
+
