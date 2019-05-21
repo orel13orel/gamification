@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/app.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+            <state relative-caret-position="201">
+              <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
               <folding>
                 <element signature="e#5560#6056#0" />
                 <element signature="e#6539#14582#0" />
@@ -90,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="20" />
     <option name="width" value="1680" />
     <option name="height" value="945" />
@@ -180,12 +177,12 @@
       <workItem from="1557736946995" duration="14690000" />
       <workItem from="1557823601237" duration="5936000" />
       <workItem from="1558263491682" duration="113000" />
-      <workItem from="1558437894138" duration="1448000" />
+      <workItem from="1558437894138" duration="3146000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="247602000" />
+    <option name="totallyTimeSpent" value="249300000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -197,7 +194,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.11764706" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
@@ -279,8 +277,8 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="96" column="42" selection-start-line="96" selection-start-column="42" selection-end-line="96" selection-end-column="42" />
+        <state relative-caret-position="201">
+          <caret line="93" column="54" selection-start-line="93" selection-start-column="54" selection-end-line="93" selection-end-column="54" />
           <folding>
             <element signature="e#5560#6056#0" />
             <element signature="e#6539#14582#0" />
