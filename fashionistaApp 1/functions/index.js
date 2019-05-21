@@ -90,6 +90,23 @@ exports.addContext = functions.https.onRequest((req,res)=>{
     });
 });
 
+//receives new context name, return the context id
+exports.addContext2 = functions.https.onRequest((req,res)=>{
+    const context = req.query.text;
+
+    return admin.database().ref('/Context2').push({name: context}).then((snapshot) => {
+        // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
+        //console.log(snapshot);
+
+        let arr=snapshot.toString().split("/");
+        // console.log(arr);
+        let context_id=arr[4];
+        // console.log(context_id);
+        return res.redirect(303, context_id);
+    });
+});
+
+
 //receives new action name and context id, return the action id
 exports.addAction = functions.https.onRequest((req,res)=>{
     let arr = req.query.text.split("/");

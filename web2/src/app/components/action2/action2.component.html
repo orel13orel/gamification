@@ -1,0 +1,14 @@
+<table style="width:100%">
+  <tr>
+    <th>
+      <h2>contexts2:</h2>
+      <app-context2 (clicked)="showAction2($event)"></app-context2>
+    </th>
+    <th>
+      <h2>actions2:</h2>
+      <li *ngFor="let i of action2 | async">
+        {{i.key}} : {{i.payload.val().name}}
+      </li>
+    </th>
+  </tr>
+</table>

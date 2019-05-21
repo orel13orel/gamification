@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule , Routes} from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ContextComponent } from './components/context/context.component';
@@ -10,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
+
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
 import { BadgesComponent } from './components/badges/badges.component';
@@ -17,6 +19,8 @@ import { ChallengeComponent } from './components/challenge/challenge.component';
 import { ChallengeActionComponent } from './components/challenge-action/challenge-action.component';
 import { RpComponent } from './components/rp/rp.component';
 import { RbComponent } from './components/rb/rb.component';
+import { Action2Component } from './components/action2/action2.component';
+import { Context2Component } from './components/context2/context2.component';
 
 
 const appRoutes: Routes = [
@@ -26,6 +30,7 @@ const appRoutes: Routes = [
   {path: 'challengeAction', component : ChallengeActionComponent},
   {path: 'Rp', component : RpComponent},
   {path: 'Rb', component : RbComponent},
+  {path: 'action2', component: Action2Component}
 ]
 
 @NgModule({
@@ -39,14 +44,17 @@ const appRoutes: Routes = [
     ChallengeComponent,
     ChallengeActionComponent,
     RpComponent,
-    RbComponent
+    RbComponent,
+    Action2Component,
+    Context2Component,
   ],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireFunctionsModule,
-   RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   exports : [RouterModule],
   providers: [],

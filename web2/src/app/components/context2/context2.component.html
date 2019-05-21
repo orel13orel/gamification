@@ -1,0 +1,9 @@
+<p>
+  context2 works!
+</p>
+
+<li *ngFor="let i of context2 | async" (click)="updateContext2ID(i.key)">
+  {{i.key}} : {{i.payload.val().name}}
+
+</li>
+
