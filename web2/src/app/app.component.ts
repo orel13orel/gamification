@@ -11,14 +11,14 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AppComponent {
   title = 'web2';
-  readonly ROOT_URL = 'https://us-central1-fashionistaapp-de817.cloudfunctions.net';
-  context: any;
+  readonly ROOT_URL = 'https://jsonplaceholder.typicode.com';
+  posts: any;
+  context = 'fff';
   constructor(private http: HttpClient) {
 
   }
   addContext() {
-    heders
     console.log('post context');
-    this.http.post('https://us-central1-fashionistaapp-de817.cloudfunctions.net/addContext2?text=newcontext2', null, null );
+    this.posts = this.http.get('https://us-central1-fashionistaapp-de817.cloudfunctions.net/hasin');
   }
 }

@@ -21,6 +21,7 @@ import { RpComponent } from './components/rp/rp.component';
 import { RbComponent } from './components/rb/rb.component';
 import { Action2Component } from './components/action2/action2.component';
 import { Context2Component } from './components/context2/context2.component';
+import {FormsModule} from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -55,6 +56,7 @@ const appRoutes: Routes = [
     AngularFireFunctionsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+    FormsModule,
   ],
   exports : [RouterModule],
   providers: [],

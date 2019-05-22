@@ -106,6 +106,13 @@ exports.addContext2 = functions.https.onRequest((req,res)=>{
     });
 });
 
+exports.hasin = functions.https.onRequest((req,res)=>{
+
+
+
+        return res.redirect(303, "123123123");
+
+});
 
 //receives new action name and context id, return the action id
 exports.addAction = functions.https.onRequest((req,res)=>{
