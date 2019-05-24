@@ -4,9 +4,6 @@ import {AngularFireDatabase} from '@angular/fire/database';
 
 export class NewContext {
   name: string;
-  // constructor(name: string) {
-  //   this.name = name;
-  // }
 }
 
 @Component({
@@ -37,7 +34,7 @@ export class Context2Component implements OnInit {
   addContext() {
     this.db.list('/Context2').push(this.newContext);
   }
-  deleteContext(){
+  deleteContext() {
     this.db.list('/Context2').remove(this.delContext);
   }
 }

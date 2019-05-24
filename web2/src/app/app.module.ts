@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { AngularFireModule } from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
@@ -22,6 +23,8 @@ import { RbComponent } from './components/rb/rb.component';
 import { Action2Component } from './components/action2/action2.component';
 import { Context2Component } from './components/context2/context2.component';
 import {FormsModule} from '@angular/forms';
+import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
+import { DropzoneDirective } from './components/upload-photo/dropzone.directive';
 
 
 const appRoutes: Routes = [
@@ -48,6 +51,9 @@ const appRoutes: Routes = [
     RbComponent,
     Action2Component,
     Context2Component,
+    UploadPhotoComponent,
+    DropzoneDirective,
+
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
+    AngularFireStorageModule,
   ],
   exports : [RouterModule],
   providers: [],

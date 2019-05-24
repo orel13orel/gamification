@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +192,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.11764706" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
@@ -210,14 +202,14 @@
       <window_info id="Favorites" order="6" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4990086" visible="true" weight="0.25837988" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4990086" weight="0.25837988" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.7488434" weight="0.041899443" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5009914" side_tool="true" visible="true" weight="0.25837988" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5009914" side_tool="true" visible="true" weight="0.041899443" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4970258" weight="0.07122905" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
