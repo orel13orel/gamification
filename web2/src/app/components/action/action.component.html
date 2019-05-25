@@ -1,16 +1,24 @@
-<table style="width:100%">
+<table  style="width:100%">
   <tr>
-    <th>
-      <h2>contexts:</h2>
+    <td>
       <app-context (clicked)="showAction($event)"></app-context>
-    </th>
-    <th>
-      <h2>actions:</h2>
+    </td>
+    <td>
+      <table id="action" >
+        <tr>
+          <th>Action ID</th>
+          <th>Action Name</th>
+        </tr>
+        <tr id="context_table"  *ngFor="let i of action | async" >
+          <td>{{i.key}}</td>
+          <td> {{i.payload.val().name}}</td>
+        </tr>
 
-      <li *ngFor="let i of action | async">
-      {{i.key}} : {{i.payload.val().name}}
-      </li>
-    </th>
+      </table>
+<!--      <li *ngFor="let i of action | async">-->
+<!--      {{i.key}} : {{i.payload.val().name}}-->
+<!--      </li>-->
+    </td>
   </tr>
 </table>
 

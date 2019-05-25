@@ -3,7 +3,7 @@
 
 
 
-<table id="navigation" >
+<table id="context" >
   <tr>
     <th>Context ID</th>
     <th>Context Name</th>
@@ -16,10 +16,10 @@
 </table>
 
 
-<li id="context"  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
-  {{i.key}} : {{i.payload.val().name}}
+<!--<li   *ngFor="let i of context | async" (click)="updateContextID(i.key)">-->
+<!--  {{i.key}} : {{i.payload.val().name}}-->
 
-</li>
+<!--</li>-->
 
 
 <p>

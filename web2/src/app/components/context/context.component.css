@@ -1,4 +1,19 @@
-#navigation
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 20%;
+}
+
+td, th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: lightblue;
+}
+#context
 {
 
   text-align: center;
@@ -6,12 +21,12 @@
   float: left;
   margin: 0;
   padding: 0;
-  top: 400px;
-  left: 0;
+  top: 200px;
+  left: 34px;
   list-style-type: none;
   background-color: #FFFFFF;
   z-index:999;
-  width: 50%;
+  width: 30%;
 }
 
 /*#context{*/

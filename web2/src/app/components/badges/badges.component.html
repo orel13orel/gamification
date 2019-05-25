@@ -1,8 +1,25 @@
-<p>
-  badges works!
-</p>
 
-<li *ngFor="let i of badge | async">
-  {{i.key}} : {{i.payload.val().name}} : {{i.payload.val().context_id}} : {{i.payload.val().photoUrl}}
 
-</li>
+<table>
+  <tr>
+    <th>Badge ID</th>
+    <th>Badge Name</th>
+    <th>Context ID</th>
+    <th>Photo Url</th>
+  </tr>
+
+  <tr  *ngFor="let i of badge | async">
+    <td>{{i.key}}</td>
+    <td> {{i.payload.val().name}}</td>
+    <td>{{i.payload.val().context_id}}</td>
+    <td>{{i.payload.val().photoUrl}}</td>
+  </tr>
+
+
+</table>
+
+
+<!--<li *ngFor="let i of badge | async">-->
+<!--  {{i.key}} : {{i.payload.val().name}} : {{i.payload.val().context_id}} : {{i.payload.val().photoUrl}}-->
+
+<!--</li>-->
