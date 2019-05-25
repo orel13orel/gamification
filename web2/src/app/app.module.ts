@@ -12,6 +12,7 @@ import { AngularFireModule } from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
@@ -23,8 +24,8 @@ import { RbComponent } from './components/rb/rb.component';
 import { Action2Component } from './components/action2/action2.component';
 import { Context2Component } from './components/context2/context2.component';
 import {FormsModule} from '@angular/forms';
-import { UploadPhotoComponent } from './components/upload-photo/upload-photo.component';
-import { DropzoneDirective } from './components/upload-photo/dropzone.directive';
+import { DropzoneDirective } from './components/file-upload/dropzone.directive';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 
 const appRoutes: Routes = [
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
   {path: 'challengeAction', component : ChallengeActionComponent},
   {path: 'Rp', component : RpComponent},
   {path: 'Rb', component : RbComponent},
-  {path: 'action2', component: Action2Component}
+  {path: 'action2', component: Action2Component},
+  {path: 'file-upload', component: FileUploadComponent},
 ]
 
 @NgModule({
@@ -51,8 +53,8 @@ const appRoutes: Routes = [
     RbComponent,
     Action2Component,
     Context2Component,
-    UploadPhotoComponent,
     DropzoneDirective,
+    FileUploadComponent,
 
   ],
   imports: [
