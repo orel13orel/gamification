@@ -28,7 +28,7 @@ import { DropzoneDirective } from './components/upload-photo/dropzone.directive'
 
 
 const appRoutes: Routes = [
-  {path: '', component : HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'action', component : ActionComponent},
   {path: 'badge', component : BadgesComponent},
   {path: 'challengeAction', component : ChallengeActionComponent},

@@ -1,0 +1,19 @@
+#navigation
+{
+
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 400px;
+  left: 0;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  z-index:999;
+  width: 50%;
+}
+
+/*#context{*/
+/*  top: 500px;*/
+/*}*/

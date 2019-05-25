@@ -1,9 +1,30 @@
+
+
+
+
+
+<table id="navigation" >
+  <tr>
+    <th>Context ID</th>
+    <th>Context Name</th>
+  </tr>
+  <tr id="context_table"  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
+    <td>{{i.key}}</td>
+    <td> {{i.payload.val().name}}</td>
+  </tr>
+
+</table>
+
+
+<li id="context"  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
+  {{i.key}} : {{i.payload.val().name}}
+
+</li>
+
+
 <p>
   context works!
 </p>
 
-      <li *ngFor="let i of context | async" (click)="updateContextID(i.key)">
-      {{i.key}} : {{i.payload.val().name}}
 
-    </li>
 
