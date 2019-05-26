@@ -6,3 +6,20 @@
   {{i.key}} : {{i.payload.val().badge_id}} : {{i.payload.val().context}} : {{i.payload.val().valueOfPoints}}
 
 </li>
+
+
+
+<div>
+  <form (submit)="addRb()">
+    <input type="text" name="name" [(ngModel)]="newRb.badge_id" placeholder="Enter badge id">
+    <input type="text" name="name" [(ngModel)]="newRb.context" placeholder="Enter context id">
+    <input type="text" name="name" [(ngModel)]="newRb.valueOfPoints" placeholder="Enter valueOfPoints">
+    <button type="submit" >add new Rb</button>
+  </form>
+</div>
+<div>
+  <form (submit)="deleteRb()">
+    <input type="text" name="RbID" [(ngModel)]="delRb" placeholder="Enter Rb id" value="">
+    <button type="submit" >delete Rb</button>
+  </form>
+</div>
