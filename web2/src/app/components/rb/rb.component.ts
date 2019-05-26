@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {AngularFireDatabase} from '@angular/fire/database';
-import {NewContext} from '../context/context.component';
 
 export class NewRb {
   badge_id: string;
@@ -30,6 +29,6 @@ export class RbComponent implements OnInit {
     this.db.list('/Rb').push(this.newRb);
   }
   deleteRb() {
-    this.db.list('/Context').remove(this.delRb);
+    this.db.list('/Rb').remove(this.delRb);
   }
 }

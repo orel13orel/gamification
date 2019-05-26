@@ -5,3 +5,18 @@
 <li *ngFor="let i of rp | async">
   {{i.key}} : {{i.payload.val().action_id}} : {{i.payload.val().points}} : {{i.payload.val().value}}
 
+</li>
+  <div>
+    <form (submit)="addRp()">
+      <input type="text" name="name" [(ngModel)]="newRp.action_id" placeholder="Enter action id">
+      <input type="text" name="name" [(ngModel)]="newRp.points" placeholder="Enter points">
+      <input type="text" name="name" [(ngModel)]="newRp.value" placeholder="Enter value">
+      <button type="submit" >add new Rp</button>
+    </form>
+  </div>
+  <div>
+    <form (submit)="deleteRp()">
+      <input type="text" name="RpID" [(ngModel)]="delRp" placeholder="Enter Rp id" value="">
+      <button type="submit" >delete Rp</button>
+    </form>
+  </div>
