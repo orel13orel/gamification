@@ -18,7 +18,7 @@ export class FileUploadComponent  {
   snapshot: Observable<any>;
   downloadURL: Observable<string>;
   isHovering: boolean;
-  pathh: string;
+  photoURL: string;
 
 
   constructor(private storage: AngularFireStorage ) {}
@@ -35,7 +35,7 @@ export class FileUploadComponent  {
       return;
     }
     const path = `badge/${new Date().getTime()}_${file.name}`;
-    this.pathh = path;
+
     const customMetadata = {app: 'My AngularFire-powered PWA!'};
 
     this.task = this.storage.upload(path, file, { customMetadata } );
@@ -52,8 +52,9 @@ export class FileUploadComponent  {
   isActive(snapshot) {
     return snapshot.state === 'running' && snapshot.bytesTransferred < snapshot.totalBytes ;
   }
-  printDownloadURL() {
-    console.log(this.pathh);
+  printDownloadURL(url: any) {
+    console.log(url);
+    this.photoURL = url;
   }
 
 }

@@ -45,12 +45,12 @@
 
   <div *ngIf="downloadURL | async as url">
     <h3>Completed!</h3>
-    <img [src]="url"><br>
-    <a [href]="url" target="_blank" rel="noopener">Download Me!</a>
+    <img id="image" [src]="url" ><br>
+    <button (click)="printDownloadURL(url)">add photo to badge</button>
   </div>
 
 <!--  <button (click)="task.pause()" class="button is-warning" [disabled]="!isActive(snap)">Pause</button>-->
 <!--  <button (click)="task.cancel()" class="button is-danger" [disabled]="!isActive(snap)">Cancel</button>-->
 <!--  <button (click)="task.resume()" class="button is-info"   [disabled]="!(snap?.state === 'paused')">Resume</button>-->
-<button (click)="printDownloadURL()">!!!!!!</button>
+
 </div>

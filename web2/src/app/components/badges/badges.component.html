@@ -1,5 +1,5 @@
-
-
+<table>
+<tr>
 <table>
   <tr>
     <th>Badge ID</th>
@@ -17,8 +17,25 @@
 
 
 </table>
+</tr>
+  <tr>
 
 
+<div>
+  <form (submit)="addBadge()">
+    <input type="text" name="name" [(ngModel)]="newBadge.name" placeholder="Enter name">
+    <input type="text" name="Context ID" [(ngModel)]="newBadge.context_id" placeholder="Enter Context ID">
+    <button type="submit" >add new Badge</button>
+  </form>
+</div>
+<div>
+  <form (submit)="deleteBadge()">
+    <input type="text" name="BadgeID" [(ngModel)]="delBadge" placeholder="Enter Badge id" value="">
+    <button type="submit" >delete Badge</button>
+  </form>
+</div>
+  </tr>
+</table>
 <!--<li *ngFor="let i of badge | async">-->
 <!--  {{i.key}} : {{i.payload.val().name}} : {{i.payload.val().context_id}} : {{i.payload.val().photoUrl}}-->
 

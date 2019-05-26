@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 300px;
+  height: 200px;
+  width: 500px;
   border: 2px dashed  #4c68f1;
   border-radius: 5px;
   background: white;
@@ -20,4 +21,9 @@ hovering {
 
 progress::-webkit-progress-value {
   transition: width 0.1s ease;
+}
+
+#image{
+  max-width:100px;
+  max-height:100px;
 }
