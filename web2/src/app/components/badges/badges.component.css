@@ -31,7 +31,7 @@ table {
   border-collapse: collapse;
   width: 50%;
   position: relative;
-  top: 100px;
+  top: 50px;
 }
 
 td, th {
@@ -42,5 +42,10 @@ td, th {
 
 tr:nth-child(even) {
   background-color: lightblue;
+}
+form {
+  position: relative;
+  left: 730px;
+  top: -550px;
 }
 
