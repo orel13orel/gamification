@@ -12,7 +12,6 @@ import { AngularFireModule } from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireFunctionsModule} from '@angular/fire/functions';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
 
 import { environment } from '../environments/environment';
 import { HomeComponent } from './components/home/home.component';
@@ -24,7 +23,7 @@ import { RbComponent } from './components/rb/rb.component';
 import { Action2Component } from './components/action2/action2.component';
 import { Context2Component } from './components/context2/context2.component';
 import {FormsModule} from '@angular/forms';
-import { DropzoneDirective } from './components/file-upload/dropzone.directive';
+import { DropzoneDirective } from './components/badges/dropzone.directive';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 

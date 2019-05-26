@@ -43,9 +43,52 @@ td, th {
 tr:nth-child(even) {
   background-color: lightblue;
 }
-form {
+#addForm {
   position: relative;
   left: 730px;
   top: -550px;
 }
+#deleteForm{
+  position: relative;
+  left: 730px;
+  top: -500px;
+}
+
+.dropzone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  width: 500px;
+  border: 2px dashed  #4c68f1;
+  border-radius: 5px;
+  background: white;
+  margin: 10px 0;
+  position: relative;
+  top: -549px;
+  left: 730px;
+
+}
+.afterUpload{
+  position: relative;
+  top: -540px;
+  left: 730px;
+}
+
+hovering {
+  border: 2px solid #4c68f1;
+  color: #dadada !important;
+}
+
+
+progress::-webkit-progress-value {
+  transition: width 0.1s ease;
+}
+
+#image{
+  max-width:100px;
+  max-height:100px;
+}
+
 
