@@ -2,3 +2,21 @@
   {{i.key}} : {{i.payload.val().name}} : {{i.payload.val().points}} : {{i.payload.val().badge_id}} : {{i.payload.val().start_time}} : {{i.payload.val().end_time}}
 
 </li>
+
+
+<div>
+  <form (submit)="addChallenge()">
+    <input type="text" name="name" [(ngModel)]="newChallenge.badge_id" placeholder="Enter badge id">
+    <input type="text" name="name" [(ngModel)]="newChallenge.name" placeholder="Enter name">
+    <input type="text" name="name" [(ngModel)]="newChallenge.points" placeholder="Enter Points">
+    endtime: <input type="date" name="end_time" [(ngModel)]="newChallenge.end_time">
+    <button type="submit" >add new Challenge</button>
+  </form>
+</div>
+<div>
+  <form (submit)="deleteChallenge()">
+    <input type="text" name="RbChallenge" [(ngModel)]="delChallenge" placeholder="Enter Challenge id" value="">
+    <button type="submit" >delete Challenge</button>
+  </form>
+</div>
+
