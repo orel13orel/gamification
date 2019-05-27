@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/challenge-action/challenge-action.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/challenge-action/challenge-action.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/challenge/challenge.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/challenge/challenge.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/challenge/challenge.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/challenge/challenge.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/challenge-action/challenge-action.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/challenge-action/challenge-action.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +22,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="178" column="14" selection-start-line="178" selection-start-column="10" selection-end-line="178" selection-end-column="14" />
+            <state relative-caret-position="100">
+              <caret line="173" column="12" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -95,7 +94,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,6 +105,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -176,11 +175,12 @@
       <workItem from="1558263491682" duration="113000" />
       <workItem from="1558437894138" duration="6263000" />
       <workItem from="1558892889104" duration="378000" />
+      <workItem from="1558897515371" duration="846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="252795000" />
+    <option name="totallyTimeSpent" value="253641000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -275,8 +275,8 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="178" column="14" selection-start-line="178" selection-start-column="10" selection-end-line="178" selection-end-column="14" />
+        <state relative-caret-position="100">
+          <caret line="173" column="12" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="12" />
         </state>
       </provider>
     </entry>
