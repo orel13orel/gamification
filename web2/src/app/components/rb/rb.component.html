@@ -1,13 +1,28 @@
-<p>
-  rb works!
-</p>
+<!--<p>-->
+<!--  rb works!-->
+<!--</p>-->
 
-<li *ngFor="let i of rb | async">
-  {{i.key}} : {{i.payload.val().badge_id}} : {{i.payload.val().context}} : {{i.payload.val().valueOfPoints}}
+<!--<li *ngFor="let i of rb | async">-->
+<!--  {{i.key}} : {{i.payload.val().badge_id}} : {{i.payload.val().context}} : {{i.payload.val().valueOfPoints}}-->
 
-</li>
+<!--</li>-->
 
+<table  >
+  <tr>
+    <th>Rb ID</th>
+    <th>badge id</th>
+    <th>context id</th>
+    <th>points</th>
+  </tr>
+  <tr *ngFor="let i of rb | async">>
+    <td>{{i.key}}</td>
+    <td>{{i.payload.val().badge_id}}</td>
+    <td>{{i.payload.val().context}}</td>
+    <td>{{i.payload.val().valueOfPoints}}</td>
 
+  </tr>
+
+</table>
 
 <div>
   <form (submit)="addRb()">

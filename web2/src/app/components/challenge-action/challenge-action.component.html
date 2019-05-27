@@ -6,9 +6,19 @@
     </th>
     <th>
       <h2>actions:</h2>
-      <li *ngFor="let i of challengeAction | async">
-        {{i.key}} : {{i.payload.val().action_id}} : {{i.payload.val().amount}}
-      </li>
+<!--      <li *ngFor="let i of challengeAction | async">-->
+<!--        {{i.key}} : {{i.payload.val().action_id}} : {{i.payload.val().amount}}-->
+<!--      </li>-->
+      <table id="context" >
+        <tr>
+          <th>action ID</th>
+          <th>amount</th>
+        </tr>
+        <tr *ngFor="let i of challengeAction | async">
+          <td>{{i.payload.val().action_id}}</td>
+          <td>{{i.payload.val().amount}}</td>
+        </tr>
+      </table>
 
       <div>
         <form  (submit)="addChallengeAction()">
