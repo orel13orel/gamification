@@ -3,12 +3,14 @@ import {Chart} from 'chart.js';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 
 export class UserActivity {
-  points: any;
-  action_id: any;
-  context_id: any;
-  user_id: any;
+  points: number;
   // date: any;
-  constructor(points: any , action_id: any , context_id: any , user_id: any)
+  constructor(points: number) {
+    this.points = points;
+  }
+  addPoints(points: number) {
+    this.points += points;
+  }
 }
 
 @Component({
@@ -23,10 +25,10 @@ export class ChartComponent implements OnInit {
   @ViewChild('valueBarsCanvas') valueBarsCanvas;
   valueBarsChart: any;
   // chartArr: UserActivity[] = [];
-  chartArr: Map<string , UserActivity>;
-
+  // chartArr: Map<string , UserActivity>;
+  chartArr: Map<string , number>;
   constructor(private db: AngularFireDatabase) {
-    this.chartArr = new Map<string, UserActivity>();
+    this.chartArr = new Map<string, number>();
   }
 
   ngOnInit() {
@@ -36,20 +38,28 @@ export class ChartComponent implements OnInit {
       console.log(result);
       for (const us of result) {
         if (this.chartArr[us.date]) {
-
+          // add points to existing date
+          // const tempPoints = this.chartArr.get(us.date).points;
+          // this.chartArr.set(us.date, new UserActivity(+us.points + tempPoints));
+          // this.chartArr.get(us.date).addPoints(+us.points.p);
+         const num = +this.chartArr.get(us.date) +us.points;
+          this.chartArr.set(us.date , +num);
+        } else {
+          // set points to new date
+          // this.chartArr.set(us.date, new UserActivity(+us.points));
+          this.chartArr.set(us.date, +us.points);
         }
       }
+      console.log(this.chartArr);
     });
     this.valueBarsChart = new Chart(this.valueBarsCanvas.nativeElement, {
 ///
       type: 'bar',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-          data: [1 , 52 , 37 , 74 , 51 , 6 , 7],
-          backgroundColor: '#32db64'
-        }, {data: [7 , 66 , 11 , 54 , 91 , 16 , 0],
-          backgroundColor: '#db1d1b'}],
+        datasets: [{data: [22 , 52 , 37 , 74 , 51 , 6 , 7], backgroundColor: '#32db64'}
+            // , {data: [7 , 66 , 11 , 54 , 91 , 16 , 0], backgroundColor: '#db1d1b'}
+          ],
       },
       options: {
         legend: {
