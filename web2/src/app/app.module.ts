@@ -25,6 +25,7 @@ import { Context2Component } from './components/context2/context2.component';
 import {FormsModule} from '@angular/forms';
 import { DropzoneDirective } from './components/badges/dropzone.directive';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { ChartComponent } from './components/chart/chart.component';
 
 
 const appRoutes: Routes = [
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   {path: 'Rb', component : RbComponent},
   {path: 'action2', component: Action2Component},
   {path: 'file-upload', component: FileUploadComponent},
+  {path: 'chart', component: ChartComponent},
 ]
 
 @NgModule({
@@ -54,6 +56,7 @@ const appRoutes: Routes = [
     Context2Component,
     DropzoneDirective,
     FileUploadComponent,
+    ChartComponent,
 
   ],
   imports: [
