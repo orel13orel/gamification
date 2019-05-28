@@ -37,12 +37,12 @@ export class ChartComponent implements OnInit {
     this.ref.valueChanges().subscribe(result => {
       console.log(result);
       for (const us of result) {
-        if (this.chartArr[us.date]) {
+        if (this.chartArr.has(us.date)) {
           // add points to existing date
           // const tempPoints = this.chartArr.get(us.date).points;
           // this.chartArr.set(us.date, new UserActivity(+us.points + tempPoints));
           // this.chartArr.get(us.date).addPoints(+us.points.p);
-         const num = +this.chartArr.get(us.date) +us.points;
+         const num =+us.points +this.chartArr.get(us.date);
           this.chartArr.set(us.date , +num);
         } else {
           // set points to new date
