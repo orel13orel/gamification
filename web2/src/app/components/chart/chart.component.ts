@@ -8,7 +8,7 @@ export class UserActivity {
   constructor(points: number) {
     this.points = points;
   }
-  addPoints(points: number) {
+  sumPoints(points: number) {
     this.points += points;
   }
 }
@@ -25,10 +25,12 @@ export class ChartComponent implements OnInit {
   @ViewChild('valueBarsCanvas') valueBarsCanvas;
   valueBarsChart: any;
   // chartArr: UserActivity[] = [];
-  // chartArr: Map<string , UserActivity>;
-  chartArr: Map<string , number>;
+  chartArr: Map<string , UserActivity>;
+  // chartArr: Map<string , number>;
+  pointsArr: number[];
   constructor(private db: AngularFireDatabase) {
-    this.chartArr = new Map<string, number>();
+    this.chartArr = new Map<string, UserActivity>();
+    this.pointsArr = new Array<number>();
   }
 
   ngOnInit() {
@@ -41,25 +43,31 @@ export class ChartComponent implements OnInit {
           // add points to existing date
           // const tempPoints = this.chartArr.get(us.date).points;
           // this.chartArr.set(us.date, new UserActivity(+us.points + tempPoints));
-          // this.chartArr.get(us.date).addPoints(+us.points.p);
-         const num =+us.points +this.chartArr.get(us.date);
-          this.chartArr.set(us.date , +num);
+          this.chartArr.get(us.date).sumPoints(+(us.points));
+         // const num =+us.points +this.chartArr.get(us.date);
+         // this.chartArr.set(us.date , +num);
         } else {
           // set points to new date
           // this.chartArr.set(us.date, new UserActivity(+us.points));
-          this.chartArr.set(us.date, +us.points);
+          this.chartArr.set(us.date, new UserActivity(+(us.points)));
         }
       }
+      // make an array of points
+      Array.from(this.chartArr.values()).forEach(ua => {this.pointsArr.push(+ua.points); });
+
       console.log(this.chartArr);
+      console.log(Array.from(this.chartArr.keys()));
+      console.log(this.pointsArr);
     });
     this.valueBarsChart = new Chart(this.valueBarsCanvas.nativeElement, {
 ///
       type: 'bar',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{data: [22 , 52 , 37 , 74 , 51 , 6 , 7], backgroundColor: '#32db64'}
-            // , {data: [7 , 66 , 11 , 54 , 91 , 16 , 0], backgroundColor: '#db1d1b'}
-          ],
+        labels: ['1', '2' , '3' , '4'], //  Array.from(this.chartArr.keys()),  // ['1', '2' , '3' , '4'], //
+        datasets: [{
+          data: [ 1 , 2 , 3 , 4], // this.pointsArr,  // [ 1 , 2 , 3 , 4], //
+          backgroundColor: '#32db64'
+        }]
       },
       options: {
         legend: {
