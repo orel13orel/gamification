@@ -179,7 +179,14 @@ exports.addUserActivity = functions.https.onRequest((req,res)=>{
     const date= new Date().toDateString();
     console.log(date);
     //get the action count for the user
-    return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date,points:"0"}).then((snapshot) => {
+    return admin.database().ref('/UserActivity/').push({
+        user_id: user_id ,
+        action_id:action_id ,
+        context_id:context_id,
+        date:date,
+        points:"0",
+        challenge_Badge:"0",
+        context_badge:"0"}).then((snapshot) => {
         let arr2=snapshot.toString().split("/");
         return res.redirect(303, arr2[4]);
     });
@@ -193,7 +200,9 @@ function addActivity(user_id,action_id,context_id,date) {
             action_id: action_id,
             context_id: context_id,
             date: date.toDateString(),
-            points:"0"
+            points:"0",
+            challenge_Badge:"0",
+            context_badge:"0"
         });
     },4000);
 
@@ -202,7 +211,7 @@ function addActivity(user_id,action_id,context_id,date) {
 exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let days =parseInt( req.query.text);
     log("days: "+days);
-    let user_id="5jU7ajzY1RgWgVwFtxJqDTo5Xxn1";
+    let user_id="6nwDNePjyyeRfuh9PnN0c7qSrhs2";
     var date= new Date();
     //contexts id:
     //action id:
@@ -285,7 +294,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             action_id: login_id_a,
             context_id: login_id_c,
             date: date.toDateString(),
-            points:"0"
+            points:"0",
+            challenge_Badge:"0",
+            context_badge:"0"
         });
     },1);
 
@@ -295,7 +306,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             action_id: post_id_a,
             context_id: post_id_c,
             date: date.toDateString(),
-            points:"0"
+            points:"0",
+            challenge_Badge:"0",
+            context_badge:"0"
         });
     },4000);
 
@@ -305,7 +318,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: post_id_a,
                 context_id: post_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },8000);
 
@@ -315,7 +330,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: post_id_a,
                 context_id: post_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },12000);
 
@@ -325,7 +342,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: post_id_a,
                 context_id: post_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },16000);
 
@@ -335,7 +354,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             action_id: comment_id_a,
             context_id: feed_id_c,
             date: date.toDateString(),
-            points:"0"
+            points:"0",
+            challenge_Badge:"0",
+            context_badge:"0"
         });
     },20000);
 
@@ -345,7 +366,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: comment_id_a,
                 context_id: feed_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },24000);
 
@@ -355,7 +378,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
             action_id: like_id_a,
             context_id: feed_id_c,
             date: date.toDateString(),
-            points:"0"
+            points:"0",
+            challenge_Badge:"0",
+            context_badge:"0"
         });
     },28000);
 
@@ -365,7 +390,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: like_id_a,
                 context_id: feed_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },32000);
 
@@ -375,7 +402,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: following_id_a,
                 context_id: profile_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },36000);
 
@@ -385,7 +414,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: following_id_a,
                 context_id: profile_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },40000);
 
@@ -395,7 +426,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: followers_id_a,
                 context_id: profile_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },44000);
 
@@ -405,7 +438,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: followers_id_a,
                 context_id: profile_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },48000);
 
@@ -415,7 +450,9 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
                 action_id: likeMe_id_a,
                 context_id: post_id_c,
                 date: date.toDateString(),
-                points:"0"
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
             });
         },52000);
 
@@ -477,7 +514,15 @@ exports.addUserActivityApp = functions.https.onCall((data, context) => {
     const date= new Date().toDateString();
     //console.log(date);
     //get the action count for the user
-    return admin.database().ref('/UserActivity/').push({user_id: user_id , action_id:action_id ,context_id:context_id, date:date,points:"0"}).then((snap) => {
+    return admin.database().ref('/UserActivity/').push({
+        user_id: user_id ,
+        action_id:action_id ,
+        context_id:context_id,
+        date:date,
+        points:"0",
+        challenge_Badge:"0",
+        context_badge:"0"
+    }).then((snap) => {
             return log("user id: " + user_id + "action_id" + action_id + "context_id" + context_id + "date: " + date);
 
     }).catch(function(error) {
@@ -551,7 +596,8 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                 if (RpActionId === action_id && RpValue === Action_count.toString()) {
                     // console.log("RpPoints: " + RpPoints);
                     points = RpPoints;
-                    addPointsToUserActivity(points,userActivityID)
+                    addPointsToUserActivity(points,userActivityID);
+                    // was missing ; up here
                     // Adding points to user
                     database.ref('/Users/'+ user_id + '/Points/').once('value').then(function(pointsSnapshot){
                         var userPoints = pointsSnapshot.val();
@@ -653,9 +699,11 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                          if(Rb_context==="global"&&parseInt(userPoints)>=parseInt(Rb_points)){
                              // log("give badge for global points");
                                 addBadgeToUser(user_id,badge_id);
+                             addBadgeToUserActivity(userActivityID, "context_badge");
                          }else if(Rb_context!=="global"&& (typeof contextPointsJSON[Rb_context]!== 'undefined') &&(parseInt( contextPointsJSON[Rb_context].sumOfPoints)>=parseInt(Rb_points))){
                              // log("give badge for specific context");
                              addBadgeToUser(user_id,badge_id);
+                             addBadgeToUserActivity(userActivityID, "context_badge");
                          }else {
                              //  log("take badge from user");
 
@@ -839,6 +887,7 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
                             });
                             //add points to userActivity
                             addPointsToUserActivity(points, userActivityID);
+                            addBadgeToUserActivity(userActivityID, "challenge_Badge");
                             Rb(userActivityID);
                             addBadgeToUser(user_id, badge_id);
                         }
@@ -893,6 +942,22 @@ exports.challenges = functions.database.ref('/UserActivity/{userActivityID}').on
       });
 
   }
+//bType, type of badge: challenge_Badge OR context_badge
+function addBadgeToUserActivity(userActivityID, bType) {
+
+    database.ref('/UserActivity/' + userActivityID + '/' +bType).once('value').then(function (badgeSnap) {
+        let activityPointsJSON = badgeSnap.val();
+        let badgeCount = (1 + parseInt(activityPointsJSON)).toString();
+        database.ref('/UserActivity/' + userActivityID + '/' +bType).set(badgeCount);
+        console.log("badgeCount: ");
+        console.log(badgeCount);
+
+        return;
+    }).catch(function (error) {
+        console.log("Error deleting app:", error);
+    });
+
+}
 
 // exports.exmple1 = functions.https.onRequest(()=>{
 //     admin.database().ref("/Points/-LaLQsQFUVwKvzJE7G_R").on("value",function (snapshot) {

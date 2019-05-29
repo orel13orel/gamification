@@ -4,12 +4,18 @@ import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 
 export class UserActivity {
   points: number;
+  challenge_Badge: number;
+  context_badge: number;
   // date: any;
-  constructor(points: number) {
+  constructor(points: number, challenge_Badge: number, context_badge: number) {
     this.points = points;
+    this.challenge_Badge = challenge_Badge;
+    this.context_badge = context_badge;
   }
-  sumPoints(points: number) {
+  sumUA(points: number, challenge_Badge: number, context_badge: number) {
     this.points += points;
+    this.challenge_Badge += challenge_Badge;
+    this.context_badge += context_badge;
   }
 }
 
@@ -34,22 +40,22 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ref = this.db.list('UserActivity');
+    this.ref = this.db.list('UserActivity', ref => ref.limitToLast(3000));
     // , ref => ref.orderByChild('date'));
     this.ref.valueChanges().subscribe(result => {
       console.log(result);
-      for (const us of result) {
-        if (this.chartArr.has(us.date)) {
+      for (const ua of result) {
+        if (this.chartArr.has(ua.date)) {
           // add points to existing date
           // const tempPoints = this.chartArr.get(us.date).points;
           // this.chartArr.set(us.date, new UserActivity(+us.points + tempPoints));
-          this.chartArr.get(us.date).sumPoints(+(us.points));
+          this.chartArr.get(ua.date).sumUA(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge));
          // const num =+us.points +this.chartArr.get(us.date);
          // this.chartArr.set(us.date , +num);
         } else {
           // set points to new date
           // this.chartArr.set(us.date, new UserActivity(+us.points));
-          this.chartArr.set(us.date, new UserActivity(+(us.points)));
+          this.chartArr.set(ua.date, new UserActivity(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge)));
         }
       }
       // make an array of points

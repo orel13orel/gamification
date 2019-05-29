@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="" />
+    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +22,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="173" column="12" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="12" />
+            <state relative-caret-position="243">
+              <caret line="213" column="45" selection-start-line="213" selection-start-column="45" selection-end-line="213" selection-end-column="45" />
+              <folding>
+                <element signature="e#8021#8023#0" />
+                <element signature="e#8325#8370#0" />
+                <element signature="e#16080#20694#0" />
+                <element signature="e#20769#24175#0" />
+                <element signature="e#24289#33524#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,6 +77,8 @@
       <find>addBa</find>
       <find>admin</find>
       <find>firebase-admin</find>
+      <find>addPointsToUserActivity</find>
+      <find>addBadgeToUser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,11 +185,12 @@
       <workItem from="1558437894138" duration="6263000" />
       <workItem from="1558892889104" duration="378000" />
       <workItem from="1558897515371" duration="846000" />
+      <workItem from="1559110218813" duration="3115000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="253641000" />
+    <option name="totallyTimeSpent" value="256756000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -192,7 +205,7 @@
     <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.11764706" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.101123594" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -272,8 +285,15 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="173" column="12" selection-start-line="173" selection-start-column="8" selection-end-line="173" selection-end-column="12" />
+        <state relative-caret-position="243">
+          <caret line="213" column="45" selection-start-line="213" selection-start-column="45" selection-end-line="213" selection-end-column="45" />
+          <folding>
+            <element signature="e#8021#8023#0" />
+            <element signature="e#8325#8370#0" />
+            <element signature="e#16080#20694#0" />
+            <element signature="e#20769#24175#0" />
+            <element signature="e#24289#33524#0" />
+          </folding>
         </state>
       </provider>
     </entry>
