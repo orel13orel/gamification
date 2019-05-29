@@ -34,15 +34,19 @@ export class ChartComponent implements OnInit {
   chartArr: Map<string , UserActivity>;
   // chartArr: Map<string , number>;
   pointsArr: number[];
+  challengeBadgeArr: number[];
+  contextBadgeArr: number[];
   constructor(private db: AngularFireDatabase) {
     this.chartArr = new Map<string, UserActivity>();
     this.pointsArr = new Array<number>();
+    this.challengeBadgeArr = new Array<number>();
+    this.contextBadgeArr = new Array<number>();
   }
 
   ngOnInit() {
     this.ref = this.db.list('UserActivity', ref => ref.limitToLast(3000));
     // , ref => ref.orderByChild('date'));
-    this.ref.valueChanges().subscribe(result => {
+    new Promise((resolve, reject) => {this.ref.valueChanges().subscribe(result => {
       console.log(result);
       for (const ua of result) {
         if (this.chartArr.has(ua.date)) {
@@ -50,8 +54,8 @@ export class ChartComponent implements OnInit {
           // const tempPoints = this.chartArr.get(us.date).points;
           // this.chartArr.set(us.date, new UserActivity(+us.points + tempPoints));
           this.chartArr.get(ua.date).sumUA(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge));
-         // const num =+us.points +this.chartArr.get(us.date);
-         // this.chartArr.set(us.date , +num);
+          // const num =+us.points +this.chartArr.get(us.date);
+          // this.chartArr.set(us.date , +num);
         } else {
           // set points to new date
           // this.chartArr.set(us.date, new UserActivity(+us.points));
@@ -59,51 +63,63 @@ export class ChartComponent implements OnInit {
         }
       }
       // make an array of points
-      Array.from(this.chartArr.values()).forEach(ua => {this.pointsArr.push(+ua.points); });
+      Array.from(this.chartArr.values()).forEach(ua => {
+        this.pointsArr.push(+ua.points);
+        this.challengeBadgeArr.push(+ua.challenge_Badge);
+        this.contextBadgeArr.push(+ua.context_badge)
+      });
 
       console.log(this.chartArr);
       console.log(Array.from(this.chartArr.keys()));
       console.log(this.pointsArr);
+      resolve();
     });
-    this.valueBarsChart = new Chart(this.valueBarsCanvas.nativeElement, {
+    }).then(() => {
+      this.valueBarsChart = new Chart(this.valueBarsCanvas.nativeElement, {
 ///
-      type: 'bar',
-      data: {
-        labels: ['1', '2' , '3' , '4'], //  Array.from(this.chartArr.keys()),  // ['1', '2' , '3' , '4'], //
-        datasets: [{
-          data: [ 1 , 2 , 3 , 4], // this.pointsArr,  // [ 1 , 2 , 3 , 4], //
-          backgroundColor: '#32db64'
-        }]
-      },
-      options: {
-        legend: {
-          display: false
-        },
-        tooltips: {
-          callbacks: {
-            label: function (tooltipItems, data) {
-              return data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index] + ' $';
-            }
-          }
-        },
-        scales: {
-          xAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }],
-          yAxes: [{
-            ticks: {
-              callback: function (value, index, values) {
-                return value + '$';
-              },
-              suggestedMin: 0
-            }
+        type: 'bar',
+        data: {
+          labels: Array.from(this.chartArr.keys()),  // ['1', '2' , '3' , '4'], //
+          datasets: [{
+            data: this.pointsArr,  // [ 1 , 2 , 3 , 4], //
+            backgroundColor: '#32db64'
+          }, {
+            data: this.contextBadgeArr,
+            backgroundColor: '#db1019'
+          }, {
+            data: this.challengeBadgeArr,
+            backgroundColor: '#0d1edb'
           }]
         },
-      }
-      ///
+        options: {
+          legend: {
+            display: false
+          },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItems, data) {
+                return data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index] + ' $';
+              }
+            }
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                callback: function(value, index, values) {
+                  return value + '$';
+                },
+                suggestedMin: 0
+              }
+            }]
+          },
+        }
+        ///
+      });
     });
-  }
 
-}
+}}
