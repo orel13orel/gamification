@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,14 +22,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="213" column="45" selection-start-line="213" selection-start-column="45" selection-end-line="213" selection-end-column="45" />
+            <state relative-caret-position="202">
+              <caret line="206" column="45" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="45" />
               <folding>
-                <element signature="e#8021#8023#0" />
-                <element signature="e#8325#8370#0" />
-                <element signature="e#16080#20694#0" />
-                <element signature="e#20769#24175#0" />
-                <element signature="e#24289#33524#0" />
+                <element signature="e#25750#35072#0" />
+                <element signature="e#35121#35741#0" />
+                <element signature="e#35802#36383#0" />
+                <element signature="e#36496#36994#0" />
               </folding>
             </state>
           </provider>
@@ -78,6 +78,7 @@
       <find>firebase-admin</find>
       <find>addPointsToUserActivity</find>
       <find>addBadgeToUser</find>
+      <find>Rb</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,7 +92,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="20" />
     <option name="width" value="1680" />
     <option name="height" value="945" />
@@ -102,6 +103,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -113,7 +115,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -185,11 +186,12 @@
       <workItem from="1558892889104" duration="378000" />
       <workItem from="1558897515371" duration="846000" />
       <workItem from="1559110218813" duration="3115000" />
+      <workItem from="1559465330343" duration="7353000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256756000" />
+    <option name="totallyTimeSpent" value="264109000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -201,10 +203,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.101123594" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" visible="true" weight="0.087243885" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -284,14 +286,13 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="213" column="45" selection-start-line="213" selection-start-column="45" selection-end-line="213" selection-end-column="45" />
+        <state relative-caret-position="202">
+          <caret line="206" column="45" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="45" />
           <folding>
-            <element signature="e#8021#8023#0" />
-            <element signature="e#8325#8370#0" />
-            <element signature="e#16080#20694#0" />
-            <element signature="e#20769#24175#0" />
-            <element signature="e#24289#33524#0" />
+            <element signature="e#25750#35072#0" />
+            <element signature="e#35121#35741#0" />
+            <element signature="e#35802#36383#0" />
+            <element signature="e#36496#36994#0" />
           </folding>
         </state>
       </provider>

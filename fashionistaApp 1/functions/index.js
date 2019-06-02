@@ -106,13 +106,6 @@ exports.addContext2 = functions.https.onRequest((req,res)=>{
     });
 });
 
-exports.hasin = functions.https.onRequest((req,res)=>{
-
-
-
-        return res.redirect(303, "123123123");
-
-});
 
 //receives new action name and context id, return the action id
 exports.addAction = functions.https.onRequest((req,res)=>{
@@ -672,13 +665,16 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
              //console.log("Rb:userJSON");
              //console.log(userJSON);
              let userPoints=userJSON.Points;
+             let userBadges= userJSON.Badges;
+             log("userBadges");
+             log(userBadges);
              //console.log("Rb:userPoints: ");
              //console.log(userPoints);
              //get user's contextPoints
-             database.ref('/Users/'+user_id+'/ContextPoints/').once('value').then( function(contextPointsSnap) {
-                 let contextPointsJSON=contextPointsSnap.val();
-                 //console.log("Rb:contextPointsJSON");
-                 //console.log(contextPointsJSON);
+             // database.ref('/Users/'+user_id+'/ContextPoints/').once('value').then( function(contextPointsSnap) {
+                 let contextPointsJSON=userJSON.ContextPoints;
+                 console.log("Rb:contextPointsJSON");
+                 console.log(contextPointsJSON);
                 //get the badge rule table
                  database.ref('/Rb/').once('value').then( function(RbSnap) {
                      let RbJSON=RbSnap.val();
@@ -693,23 +689,37 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                          // log("Rb_points");
                          //log(Rb_points);
                          let badge_id=RbJSON[RbKey].badge_id;
-
-                        //If the user is entitled to the badge then we will assign it to him else we'll delete the badge from the user's badges
-                         //case context is global
-                         if(Rb_context==="global"&&parseInt(userPoints)>=parseInt(Rb_points)){
-                             // log("give badge for global points");
-                                addBadgeToUser(user_id,badge_id);
-                             addBadgeToUserActivity(userActivityID, "context_badge");
-                         }else if(Rb_context!=="global"&& (typeof contextPointsJSON[Rb_context]!== 'undefined') &&(parseInt( contextPointsJSON[Rb_context].sumOfPoints)>=parseInt(Rb_points))){
-                             // log("give badge for specific context");
-                             addBadgeToUser(user_id,badge_id);
-                             addBadgeToUserActivity(userActivityID, "context_badge");
-                         }else {
-                             //  log("take badge from user");
-
-                             database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').remove();
-                         }
-
+                         //let badgeFlag=false;
+                         // eslint-disable-next-line promise/catch-or-return
+                         new Promise(function(resolve, reject) {
+                             Object.keys(userBadges).forEach((function (ubKey) {
+                                if(ubKey===badge_id) {
+                                    // badgeFlag= true
+                                    resolve(true);
+                                }
+                             }));
+                             resolve(false);
+                         }).then(function (badgeFlag) {
+                             log("badgeFlag");
+                             log(badgeFlag);
+                             if(!badgeFlag){
+                                 //If the user is entitled to the badge then we will assign it to him else we'll delete the badge from the user's badges
+                                 //case context is global
+                                 if(Rb_context==="global"&&parseInt(userPoints)>=parseInt(Rb_points)){
+                                     // log("give badge for global points");
+                                     addBadgeToUser(user_id,badge_id);
+                                     addBadgeToUserActivity(userActivityID, "context_badge");
+                                 }else if(Rb_context!=="global"&& (typeof contextPointsJSON[Rb_context]!== 'undefined') &&(parseInt( contextPointsJSON[Rb_context].sumOfPoints)>=parseInt(Rb_points))   ){
+                                     // log("give badge for specific context");
+                                     addBadgeToUser(user_id,badge_id);
+                                     addBadgeToUserActivity(userActivityID, "context_badge");
+                                 }
+                             }else if(Rb_context!=="global"&&(parseInt( contextPointsJSON[Rb_context].sumOfPoints)<parseInt(Rb_points))){
+                                 //  log("take badge from user");
+                                 database.ref('/Users/' + user_id +'/Badges/'+badge_id+'/').remove();
+                             }
+                             return;
+                             });
                      });
 
                      return ;
@@ -717,10 +727,10 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                      console.log("RbJSONBlock:Error deleting app inside catch:", error);
                  });
 
-                 return;
-             }).catch(function (error) {
-                 console.log("contextPointsJSONBlock:Error deleting app inside catch:", error);
-             });
+             //     return;
+             // }).catch(function (error) {
+             //     console.log("contextPointsJSONBlock:Error deleting app inside catch:", error);
+             // });
              return;
          }).catch(function (error) {
              console.log("userJSONBlock:Error deleting app inside catch:", error);

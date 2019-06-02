@@ -44,7 +44,7 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ref = this.db.list('UserActivity', ref => ref.limitToLast(3000));
+    this.ref = this.db.list('UserActivity', ref => ref.limitToLast(140));
     // , ref => ref.orderByChild('date'));
     new Promise((resolve, reject) => {this.ref.valueChanges().subscribe(result => {
       console.log(result);
