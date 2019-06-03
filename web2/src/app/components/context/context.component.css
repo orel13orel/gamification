@@ -28,7 +28,19 @@ tr:nth-child(even) {
   z-index:999;
   width: 30%;
 }
-
+#add_context_button{
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 500px;
+  left: 34px;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  z-index:999;
+  width: 30%;
+}
 /*#context{*/
 /*  top: 500px;*/
 /*}*/

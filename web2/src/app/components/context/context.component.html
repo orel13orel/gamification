@@ -2,7 +2,7 @@
 
 
 
-
+<div>
 <table id="context" >
   <tr>
     <th>Context ID</th>
@@ -14,10 +14,10 @@
   </tr>
 
 </table>
-
+</div>
 
 <div>
-  <form (submit)="addContext()">
+  <form id="add_context_button" (submit)="addContext()">
     <input type="text" name="name" [(ngModel)]="newContext.name" placeholder="Enter name">
     <button type="submit" >add new context</button>
   </form>

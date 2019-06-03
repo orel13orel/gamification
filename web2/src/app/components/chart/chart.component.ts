@@ -32,28 +32,35 @@ export class ChartComponent implements OnInit {
   @ViewChild('valueBarsCanvas') valueBarsCanvas;
   valueBarsChart: any;
   // chartArr: UserActivity[] = [];
-  chartArr: Map<string , UserActivity>;
+  chartMap: Map<string , UserActivity>;
   contextMap: Map<string , string>;
   // chartArr: Map<string , number>;
   pointsArr: number[];
   challengeBadgeArr: number[];
   contextBadgeArr: number[];
+
+  // filter able properties
   public contextID: string;
   public limit: number;
-  contexts: Observable<any[]>;
   public userID: string;
 
+  // Active filter rules
+  filters = {};
+
+  contexts: Observable<any[]>;
+
   constructor(private db: AngularFireDatabase) {
-    this.chartArr = new Map<string, UserActivity>();
+    this.chartMap = new Map<string, UserActivity>();
     this.contextMap = new Map<string, string>();
-    this.pointsArr = new Array<number>();
-    this.challengeBadgeArr = new Array<number>();
-    this.contextBadgeArr = new Array<number>();
+    // this.pointsArr = new Array<number>();
+    // this.challengeBadgeArr = new Array<number>();
+    // this.contextBadgeArr = new Array<number>();
     this.contexts = this.db.list('Context').snapshotChanges();
   }
 
   ngOnInit() {
     this.ref = this.db.list('UserActivity', ref => ref);
+
     this.showGraph();
 }
   filterLimit() {
@@ -70,41 +77,45 @@ export class ChartComponent implements OnInit {
   }
 
   showGraph() {
+    this.chartMap.clear();
+    this.pointsArr = new Array<number>();
+    this.challengeBadgeArr = new Array<number>();
+    this.contextBadgeArr = new Array<number>();
+
     new Promise((resolve, reject) => {
       this.ref.valueChanges().subscribe(result => {
         console.log(result);
         for (const ua of result) {
-          if (this.chartArr.has(ua.date)) {
+          if (this.chartMap.has(ua.date)) {
             // add points to existing date
             // const tempPoints = this.chartArr.get(us.date).points;
             // this.chartArr.set(us.date, new UserActivity(+us.points + tempPoints));
-            this.chartArr.get(ua.date).sumUA(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge));
+            this.chartMap.get(ua.date).sumUA(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge));
             // const num =+us.points +this.chartArr.get(us.date);
             // this.chartArr.set(us.date , +num);
           } else {
             // set points to new date
             // this.chartArr.set(us.date, new UserActivity(+us.points));
-            this.chartArr.set(ua.date, new UserActivity(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge)));
+            this.chartMap.set(ua.date, new UserActivity(+(ua.points), +(ua.challenge_Badge), +(ua.context_badge)));
           }
         }
         // make an array of points
-        Array.from(this.chartArr.values()).forEach(ua => {
+        Array.from(this.chartMap.values()).forEach(ua => {
           this.pointsArr.push(+ua.points);
           this.challengeBadgeArr.push(+ua.challenge_Badge);
           this.contextBadgeArr.push(+ua.context_badge);
         });
-
-        console.log(this.chartArr);
-        console.log(Array.from(this.chartArr.keys()));
-        console.log(this.pointsArr);
         resolve();
       });
     }).then(() => {
+      console.log(this.chartMap);
+      console.log(Array.from(this.chartMap.keys()));
+      console.log(this.pointsArr);
       this.valueBarsChart = new Chart(this.valueBarsCanvas.nativeElement, {
 ///
         type: 'bar',
         data: {
-          labels: Array.from(this.chartArr.keys()),  // ['1', '2' , '3' , '4'], //
+          labels: Array.from(this.chartMap.keys()),  // ['1', '2' , '3' , '4'], //
           datasets: [{
             label: 'points',
             data: this.pointsArr,  // [ 1 , 2 , 3 , 4], //
