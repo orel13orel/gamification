@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" afterDir="false" />
-    </list>
+    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,12 +21,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="202">
               <caret line="206" column="45" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="45" />
-              <folding>
-                <element signature="e#25750#35072#0" />
-                <element signature="e#35121#35741#0" />
-                <element signature="e#35802#36383#0" />
-                <element signature="e#36496#36994#0" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -186,12 +177,13 @@
       <workItem from="1558892889104" duration="378000" />
       <workItem from="1558897515371" duration="846000" />
       <workItem from="1559110218813" duration="3115000" />
-      <workItem from="1559465330343" duration="7353000" />
+      <workItem from="1559465330343" duration="7796000" />
+      <workItem from="1559501319179" duration="596000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="264109000" />
+    <option name="totallyTimeSpent" value="265148000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,12 +280,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
           <caret line="206" column="45" selection-start-line="206" selection-start-column="41" selection-end-line="206" selection-end-column="45" />
-          <folding>
-            <element signature="e#25750#35072#0" />
-            <element signature="e#35121#35741#0" />
-            <element signature="e#35802#36383#0" />
-            <element signature="e#36496#36994#0" />
-          </folding>
         </state>
       </provider>
     </entry>

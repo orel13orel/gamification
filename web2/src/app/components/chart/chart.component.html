@@ -12,3 +12,16 @@
 <div>
 <canvas #valueBarsCanvas></canvas>
 </div>
+
+<form (submit)="filterLimit()">
+  <input type="number" name="limit" pattern= "[0-9]" [(ngModel)]="limit" placeholder="Enter limit" value="">
+  <button type="submit" >limit graph to last x user activity</button>
+</form>
+<form (submit)="filterContext()">
+  <input type="text" name="contextID" [(ngModel)]="contextID" placeholder="Enter context id" value="">
+  <button type="submit" >filter by context id</button>
+</form>
+<form (submit)="filterUser()">
+  <input type="text" name="userID" [(ngModel)]="userID" placeholder="Enter user id" value="">
+  <button type="submit" >filter by user id</button>
+</form>
