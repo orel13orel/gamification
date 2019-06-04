@@ -14,7 +14,8 @@ export class NewChallenge {
     this.end_time = '';
     this.name = '';
     this.points = '';
-    this.start_time = new Date().toDateString();
+    this.start_time = '';
+     // new Date().toDateString();
   }
 }
 
