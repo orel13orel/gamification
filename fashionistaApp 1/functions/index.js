@@ -201,10 +201,11 @@ function addActivity(user_id,action_id,context_id,date) {
 
 
 }
-exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
+
+exports.addUserActivityA = functions.https.onRequest((req,res)=>{
     let days =parseInt( req.query.text);
     log("days: "+days);
-    let user_id="6nwDNePjyyeRfuh9PnN0c7qSrhs2";
+    let user_id="ZYP9sAngx7NinGt5QkdmrHPOpgp1";
     var date= new Date();
     //contexts id:
     //action id:
@@ -212,6 +213,7 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let post_id_a="-Lbr4afUT1Q8GM8Wfzhm";
     let commentMe_id_a="-LbvZ-DDBmNVfJkwqpws";
     let likeMe_id_a= "-LbvZ2ReJ1ZmcNcAS1gD";
+    let unlikeME_id_a="-LbvZ9lVT2Nt1Y2u6_uT";
 
     let login_id_c ="-LbvUu_fYK9MPENSQYtj";
     let login_id_a="-LbvWSJ6Nb0S79-6jtsh";
@@ -220,56 +222,13 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
     let profile_id_c="-LbvV5DHAybGUXNPS-0E";
     let following_id_a="-LbvWyZ2Di1p1jo3pOZR";
     let followers_id_a="-LbvX84LDLtxAgUSQ375";
+    let unfollow_id_a="-LbvXSwreFP_tXRRn_m7";
+    let unfollowME_id_a="-LbvXsMOsiiQ0yYn8dfp";
 
     let feed_id_c ="-LbvV8kDuZdkQM37TTNC";
     let comment_id_a="-LbvYT3xx6_xEKR7FDon";
     let like_id_a="-LbvYYqvdtNg7LsOK_Gy";
-
-    //let exponential = 2.718281828;
-
-
-    //
-    // for (var i=0;i<days;i++) {
-    //     date.setDate(date.getDate() + 1);
-    //     //action login
-    //     log("today: "+date);
-    //    database.ref('/UserActivity/').push({user_id: user_id , action_id:post_id_a ,context_id:post_id_c, date:date.toDateString(),points:"0"});
-    //
-
-        //let numOfPostsPerDay=poisson(i,post_landa);
-        //log("numOfPostsPerDay: "+numOfPostsPerDay);
-       // for(var j=0;j<numOfPostsPerDay;j++) {
-       //  setTimeout(function () {
-       //      database.ref('/UserActivity/').push({
-       //          user_id: user_id,
-       //          action_id: login_id_a,
-       //          context_id: login_id_c,
-       //          date: date,
-       //          points:"0"
-       //      });
-       //  },2000);
-        // setTimeout(function () {
-        //     database.ref('/UserActivity/').push({
-        //         user_id: user_id,
-        //         action_id: post_id_a,
-        //         context_id: post_id_c,
-        //         date: date,
-        //         points:"0"
-        //     });
-        // },4000);
-            //
-            // addActivity(user_id,login_id_a,login_id_c,date);
-            // addActivity(user_id,post_id_a,post_id_c,date);
-            // addActivity(user_id,post_id_a,post_id_c,date);
-            // addActivity(user_id,comment_id_a,feed_id_c,date);
-            // addActivity(user_id,comment_id_a,feed_id_c,date);
-            // addActivity(user_id,like_id_a,feed_id_c,date);
-            //  addActivity(user_id,like_id_a,feed_id_c,date);
-            //   addActivity(user_id,like_id_a,feed_id_c,date);
-            //  addActivity(user_id,like_id_a,feed_id_c,date);
-            // addActivity(user_id,following_id_a,profile_id_c,date);
-            // addActivity(user_id,followers_id_a,profile_id_c,date);
-            // addActivity(user_id,likeMe_id_a,post_id_c,date);
+    let unlike_id_a="-LbvYcs-DRrCw3RJv8_5";
 
             //1 login, 4 post,2 comment,2 like, 2 following,2 followers, 1 likeMe. total: 14 actions per day
     var i=1;
@@ -455,47 +414,791 @@ exports.addUserActivity2 = functions.https.onRequest((req,res)=>{
 
 
     },56000)
-
-       // }
-   // }
-
+    return res.redirect(303,"done");
+});
 
 
-    //var k_total = 10; // number of times the event is repeated
-    //var landa = 8;  // Promedian number of error expected in a given time (Landa symbol)
-    // let exponential = 2.718281828;
-   // var total = 0;
-   // var numerator, denominator;
+exports.addUserActivityB = functions.https.onRequest((req,res)=>{
+    let days =parseInt( req.query.text);
+    log("days: "+days);
+    // user name : B
+    let user_id="vJHDXoM1QtXWsWRdEDBBplvLyyp2";
+    var date= new Date();
+    //contexts id:
+    //action id:
+    let post_id_c="-Lbr-1NUNlyOVz4qRj2p";
+    let post_id_a="-Lbr4afUT1Q8GM8Wfzhm";
+    let commentMe_id_a="-LbvZ-DDBmNVfJkwqpws";
+    let likeMe_id_a= "-LbvZ2ReJ1ZmcNcAS1gD";
+    let unlikeME_id_a="-LbvZ9lVT2Nt1Y2u6_uT";
 
-// Sumatorio de k terminos usando la formula de poisson
+    let login_id_c ="-LbvUu_fYK9MPENSQYtj";
+    let login_id_a="-LbvWSJ6Nb0S79-6jtsh";
+    let invite_id_a ="-LbvWc8oL5zk-HCzaMaz";
 
-    // function poisson(k, landa) {
-    //    var exponentialPower = Math.pow(exponential, -landa); // negative power k
-    //    var landaPowerK = Math.pow(landa, k); // Landa elevated k
-    //     numerator = exponentialPower * landaPowerK;
-    //     denominator = fact(k); // factorial of k.
-    //
-    //     return (numerator / denominator);
-    // }
-    // function fact(x) {
-    //     if(x===0) {
-    //         return 1;
-    //     }
-    //     return x * fact(x-1);
-    // }
-    // for (var i = 0; i < k_total; i++) {
-    //     total += poisson(i, landa);
-    // }
-    //
-    // console.log("Total sum is " + total);
+    let profile_id_c="-LbvV5DHAybGUXNPS-0E";
+    let following_id_a="-LbvWyZ2Di1p1jo3pOZR";
+    let followers_id_a="-LbvX84LDLtxAgUSQ375";
+    let unfollow_id_a="-LbvXSwreFP_tXRRn_m7";
+    let unfollowME_id_a="-LbvXsMOsiiQ0yYn8dfp";
+
+    let feed_id_c ="-LbvV8kDuZdkQM37TTNC";
+    let comment_id_a="-LbvYT3xx6_xEKR7FDon";
+    let like_id_a="-LbvYYqvdtNg7LsOK_Gy";
+    let unlike_id_a="-LbvYcs-DRrCw3RJv8_5";
+
+    //1 login, 4 post,2 comment,2 like, 2 following,2 followers, 1 likeMe. total: 14 actions per day
+    var i=1;
+    var a=setInterval(function () {
+        date.setDate(date.getDate() + 1);
+        if(i<days) {
+            i++;
+        }else {
+            clearInterval(a);
+        }
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: login_id_a,
+                context_id: login_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },1);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },4000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },8000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },12000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: post_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },16000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: unlikeME_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },20000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: comment_id_a,
+                context_id: feed_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },24000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: like_id_a,
+                context_id: feed_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },28000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },32000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },36000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },40000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },44000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },48000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },52000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },56000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: following_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },60000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },64000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },68000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },72000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },76000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },80000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },84000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },88000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },92000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },96000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },100000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },104000);
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: followers_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },108000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: unfollowME_id_a,
+                context_id: profile_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },112000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },116000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },120000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },124000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },128000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },136000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },140000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },144000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: commentMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },150000);
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },156000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },160000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },164000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },168000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },172000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },176000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },180000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },184000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },188000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },192000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },196000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },200000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },204000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },208000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },212000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },216000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },220000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },224000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },230000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },234000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },238000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },242000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },248000);
+
+
+        setTimeout(function () {
+            database.ref('/UserActivity/').push({
+                user_id: user_id,
+                action_id: likeMe_id_a,
+                context_id: post_id_c,
+                date: date.toDateString(),
+                points:"0",
+                challenge_Badge:"0",
+                context_badge:"0"
+            });
+        },252000);
 
 
 
 
 
-        return res.redirect(303,"done");
-
-
+    },260000)
+    return res.redirect(303,"done");
 });
 
 
@@ -521,9 +1224,6 @@ exports.addUserActivityApp = functions.https.onCall((data, context) => {
     }).catch(function(error) {
         console.log("addUserActivityApp : Error deleting app:", error);
     });
-
-
-
     });
 
 
