@@ -24,9 +24,9 @@
   <div id="addBadge">
 <div>
   <form id="addForm" (submit)="addBadge()">
-    <input type="text" name="name" [(ngModel)]="newBadge.name" placeholder="Enter name">
-    <input type="text" name="Context ID" [(ngModel)]="newBadge.context_id" placeholder="Enter Context ID">
-    <button type="submit" >add new Badge</button>
+    <input class="add" type="text" name="name" [(ngModel)]="newBadge.name" placeholder="Enter name">
+    <input class="add" type="text" name="Context ID" [(ngModel)]="newBadge.context_id" placeholder="Enter Context ID">
+    <button onclick="$('.add').val('');"  type="submit" >add new Badge</button>
   </form>
 </div>
 <!--// file-upload-->
@@ -68,8 +68,8 @@
 <!--    // file-upload end-->
 
   <form id="deleteForm" (submit)="deleteBadge()">
-    <input type="text" name="BadgeID" [(ngModel)]="delBadge" placeholder="Enter Badge id" value="">
-    <button id="deleteButton" type="submit" >delete Badge</button>
+    <input class="delete"  type="text" name="BadgeID" [(ngModel)]="delBadge" placeholder="Enter Badge id" value="">
+    <button  onclick="$('.delete').val('');" id="deleteButton" type="submit" >delete Badge</button>
   </form>
 
 </div>

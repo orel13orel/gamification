@@ -26,27 +26,18 @@
 </table>
 
 <div id="addAndDelRp">
-  <div >
-    <form  (submit)="addRp()">
-      <input id="addRp1" class="input" type="text" name="name" [(ngModel)]="newRp.action_id" placeholder="Enter action id">
-      <input class="input" type="text" name="name" [(ngModel)]="newRp.points" placeholder="Enter points">
-      <input class="input" type="text" name="name" [(ngModel)]="newRp.value" placeholder="Enter value">
-      <button id="addNewRp"  type="submit"  >add new Rp</button>
+  <div id="addRp" >
+    <form  (submit)="addRp()" >
+      <input class="add" type="text" name="name" [(ngModel)]="newRp.action_id" placeholder="Enter action id">
+      <input class="add" type="text" name="name" [(ngModel)]="newRp.points" placeholder="Enter points">
+      <input class="add" type="text" name="name" [(ngModel)]="newRp.value" placeholder="Enter value">
+      <button onclick="$('.add').val('');"  type="submit"  >add new Rp</button>
     </form>
   </div>
-
-  <script>
-    $(function () {
-      $("#addNewRp").click(function () {
-        document.getElementById('addRp1').value="";
-      });
-    });
-  </script>
-
   <div>
     <form (submit)="deleteRp()">
-      <input type="text" name="RpID" [(ngModel)]="delRp" placeholder="Enter Rp id" value="">
-      <button type="submit" >delete Rp</button>
+      <input class="delete" type="text" name="RpID" [(ngModel)]="delRp" placeholder="Enter Rp id" value="">
+      <button onclick="$('.delete').val('');" type="submit" >delete Rp</button>
     </form>
   </div>
 </div>
