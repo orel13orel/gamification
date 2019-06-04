@@ -1,0 +1,42 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 20%;
+}
+td, th {
+  border: 1px solid black;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: lightblue;
+}
+#rp
+{
+
+  text-align: center;
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 200px;
+  left: 34px;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  z-index:999;
+  width: 30%;
+}
+#text{
+  text-align: center;
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 200px;
+  left: 250px;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  z-index:999;
+  width: 30%;
+}

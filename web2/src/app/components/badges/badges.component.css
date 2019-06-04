@@ -1,30 +1,3 @@
-/*table {*/
-
-/*  font-family: arial, sans-serif;*/
-/*  border-collapse: collapse;*/
-
-
-
-/*  position: fixed;*/
-/*  float: left;*/
-/*  margin: 0;*/
-/*  top: 200px;*/
-/*  left: 34px;*/
-/*  list-style-type: none;*/
-/*  background-color: #FFFFFF;*/
-/*  z-index:999;*/
-/*  width: 20%;*/
-/*}*/
-
-/*td, th {*/
-/*  border: 1px solid black;*/
-/*  text-align: center;*/
-/*  padding: 8px;*/
-/*}*/
-
-/*tr:nth-child(even) {*/
-/*  background-color: lightblue;*/
-/*}*/
 
 table {
   font-family: arial, sans-serif;
@@ -38,22 +11,31 @@ td, th {
   border: 1px solid black;
   text-align: center;
   padding: 8px;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: auto;
+
 }
 
 tr:nth-child(even) {
   background-color: lightblue;
 }
-#addForm {
-  position: relative;
-  left: 730px;
-  top: -550px;
-}
-#deleteForm{
-  position: relative;
-  left: 730px;
-  top: -500px;
-}
+/*#addForm {*/
+/*  position: relative;*/
+/*  left: 730px;*/
+/*  top: -550px;*/
+/*}*/
 
+/*#deleteForm{*/
+/*  position: relative;*/
+/*  left: 730px;*/
+/*  top: -500px;*/
+/*}*/
+/*#addImage{*/
+/*  position: fixed;*/
+/*  left: 730px;*/
+/*  top: -500px;*/
+/*}*/
 .dropzone {
   display: flex;
   align-items: center;
@@ -70,11 +52,11 @@ tr:nth-child(even) {
   left: 730px;
 
 }
-.afterUpload{
-  position: relative;
-  top: -540px;
-  left: 730px;
-}
+/*.afterUpload{*/
+/*  position: relative;*/
+/*  top: -515px;*/
+/*  left: 730px;*/
+/*}*/
 
 hovering {
   border: 2px solid #4c68f1;
@@ -90,5 +72,56 @@ progress::-webkit-progress-value {
   max-width:100px;
   max-height:100px;
 }
+#addAndDelBadge{
+  padding-left: 50px;
+  position: fixed;
+  top: 150px;
+  right: 50px;
+}
+
+#addBadge{
+  border: 2px dashed  #4c68f1;
+  border-radius: 5px;
+  margin: 30px 0;
+}
 
 
+button {
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: #4e68c7;
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891;
+  color: white;
+  white-space: nowrap;
+  padding: 9px 16px;
+  position: relative;
+}
+
+button:hover, button:focus {
+  background: #3d57b4;
+}
+
+button:active {
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891;
+@include transform(translate(3px, 3px));
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -5px;
+  bottom: -5px;
+
+}
+button:active:after {
+  top: -3px;
+  left: -3px;
+  right: -2px;
+  bottom: -2px;
+}
+#deleteButton{
+
+}

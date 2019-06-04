@@ -1,3 +1,5 @@
+
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -13,6 +15,17 @@ td, th {
 tr:nth-child(even) {
   background-color: lightblue;
 }
+.text-box{
+  float:left;
+  width:20%;
+  margin-top:7px;
+  display:block;
+  width:100%;
+}
+
+
+
+
 #context
 {
 
@@ -35,6 +48,19 @@ tr:nth-child(even) {
   margin: 0;
   padding: 0;
   top: 500px;
+  left: 34px;
+  list-style-type: none;
+  background-color: #FFFFFF;
+  z-index:999;
+  width: 30%;
+}
+#delete_context_button{
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 520px;
   left: 34px;
   list-style-type: none;
   background-color: #FFFFFF;

@@ -1,6 +1,6 @@
 
 
-
+<div>
 
 <div>
 <table id="context" >
@@ -15,6 +15,7 @@
 
 </table>
 </div>
+<div class="text-box">
 
 <div>
   <form id="add_context_button" (submit)="addContext()">
@@ -23,10 +24,12 @@
   </form>
 </div>
 <div>
-  <form (submit)="deleteContext()">
+  <form id="delete_context_button" (submit)="deleteContext()">
     <input type="text" name="contextID" [(ngModel)]="delContext" placeholder="Enter context id" value="">
     <button type="submit" >delete context</button>
   </form>
+</div>
+</div>
 </div>
 <!--<li   *ngFor="let i of context | async" (click)="updateContextID(i.key)">-->
 <!--  {{i.key}} : {{i.payload.val().name}}-->

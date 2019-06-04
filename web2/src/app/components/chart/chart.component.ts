@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Chart} from 'chart.js';
+    import {Chart} from 'chart.js';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {Observable} from 'rxjs';
 

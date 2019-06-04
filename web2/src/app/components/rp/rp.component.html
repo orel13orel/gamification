@@ -8,14 +8,14 @@
 <!--</li>-->
 
 
-<table  >
+<table id="rp" >
   <tr>
     <th>Rp ID</th>
     <th>action id</th>
     <th>points</th>
     <th>value/amount</th>
   </tr>
-  <tr *ngFor="let i of rp | async">>
+  <tr *ngFor="let i of rp | async">
     <td>{{i.key}}</td>
     <td>{{i.payload.val().action_id}}</td>
     <td>{{i.payload.val().points}}</td>
@@ -24,8 +24,8 @@
   </tr>
 
 </table>
-
-  <div>
+<div id="text">
+  <div >
     <form (submit)="addRp()">
       <input type="text" name="name" [(ngModel)]="newRp.action_id" placeholder="Enter action id">
       <input type="text" name="name" [(ngModel)]="newRp.points" placeholder="Enter points">
@@ -39,3 +39,4 @@
       <button type="submit" >delete Rp</button>
     </form>
   </div>
+</div>
