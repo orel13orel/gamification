@@ -22,11 +22,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="420" column="64" selection-start-line="420" selection-start-column="64" selection-end-line="420" selection-end-column="64" />
+            <state relative-caret-position="258">
+              <caret line="1204" column="64" selection-start-line="1204" selection-start-column="64" selection-end-line="1204" selection-end-column="64" />
               <folding>
-                <element signature="e#7273#16292#0" />
-                <element signature="e#13670#19116#0" />
+                <element signature="e#6877#7208#0" />
+                <element signature="e#7274#13601#0" />
+                <element signature="e#13670#37907#0" />
+                <element signature="e#37976#44303#0" />
               </folding>
             </state>
           </provider>
@@ -91,8 +93,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
+    <option name="x" value="-9" />
+    <option name="width" value="978" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -188,11 +190,12 @@
       <workItem from="1559501319179" duration="596000" />
       <workItem from="1559637045305" duration="511000" />
       <workItem from="1559642700676" duration="5065000" />
+      <workItem from="1559682674202" duration="2620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270724000" />
+    <option name="totallyTimeSpent" value="273344000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -221,7 +224,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.74752146" visible="true" weight="0.55307263" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.74752146" visible="true" weight="0.33519554" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2524785" side_tool="true" weight="0.55307263" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4970258" weight="0.07122905" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
@@ -286,11 +289,13 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="420" column="64" selection-start-line="420" selection-start-column="64" selection-end-line="420" selection-end-column="64" />
+        <state relative-caret-position="258">
+          <caret line="1204" column="64" selection-start-line="1204" selection-start-column="64" selection-end-line="1204" selection-end-column="64" />
           <folding>
-            <element signature="e#7273#16292#0" />
-            <element signature="e#13670#19116#0" />
+            <element signature="e#6877#7208#0" />
+            <element signature="e#7274#13601#0" />
+            <element signature="e#13670#37907#0" />
+            <element signature="e#37976#44303#0" />
           </folding>
         </state>
       </provider>
