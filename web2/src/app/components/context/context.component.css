@@ -17,13 +17,7 @@ td, th {
 tr:nth-child(even) {
   background-color: lightblue;
 }
-.text-box{
-  float:left;
-  width:20%;
-  margin-top:7px;
-  display:block;
-  width:100%;
-}
+
 .PV{
   max-width: 100px;
 }
@@ -71,3 +65,10 @@ tr:nth-child(even) {
 /*#context{*/
 /*  top: 500px;*/
 /*}*/
+.text-box{
+  float:left;
+  width:20%;
+  margin-top:7px;
+  display:block;
+  width:100%;
+}

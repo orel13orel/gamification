@@ -1,45 +1,39 @@
-<table style="width:100%">
+<table>
   <tr>
-    <th>
-      <h2>challenges:</h2>
+    <td>
       <app-challenge (clicked)="showChallengeAction($event)"></app-challenge>
-    </th>
-    <th>
-      <h2>actions:</h2>
-<!--      <li *ngFor="let i of challengeAction | async">-->
-<!--        {{i.key}} : {{i.payload.val().action_id}} : {{i.payload.val().amount}}-->
-<!--      </li>-->
-      <table id="context" >
+    </td>
+    <td>
+
+      <table id="challenge-action">
         <tr>
+          <th>challenge-action ID</th>
           <th>action ID</th>
           <th>amount</th>
         </tr>
         <tr *ngFor="let i of challengeAction | async">
+          <td>{{i.key}}</td>
           <td>{{i.payload.val().action_id}}</td>
           <td>{{i.payload.val().amount}}</td>
         </tr>
       </table>
 
       <div>
-        <form  (submit)="addChallengeAction()">
-          <input type="text"  on [(ngModel)]="newChallengeAction.action_id" placeholder="Enter action id">
-          <input type="text"  on [(ngModel)]="newChallengeAction.amount" placeholder="Enter amount">
-          <button type="submit" >add new Action
-            <script>
-              $('#form-add').val('');
-            </script>
-          </button>
+        <form id="add_challenge-action_button" (submit)="addChallengeAction()">
+          <input  type="text" name="actionID"  on [(ngModel)]="newChallengeAction.action_id" placeholder="Enter action id">
+          <input type="text" name="amount" on [(ngModel)]="newChallengeAction.amount" placeholder="Enter amount">
+          <button type="submit" >add new Action</button>
 
         </form>
       </div>
       <div>
-        <form (submit)="deleteChallengeAction()">
-          <input type="text" [(ngModel)]="delChallengeAction" placeholder="Enter challenge-action id" value="">
+        <form id="delete_challenge-action_button" (submit)="deleteChallengeAction()">
+          <input type="text" name="CAID" [(ngModel)]="delChallengeAction" placeholder="Enter challenge-action id" value="">
           <button type="submit" >delete Action</button>
         </form>
       </div>
 
-    </th>
+    </td>
   </tr>
 </table>
 

@@ -3,7 +3,7 @@
 
 <!--</li>-->
 
-<table  >
+<table id="challenge"  >
   <tr>
     <th>challenge ID</th>
     <th>Name</th>
@@ -20,24 +20,31 @@
     <td>{{i.payload.val().start_time}}</td>
     <td>{{i.payload.val().end_time}}</td>
   </tr>
-
 </table>
 
 
+
+
+
+<div class="text-box">
 <div>
-  <form (submit)="addChallenge()">
+  <form id="add_challenge_button" (submit)="addChallenge()">
     <input type="text" name="name" [(ngModel)]="newChallenge.badge_id" placeholder="Enter badge id">
     <input type="text" name="name" [(ngModel)]="newChallenge.name" placeholder="Enter name">
-    <input type="text" name="name" [(ngModel)]="newChallenge.points" placeholder="Enter Points">
-    start time: <input type="date" name="start_time" [(ngModel)]="newChallenge.start_time" placeholder="start date:">
+    <input type="text" name="name" [(ngModel)]="newChallenge.points" placeholder="Enter Points"><br>
+    start time: <input type="date" name="start_time" [(ngModel)]="newChallenge.start_time" placeholder="start date:"><br>
     end time: <input type="date" name="end_time" [(ngModel)]="newChallenge.end_time">
     <button type="submit" >add new Challenge</button>
   </form>
 </div>
+
 <div>
-  <form (submit)="deleteChallenge()">
+  <form id="delete_challenge_button" (submit)="deleteChallenge()">
     <input type="text" name="RbChallenge" [(ngModel)]="delChallenge" placeholder="Enter Challenge id" value="">
     <button type="submit" >delete Challenge</button>
   </form>
 </div>
+</div>
+
+
 

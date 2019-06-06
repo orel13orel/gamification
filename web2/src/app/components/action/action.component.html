@@ -4,6 +4,7 @@
       <app-context (clicked)="showAction($event)"></app-context>
     </td>
     <td>
+
       <table id="action" >
         <tr>
           <th>Action ID</th>
@@ -12,9 +13,7 @@
         <tr id="action_table"  *ngFor="let i of action | async" >
           <td>{{i.key}}</td>
           <td class="PV"> {{i.payload.val().name}}</td>
-
         </tr>
-
       </table>
 
       <div>

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-    </list>
+    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,14 +19,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="1204" column="64" selection-start-line="1204" selection-start-column="64" selection-end-line="1204" selection-end-column="64" />
-              <folding>
-                <element signature="e#6877#7208#0" />
-                <element signature="e#7274#13601#0" />
-                <element signature="e#13670#37907#0" />
-                <element signature="e#37976#44303#0" />
-              </folding>
+            <state relative-caret-position="130">
+              <caret line="1204" column="15" selection-start-line="1204" selection-start-column="8" selection-end-line="1204" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -38,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -79,6 +70,7 @@
       <find>addPointsToUserActivity</find>
       <find>addBadgeToUser</find>
       <find>Rb</find>
+      <find>addUser</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -93,8 +85,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="width" value="978" />
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
     <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -191,11 +183,12 @@
       <workItem from="1559637045305" duration="511000" />
       <workItem from="1559642700676" duration="5065000" />
       <workItem from="1559682674202" duration="2620000" />
+      <workItem from="1559814444994" duration="64000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273344000" />
+    <option name="totallyTimeSpent" value="273408000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -207,7 +200,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" weight="0.17741935" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
@@ -224,7 +217,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.74752146" visible="true" weight="0.33519554" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.74752146" visible="true" weight="0.33427763" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2524785" side_tool="true" weight="0.55307263" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4970258" weight="0.07122905" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
@@ -289,21 +282,15 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="1204" column="64" selection-start-line="1204" selection-start-column="64" selection-end-line="1204" selection-end-column="64" />
-          <folding>
-            <element signature="e#6877#7208#0" />
-            <element signature="e#7274#13601#0" />
-            <element signature="e#13670#37907#0" />
-            <element signature="e#37976#44303#0" />
-          </folding>
+        <state relative-caret-position="130">
+          <caret line="1204" column="15" selection-start-line="1204" selection-start-column="8" selection-end-line="1204" selection-end-column="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="2" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

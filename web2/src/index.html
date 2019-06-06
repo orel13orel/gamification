@@ -1,6 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+    </script>
+  <script>
+    $(document).ready(function(){
+      $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+      });
+    });
+  </script>
   <meta charset="utf-8">
   <title>Web2</title>
   <base href="/">

@@ -5,12 +5,15 @@
       <th>Context ID</th>
       <th>Context Name</th>
     </tr>
-    <tr id="context_table"  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
+    <tr  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
       <td>{{i.key}}</td>
       <td class="PV"> {{i.payload.val().name}}</td>
     </tr>
-
   </table>
+
+
+
+
 
 <div class="text-box">
 

@@ -33,6 +33,7 @@ export class ChallengeComponent implements OnInit {
   constructor(private db: AngularFireDatabase) {
     this.challenge = db.list('Challenge').snapshotChanges();
     this.newChallenge = new NewChallenge();
+    console.log(this.challenge);
   }
 
   ngOnInit() {
