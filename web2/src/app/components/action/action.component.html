@@ -1,4 +1,4 @@
-<table  style="width:100%">
+<table>
   <tr>
     <td>
       <app-context (clicked)="showAction($event)"></app-context>
@@ -11,27 +11,23 @@
         </tr>
         <tr id="action_table"  *ngFor="let i of action | async" >
           <td>{{i.key}}</td>
-          <td> {{i.payload.val().name}}</td>
+          <td class="PV"> {{i.payload.val().name}}</td>
 
         </tr>
 
       </table>
 
       <div>
-        <form  (submit)="addAction()">
-          <input type="text" name="name" id="form-add" on [(ngModel)]="newAction.name" placeholder="Enter name">
-          <button type="submit" >add new Action
-            <script>
-              $('#form-add').val('');
-            </script>
-          </button>
+        <form id="add_action_button"  (submit)="addAction()">
+          <input class="add" type="text" name="name" id="form-add" on [(ngModel)]="newAction.name" placeholder="Enter name">
+          <button onclick="$('.add').val('');" type="submit" >add new Action</button>
 
         </form>
       </div>
       <div>
-        <form (submit)="deleteAction()">
-          <input type="text" name="contextID" [(ngModel)]="delAction" placeholder="Enter context id" value="">
-          <button type="submit" >delete Action</button>
+        <form  id="delete_action_button" (submit)="deleteAction()">
+          <input class="delete" type="text" name="contextID" [(ngModel)]="delAction" placeholder="Enter context id" value="">
+          <button onclick="$('.delete').val('');" type="submit" >delete Action</button>
         </form>
       </div>
 <!--      <li *ngFor="let i of action | async">-->

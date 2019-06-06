@@ -35,8 +35,8 @@ const appRoutes: Routes = [
   {path: 'challengeAction', component : ChallengeActionComponent},
   {path: 'Rp', component : RpComponent},
   {path: 'Rb', component : RbComponent},
-  {path: 'action2', component: Action2Component},
-  {path: 'file-upload', component: FileUploadComponent},
+  // {path: 'action2', component: Action2Component},
+  // {path: 'file-upload', component: FileUploadComponent},
   {path: 'chart', component: ChartComponent},
 ]
 

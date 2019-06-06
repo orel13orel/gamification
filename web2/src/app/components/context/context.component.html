@@ -1,36 +1,36 @@
 
 
-<div>
+  <table id="context" >
+    <tr>
+      <th>Context ID</th>
+      <th>Context Name</th>
+    </tr>
+    <tr id="context_table"  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
+      <td>{{i.key}}</td>
+      <td class="PV"> {{i.payload.val().name}}</td>
+    </tr>
 
-<div>
-<table id="context" >
-  <tr>
-    <th>Context ID</th>
-    <th>Context Name</th>
-  </tr>
-  <tr id="context_table"  *ngFor="let i of context | async" (click)="updateContextID(i.key)">
-    <td>{{i.key}}</td>
-    <td> {{i.payload.val().name}}</td>
-  </tr>
+  </table>
 
-</table>
-</div>
 <div class="text-box">
 
 <div>
   <form id="add_context_button" (submit)="addContext()">
-    <input type="text" name="name" [(ngModel)]="newContext.name" placeholder="Enter name">
-    <button type="submit" >add new context</button>
+    <input class="add" type="text" name="name" [(ngModel)]="newContext.name" placeholder="Enter name">
+    <button onclick="$('.add').val('');" type="submit" >add new context</button>
   </form>
 </div>
 <div>
   <form id="delete_context_button" (submit)="deleteContext()">
-    <input type="text" name="contextID" [(ngModel)]="delContext" placeholder="Enter context id" value="">
-    <button type="submit" >delete context</button>
+    <input class="delete" type="text" name="contextID" [(ngModel)]="delContext" placeholder="Enter context id" value="">
+    <button onclick="$('.delete').val('');" type="submit" >delete context</button>
   </form>
 </div>
 </div>
-</div>
+
+
+
+
 <!--<li   *ngFor="let i of context | async" (click)="updateContextID(i.key)">-->
 <!--  {{i.key}} : {{i.payload.val().name}}-->
 

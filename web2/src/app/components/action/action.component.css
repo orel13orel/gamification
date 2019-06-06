@@ -1,13 +1,16 @@
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 20%;
+  width: 30%;
 }
 
 td, th {
   border: 1px solid black;
   text-align: center;
   padding: 8px;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: auto;
 }
 
 tr:nth-child(even) {
@@ -24,7 +27,36 @@ tr:nth-child(even) {
   top: 200px;
   left: 650px;
   list-style-type: none;
-  background-color: #FFFFFF;
+
+  z-index:999;
+
+}
+.PV{
+  max-width: 100px;
+}
+#add_action_button{
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 114px;
+  left: 600px;
+  list-style-type: none;
+
+  z-index:999;
+  width: 30%;
+}
+#delete_action_button{
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 146px;
+  left: 592px;
+  list-style-type: none;
+
   z-index:999;
   width: 30%;
 }

@@ -6,35 +6,38 @@
 <!--  {{i.key}} : {{i.payload.val().badge_id}} : {{i.payload.val().context}} : {{i.payload.val().valueOfPoints}}-->
 
 <!--</li>-->
-
-<table  >
+<table>
+<table>
   <tr>
     <th>Rb ID</th>
     <th>badge id</th>
     <th>context id</th>
     <th>points</th>
   </tr>
-  <tr *ngFor="let i of rb | async">>
+  <tr *ngFor="let i of rb | async">
     <td>{{i.key}}</td>
     <td>{{i.payload.val().badge_id}}</td>
     <td>{{i.payload.val().context}}</td>
-    <td>{{i.payload.val().valueOfPoints}}</td>
+    <td class="PV">{{i.payload.val().valueOfPoints}}</td>
 
   </tr>
 
 </table>
 
-<div>
+<div id="addAndDelRb">
+<div id="addRb">
   <form (submit)="addRb()">
-    <input type="text" name="badge_id" [(ngModel)]="newRb.badge_id" placeholder="Enter badge id">
-    <input type="text" name="context" [(ngModel)]="newRb.context" placeholder="Enter context id">
-    <input type="text" name="valueOfPoints" [(ngModel)]="newRb.valueOfPoints" placeholder="Enter valueOfPoints">
-    <button type="submit" >add new Rb</button>
+    <input class="add" type="text" name="badge_id" [(ngModel)]="newRb.badge_id" placeholder="Enter badge id">
+    <input class="add" type="text" name="context" [(ngModel)]="newRb.context" placeholder="Enter context id">
+    <input class="add" type="text" name="valueOfPoints" [(ngModel)]="newRb.valueOfPoints" placeholder="Enter valueOfPoints">
+    <button onclick="$('.add').val('');" type="submit" >add new Rb</button>
   </form>
 </div>
 <div>
   <form (submit)="deleteRb()">
-    <input type="text" name="RbID" [(ngModel)]="delRb" placeholder="Enter Rb id" value="">
-    <button type="submit" >delete Rb</button>
+    <input class="delete" type="text" name="RbID" [(ngModel)]="delRb" placeholder="Enter Rb id" value="">
+    <button onclick="$('.delete').val('');" type="submit" >delete Rb</button>
   </form>
 </div>
+</div>
+</table>

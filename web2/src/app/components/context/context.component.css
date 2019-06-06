@@ -1,15 +1,17 @@
 
-
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 20%;
+  width: 30%;
 }
 
 td, th {
   border: 1px solid black;
   text-align: center;
   padding: 8px;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: auto;
 }
 
 tr:nth-child(even) {
@@ -22,10 +24,9 @@ tr:nth-child(even) {
   display:block;
   width:100%;
 }
-
-
-
-
+.PV{
+  max-width: 100px;
+}
 #context
 {
 
@@ -37,9 +38,9 @@ tr:nth-child(even) {
   top: 200px;
   left: 34px;
   list-style-type: none;
-  background-color: #FFFFFF;
+
   z-index:999;
-  width: 30%;
+
 }
 #add_context_button{
   text-align: center;
@@ -47,10 +48,10 @@ tr:nth-child(even) {
   float: left;
   margin: 0;
   padding: 0;
-  top: 500px;
+  top: 114px;
   left: 34px;
   list-style-type: none;
-  background-color: #FFFFFF;
+
   z-index:999;
   width: 30%;
 }
@@ -60,10 +61,10 @@ tr:nth-child(even) {
   float: left;
   margin: 0;
   padding: 0;
-  top: 520px;
-  left: 34px;
+  top: 146px;
+  left: 25px;
   list-style-type: none;
-  background-color: #FFFFFF;
+
   z-index:999;
   width: 30%;
 }
