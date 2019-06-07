@@ -12,7 +12,9 @@ td, th {
   white-space: nowrap;
   overflow: auto;
 }
-
+.PV{
+  max-width: 100px;
+}
 tr:nth-child(even) {
   background-color: lightblue;
 }
@@ -24,13 +26,84 @@ tr:nth-child(even) {
   float: left;
   margin: 0;
   padding: 0;
-  top: 200px;
+  top: 323px;
   right: 91px;
   list-style-type: none;
 
   z-index:999;
 
 }
+#add_challenge-action_button{
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 172px;
+  right: 92px;
+  list-style-type: none;
+
+  z-index:999;
+  width: 30%;
+}
+#delete_challenge-action_button{
+  text-align: center;
+  position: fixed;
+  float: left;
+  margin: 0;
+  padding: 0;
+  top: 261px;
+  right: 160px;
+  list-style-type: none;
+  z-index:999;
+  width: 30%;
+}
+#add_challenge-action_button{
+  border: 2px dashed  #4c68f1;
+  border-radius: 5px;
+  margin: 30px 0;
+}
+button {
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  background: #4e68c7;
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891,2px 3px 1px #3852b1,4px 3px 1px #203891,3px 4px 1px #3852b1,5px 4px 1px #203891,4px 5px 1px #3852b1,6px 5px 1px #203891;
+  color: white;
+  white-space: nowrap;
+  padding: 9px 16px;
+  position: relative;
+}
+
+button:hover, button:focus {
+  background: #3d57b4;
+}
+
+button:active {
+  box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891;
+@include transform(translate(3px, 3px));
+}
+
+button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: -5px;
+  bottom: -5px;
+
+}
+button:active:after {
+  top: -3px;
+  left: -3px;
+  right: -2px;
+  bottom: -2px;
+}
+#addButton{
+  left: 38px;
+  top: -9px;
+}
+
 /*#add_challenge-ction_button{*/
 /*  text-align: center;*/
 /*  position: fixed;*/

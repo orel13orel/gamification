@@ -14,9 +14,9 @@
   </tr>
   <tr *ngFor="let i of challenge | async" (click)="updateChallengeID(i.key)">
     <td>{{i.key}}</td>
-    <td>{{i.payload.val().name}}</td>
-    <td>{{i.payload.val().points}}</td>
-    <td>{{i.payload.val().badge_id}}</td>
+    <td class="PV">{{i.payload.val().name}}</td>
+    <td class="PV">{{i.payload.val().points}}</td>
+    <td class="PP">{{i.payload.val().badge_id}}</td>
     <td>{{i.payload.val().start_time}}</td>
     <td>{{i.payload.val().end_time}}</td>
   </tr>
@@ -29,19 +29,19 @@
 <div class="text-box">
 <div>
   <form id="add_challenge_button" (submit)="addChallenge()">
-    <input type="text" name="name" [(ngModel)]="newChallenge.badge_id" placeholder="Enter badge id">
-    <input type="text" name="name" [(ngModel)]="newChallenge.name" placeholder="Enter name">
-    <input type="text" name="name" [(ngModel)]="newChallenge.points" placeholder="Enter Points"><br>
-    start time: <input type="date" name="start_time" [(ngModel)]="newChallenge.start_time" placeholder="start date:"><br>
-    end time: <input type="date" name="end_time" [(ngModel)]="newChallenge.end_time">
-    <button type="submit" >add new Challenge</button>
+    <input class="add"  type="text" name="name" [(ngModel)]="newChallenge.badge_id" placeholder="Enter badge id">
+    <input class="add"  type="text" name="name" [(ngModel)]="newChallenge.name" placeholder="Enter name"><br>
+    <input class="add" type="text" name="name" [(ngModel)]="newChallenge.points" placeholder="Enter Points"><br>
+    start time: <input class="add" type="date" name="start_time" [(ngModel)]="newChallenge.start_time" placeholder="start date:"><br>
+    end time: <input class="add" type="date" name="end_time" [(ngModel)]="newChallenge.end_time">
+    <button onclick="$('.add').val('');" id="addButton" type="submit" >add new Challenge</button>
   </form>
 </div>
 
 <div>
   <form id="delete_challenge_button" (submit)="deleteChallenge()">
-    <input type="text" name="RbChallenge" [(ngModel)]="delChallenge" placeholder="Enter Challenge id" value="">
-    <button type="submit" >delete Challenge</button>
+    <input class="delete" type="text" name="RbChallenge" [(ngModel)]="delChallenge" placeholder="Enter Challenge id" value="">
+    <button onclick="$('.delete').val('');" type="submit" >delete Challenge</button>
   </form>
 </div>
 </div>

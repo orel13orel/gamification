@@ -17,6 +17,12 @@ td, th {
 tr:nth-child(even) {
   background-color: lightblue;
 }
+.PV{
+  max-width: 100px;
+}
+.PP{
+  max-width: 200px;
+}
 #challenge
 {
 
@@ -38,8 +44,8 @@ tr:nth-child(even) {
   float: left;
   margin: 0;
   padding: 0;
-  top: 137px;
-  left: 74px;
+  top: 81px;
+  left: 65px;
   list-style-type: none;
 
   z-index:999;
@@ -106,5 +112,9 @@ button:active:after {
   left: -3px;
   right: -2px;
   bottom: -2px;
+}
+#addButton{
+  left: 38px;
+  top: -9px;
 }
 
