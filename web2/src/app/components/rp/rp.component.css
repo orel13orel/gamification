@@ -8,7 +8,7 @@ table {
 }
 
 td, th {
-  border: 1px solid black;
+  border: 3px solid black;
   text-align: center;
   padding: 8px;
   max-width: 220px;
@@ -21,8 +21,9 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: lightblue;
+  background-color: #19e4e6;
 }
+
 /*#rp*/
 /*{*/
 

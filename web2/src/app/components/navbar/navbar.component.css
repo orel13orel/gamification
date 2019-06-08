@@ -1,3 +1,29 @@
+@font-face {
+  font-family: 'porter_sans_blockblock';
+  src: url('../../../assets/fonts/porter-sans-inline-block-webfont.eot');
+  src: url('../../../assets/fonts/porter-sans-inline-block-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../assets/fonts/porter-sans-inline-block-webfont.woff') format('woff'),
+  url('../../../assets/fonts/porter-sans-inline-block-webfont.ttf') format('truetype'),
+  url('../../../assets/fonts/porter-sans-inline-block-webfont.svg#porter_sans_blockblock') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'edoregular';
+  src: url('../../../assets/fonts/edo-webfont.eot');
+  src: url('../../../assets/fonts/edo-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../../../assets/fonts/edo-webfont.woff') format('woff'),
+  url('../../../assets/fonts/edo-webfont.ttf') format('truetype'),
+  url('../../../assets/fonts/edo-webfont.svg#edoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -21,7 +47,23 @@ li a {
 li a:hover:not(.active) {
   background-color: #111;
 }
-
-.active {
-  background-color: #4CAF50;
+i{
+  color: white;
 }
+#trophy{
+  position: relative;
+  left: 1px;
+  top: 29px;
+}
+#gamepad{
+  position: relative;
+  left: -15px;
+  top: 6px;
+}
+.active {
+  background-color: #827fb2;
+  font-family: 'edoregular';
+}
+
+
+

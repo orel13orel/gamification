@@ -1,15 +1,32 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
-    </script>
-  <script>
-    $(document).ready(function(){
-      $("#flip").click(function(){
-        $("#panel").slideToggle("slow");
-      });
-    });
-  </script>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style>
+    body {
+      /*background-image: url("assets/images/gamification.jpg");*/
+      /*height: 500px;*/
+      /*background-position: center;*/
+      /*background-repeat: no-repeat;*/
+      /*background-size: cover;*/
+      /*position: relative;*/
+      /*!*background: rgba(0,0,0,0.5);*!*/
+      /*filter: opacity(50%);*/
+
+
+
+    }
+    .app-image{
+      background-image:  url("assets/images/gamification.jpg");
+      height: 1400px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: fixed;
+      opacity: 0.3;
+      width: 100%;
+    }
+  </style>
   <meta charset="utf-8">
   <title>Web2</title>
   <base href="/">
@@ -19,7 +36,9 @@
 <!--  <link rel="stylesheet" herf="https://bootswatch.com/4/cosmo/bootstrap.min.css">-->
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <body>
+<div class="app-image"></div>
   <app-root></app-root>
 </body>
 </html>

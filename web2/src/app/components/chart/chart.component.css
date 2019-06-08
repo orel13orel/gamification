@@ -1,0 +1,16 @@
+img{
+  position: relative;
+  top: -704px;
+}
+.filterLimit{
+  text-align: center;
+  position: relative;
+  float: left;
+
+  left: 0px;
+}
+#chart{
+  position: relative;
+  left: 0px;
+  /*width: 90%;*/
+}
