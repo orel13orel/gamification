@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="" />
+    <list default="true" id="6898193b-2b13-40cc-8e9d-ee7e9df63035" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/action2/action2.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/action2/action2.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/action2/action2.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/action2/action2.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../web2/src/app/components/chart/chart.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/context2/context2.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/file-upload/file-upload.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/file-upload/file-upload.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/file-upload/file-upload.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web2/src/app/components/file-upload/file-upload.component.ts" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +34,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="1204" column="15" selection-start-line="1204" selection-start-column="8" selection-end-line="1204" selection-end-column="15" />
+            <state relative-caret-position="266">
+              <caret line="1709" column="30" selection-start-line="1709" selection-start-column="30" selection-end-line="1709" selection-end-column="30" />
+              <folding>
+                <element signature="e#7274#13601#0" />
+                <element signature="e#13670#37907#0" />
+                <element signature="e#37976#53791#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -28,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="408">
               <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
@@ -68,9 +88,11 @@
       <find>admin</find>
       <find>firebase-admin</find>
       <find>addPointsToUserActivity</find>
-      <find>addBadgeToUser</find>
       <find>Rb</find>
       <find>addUser</find>
+      <find>addBadgeToUser</find>
+      <find>like_id_a</find>
+      <find>addUserAc</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -188,7 +210,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273408000" />
+    <option name="totallyTimeSpent" value="281986000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -200,7 +222,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49878347" weight="0.17741935" />
       <window_info id="Structure" order="1" sideWeight="0.50121653" side_tool="true" weight="0.18241903" />
@@ -217,7 +239,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49966952" weight="0.3282123" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.74752146" visible="true" weight="0.33427763" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.74752146" weight="0.3337989" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.2524785" side_tool="true" weight="0.55307263" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.4970258" weight="0.07122905" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
@@ -282,14 +304,19 @@
     <entry file="file://$PROJECT_DIR$/node_modules/firebase-admin/lib/index.d.ts" />
     <entry file="file://$PROJECT_DIR$/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="1204" column="15" selection-start-line="1204" selection-start-column="8" selection-end-line="1204" selection-end-column="15" />
+        <state relative-caret-position="266">
+          <caret line="1709" column="30" selection-start-line="1709" selection-start-column="30" selection-end-line="1709" selection-end-column="30" />
+          <folding>
+            <element signature="e#7274#13601#0" />
+            <element signature="e#13670#37907#0" />
+            <element signature="e#37976#53791#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="408">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>

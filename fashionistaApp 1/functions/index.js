@@ -447,7 +447,6 @@ exports.addUserActivityB = functions.https.onRequest((req,res)=>{
     let like_id_a="-LbvYYqvdtNg7LsOK_Gy";
     let unlike_id_a="-LbvYcs-DRrCw3RJv8_5";
 
-    //1 login, 4 post,2 comment,2 like, 2 following,2 followers, 1 likeMe. total: 14 actions per day
     var i=1;
     var a=setInterval(function () {
         date.setDate(date.getDate() + 1);
@@ -1709,7 +1708,7 @@ exports.addUserActivityApp = functions.https.onCall((data, context) => {
     let action_id=arr[1];
     let context_id=arr[2];
     const date= new Date().toDateString();
-    //console.log(date);
+    console.log(date);
     //get the action count for the user
     return admin.database().ref('/UserActivity/').push({
         user_id: user_id ,
@@ -1720,7 +1719,7 @@ exports.addUserActivityApp = functions.https.onCall((data, context) => {
         challenge_Badge:"0",
         context_badge:"0"
     }).then((snap) => {
-            return log("user id: " + user_id + "action_id" + action_id + "context_id" + context_id + "date: " + date);
+            return log("user id: " + user_id + " action_id: " + action_id + " context_id: " + context_id + " date: " + date);
 
     }).catch(function(error) {
         console.log("addUserActivityApp : Error deleting app:", error);
@@ -1893,6 +1892,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                          //let badgeFlag=false;
                          // eslint-disable-next-line promise/catch-or-return
                          new Promise(function(resolve, reject) {
+                             if(userBadges !== null){
                              Object.keys(userBadges).forEach((function (ubKey) {
                                 if(ubKey===badge_id) {
                                     // badgeFlag= true
@@ -1900,7 +1900,7 @@ exports.Rp=  functions.database.ref('/UserActivity/{userActivityID}').onCreate((
                                 }
                              }));
                              resolve(false);
-                         }).then(function (badgeFlag) {
+                         }}).then(function (badgeFlag) {
                              log("badgeFlag");
                              log(badgeFlag);
                              if(!badgeFlag){

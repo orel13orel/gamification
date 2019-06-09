@@ -47,7 +47,7 @@ export class ChartComponent implements OnInit {
   // Active filter rules
   filters = {};
 
-  contexts: Observable<any[]>;
+ // contexts: Observable<any[]>;
 
   constructor(private db: AngularFireDatabase) {
     this.chartMap = new Map<string, UserActivity>();
@@ -55,7 +55,7 @@ export class ChartComponent implements OnInit {
     // this.pointsArr = new Array<number>();
     // this.challengeBadgeArr = new Array<number>();
     // this.contextBadgeArr = new Array<number>();
-    this.contexts = this.db.list('Context').snapshotChanges();
+    // this.contexts = this.db.list('Context').snapshotChanges();
   }
 
   ngOnInit() {
