@@ -60,7 +60,6 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     this.ref = this.db.list('UserActivity', ref => ref);
-
     this.showGraph();
 }
   filterLimit() {
@@ -77,6 +76,7 @@ export class ChartComponent implements OnInit {
   }
 
   showGraph() {
+
     this.chartMap.clear();
     this.pointsArr = new Array<number>();
     this.challengeBadgeArr = new Array<number>();
@@ -105,6 +105,9 @@ export class ChartComponent implements OnInit {
           this.challengeBadgeArr.push(+ua.challenge_Badge);
           this.contextBadgeArr.push(+ua.context_badge);
         });
+        if ( this.valueBarsChart) {
+          this.valueBarsChart.destroy();
+        }
         resolve();
       });
     }).then(() => {

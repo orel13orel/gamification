@@ -4,3 +4,21 @@
 #home{
   top: 500px;
 }
+h1{
+  position: relative;
+  font-family: 'porter_sans_blockblock';
+  top: 103px;
+  text-align: center;
+  color: darkblue;
+}
+h2{
+  font-family: 'edoregular';
+  position: relative;
+  top: 150px;
+  text-align: left;
+}
+img{
+  position: relative;
+  left: 373px;
+  top: 100px;
+}
