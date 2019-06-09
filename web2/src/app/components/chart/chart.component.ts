@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
     import {Chart} from 'chart.js';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {Observable} from 'rxjs';
+import * as _ from 'lodash';
 
 export class UserActivity {
   points: number;
@@ -38,6 +39,8 @@ export class ChartComponent implements OnInit {
   pointsArr: number[];
   challengeBadgeArr: number[];
   contextBadgeArr: number[];
+  userActivitys: any;
+  filterdUserActivitys: any;
 
   // filter able properties
   public contextID: string;
@@ -59,21 +62,32 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ref = this.db.list('UserActivity', ref => ref);
-    this.showGraph();
-}
-  filterLimit() {
-    this.ref = this.db.list('UserActivity', ref => ref.limitToLast(this.limit));
-    this.showGraph();
+    // this.ref =
+     // new Promise((resolve, reject) => {
+      this.db.list('UserActivity', ref => ref).valueChanges().subscribe(res => {
+      // console.log(res);
+      this.userActivitys = res;
+      this.applyFilters();
+    });
+      // resolve();
+      //   // });
+      // }).then(() => {
+      // console.log(this.filterdUserActivitys);
+      // // this.showGraph();
+      // });
   }
-  filterContext() {
-    this.ref = this.db.list('UserActivity', ref => ref.orderByChild('context_id').equalTo(this.contextID));
-    this.showGraph();
-  }
-  filterUser() {
-    this.ref = this.db.list('UserActivity', ref => ref.orderByChild('user_id').equalTo(this.userID));
-    this.showGraph();
-  }
+  // filterLimit() {
+  //   this.ref = this.db.list('UserActivity', ref => ref.limitToLast(this.limit));
+  //   this.showGraph();
+  // }
+  // filterContext() {
+  //   this.ref = this.db.list('UserActivity', ref => ref.orderByChild('context_id').equalTo(this.contextID));
+  //   this.showGraph();
+  // }
+  // filterUser() {
+  //   this.ref = this.db.list('UserActivity', ref => ref.orderByChild('user_id').equalTo(this.userID));
+  //   this.showGraph();
+  // }
 
   showGraph() {
 
@@ -83,9 +97,9 @@ export class ChartComponent implements OnInit {
     this.contextBadgeArr = new Array<number>();
 
     new Promise((resolve, reject) => {
-      this.ref.valueChanges().subscribe(result => {
-        console.log(result);
-        for (const ua of result) {
+     // this.ref.valueChanges().subscribe(result => {
+        console.log(this.filterdUserActivitys);
+        for (const ua of this.filterdUserActivitys) {
           if (this.chartMap.has(ua.date)) {
             // add points to existing date
             // const tempPoints = this.chartArr.get(us.date).points;
@@ -109,11 +123,13 @@ export class ChartComponent implements OnInit {
           this.valueBarsChart.destroy();
         }
         resolve();
-      });
+     // });
     }).then(() => {
       console.log(this.chartMap);
       console.log(Array.from(this.chartMap.keys()));
       console.log(this.pointsArr);
+      console.log(this.challengeBadgeArr);
+      console.log(this.contextBadgeArr);
       this.valueBarsChart = new Chart(this.valueBarsCanvas.nativeElement, {
 ///
         type: 'bar',
@@ -164,5 +180,34 @@ export class ChartComponent implements OnInit {
       });
     });
   }
+
+  private applyFilters() {
+    new Promise((resolve, reject) => {
+      console.log(this.userActivitys);
+      this.filterdUserActivitys = _.filter(this.userActivitys, _.conforms(this.filters));
+      resolve();
+    }).then(() => {
+      this.showGraph();
+    });
   }
+
+  // filter property by equality to rule
+  filterExact(property: string, rul: any) {
+    this.filters[property] = val => val === rul;
+    this.applyFilters();
+  }
+
+  /// filter  numbers greater than rule
+  filterGreaterThan(property: string, rule: number) {
+    this.filters[property] = val => val > rule;
+    this.applyFilters();
+  }
+
+  // removes filter
+  removeFilter(property: string) {
+    delete this.filters[property];
+    this[property] = null;
+    this.applyFilters();
+  }
+}
 

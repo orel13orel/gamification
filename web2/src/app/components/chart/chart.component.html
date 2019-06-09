@@ -10,18 +10,32 @@
 <canvas  #valueBarsCanvas></canvas>
 </div>
 
-<div>
-<form class="filterLimit" (submit)="filterLimit()">
-  <input type="number" name="limit" pattern= "[0-9]" [(ngModel)]="limit" placeholder="Enter limit" value="">
-  <button type="submit" >limit graph to last x user activity</button>
-</form>
-  </div>
-<form class="filterLimit" (submit)="filterContext()">
-  <input type="text" name="contextID" [(ngModel)]="contextID" placeholder="Enter context id" value="">
-  <button type="submit" >filter by context id</button>
-</form>
-<form class="filterLimit" (submit)="filterUser()">
-  <input type="text" name="userID" [(ngModel)]="userID" placeholder="Enter user id" value="">
-  <button type="submit" >filter by user id</button>
-</form>
+<!--<div>-->
+<!--<form class="filterLimit" (submit)="filterLimit()">-->
+<!--  <input type="number" name="limit" pattern= "[0-9]" [(ngModel)]="limit" placeholder="Enter limit" value="">-->
+<!--  <button type="submit" >limit graph to last x user activity</button>-->
+<!--</form>-->
+<!--  </div>-->
+<!--<form class="filterLimit" (submit)="filterContext()">-->
+<!--  <input type="text" name="contextID" [(ngModel)]="contextID" placeholder="Enter context id" value="">-->
+<!--  <button type="submit" >filter by context id</button>-->
+<!--</form>-->
+<!--<form class="filterLimit" (submit)="filterUser()">-->
+<!--  <input type="text" name="userID" [(ngModel)]="userID" placeholder="Enter user id" value="">-->
+<!--  <button type="submit" >filter by user id</button>-->
+<!--</form>-->
 <img  src="assets/images/chart.jpg">
+
+<form class="filterLimit" (submit)="filterExact('context_id', contextID)">
+  <input class="add" type="text" name="contextID" [(ngModel)]="contextID" placeholder="Enter context id" value="">
+  <button onclick="$('.add').val('');" type="submit" >filter by context id</button>
+<!--  <button id="removeButton" *ngIf="contextID" (click)="removeFilter('context_id')">Remove filter</button>-->
+</form>
+
+
+<form class="filterLimit" (submit)="filterExact('user_id', userID)">
+  <input class="delete" type="text" name="userID" [(ngModel)]="userID" placeholder="Enter user id" value="">
+  <button onclick="$('.delete').val('');" type="submit" >filter by user id</button>
+<!--  <button id="removeButton2" *ngIf="contextID" (click)="removeFilter('user_id')">Remove filter</button>-->
+</form>
+

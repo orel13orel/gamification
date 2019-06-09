@@ -1,6 +1,7 @@
 img{
   position: relative;
-  top: -704px;
+  top: -674px;
+  left: -604px;
 }
 .filterLimit{
   text-align: center;
@@ -13,4 +14,9 @@ img{
   position: relative;
   left: 0px;
   /*width: 90%;*/
+}
+#removeButton{
+  text-align: center;
+  position: relative;
+
 }
